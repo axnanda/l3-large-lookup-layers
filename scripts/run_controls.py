@@ -90,7 +90,10 @@ def analyses_for_matrices(mats: dict, inputs: dict, acts: dict) -> dict:
     out = {}
     out["ww"] = ww_rows(mats)
     out["ww_clip"] = ww_rows(mats, fix_fingers="clip_xmax")
-    out["ww_tpl"] = ww_rows(mats, fit="TPL", pl_package="powerlaw")
+    tpl = ww_rows(mats, fit="TPL", pl_package="powerlaw")
+    if not tpl or "error" in tpl or all((v.get("status") != "success") for v in tpl.values() if isinstance(v, dict)):
+        tpl = ww_rows(mats, fit="TPL")  # fall back to WeightWatcher's own fitter
+    out["ww_tpl"] = tpl
     proj, live, extra = {}, {}, {}
     for name, W in mats.items():
         W = W.detach().double()
