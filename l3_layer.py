@@ -1,6 +1,13 @@
+import os
+
 import torch
 import torch.nn as nn
 import tqdm
+
+# torch.compile of the block GEMM is OPTIONAL: `mode='max-autotune'` is unavailable/slow on CPU and
+# breaks tests. It is enabled only when the environment variable L3_COMPILE=1 is set at import time,
+# or when `l3_layer.L3_COMPILE = True` is set before an L3 instance is constructed.
+L3_COMPILE = os.environ.get("L3_COMPILE", "0") == "1"
 
 # Optional flex_attention import required for the alternative forward pass
 try:
@@ -86,8 +93,10 @@ class L3(torch.nn.Module):
         self.w_up = nn.Linear(d_emb, d_up, bias=False)
         self.norm_in = LlamaRMSNorm(h)
         self.norm_out = LlamaRMSNorm(d_up)
+        if L3_COMPILE:
+            # optional, see the L3_COMPILE flag at the top of the file
+            self.mask_logits_gemm_ = torch.compile(self.mask_logits_gemm_, mode='max-autotune', fullgraph=True)
 
-    @torch.compile(mode='max-autotune', fullgraph=True)
     def mask_logits_gemm_(self, A, B, C, seq_sort, last_token):
         score = A @ B.T
         score = torch.where(seq_sort.view(-1, 1) == last_token.view(1, -1), score, -float(
