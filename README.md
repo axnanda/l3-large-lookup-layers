@@ -1,3 +1,29 @@
+# L3: Large Lookup Layers — corrected port, reference implementation, spiking variants and a WeightWatcher study
+
+This repository started as a corrected PyTorch port of the L3 layer from "L3: Large Lookup Layers"
+(Tseng and De Sa, arXiv 2601.21461); the bug-fix notes for the paper's listing are kept below.
+It now also contains `l3lab`, a small research package built on top of it:
+
+* `l3lab/l3_ref.py` — a clean reference L3 layer (padded per-token index table + masked softmax) that is
+  numerically equivalent to the paper's blocked forward (tested to 1e-6), plus allocation and tokenizer helpers
+  so L3 can be used on images (k-means patch tokens) and text.
+* `l3lab/models.py`, `l3lab/snn.py` — `MLP3`, `L3Classifier`, `L3CharLM` and spiking (LIF, surrogate-gradient)
+  variants `SNNMLP3` and `SNNL3Classifier` with two spiking lookup designs (`rate_query`, `spiking_memory`).
+* `l3lab/ww_analysis.py`, `l3lab/train.py`, `scripts/` — WeightWatcher harness (per-layer alpha and extra spectral
+  diagnostics logged during training), random sweeps, trajectory and control experiments.
+* Documents: `docs/CRITICAL_DESIGN.md` (what is strong and fragile in L3, how a spiking L3 can be built),
+  `docs/SNN_L3_DESIGN.md`, `docs/L3_REF_NOTES.md`, `docs/DESIGN_SPEC.md`, and the study report
+  `docs/WEIGHTWATCHER_STUDY.md` (alpha vs accuracy for MLP3, L3 and spiking models on Fashion-MNIST).
+
+```
+pip install -r requirements.txt            # torch (CPU is fine), weightwatcher, scikit-learn, ...
+python3 -m pytest tests -q                 # 41 tests
+python3 scripts/run_mlp_sweep.py --smoke --out results/smoke   # then drop --smoke for the real sweep
+```
+Fashion-MNIST idx files are expected under `data/fashion/` (the repo of zalandoresearch/fashion-mnist has them).
+
+---
+
 # Corrections to L3 Layer Implementation from the Paper
 
 The originally published PyTorch implementation in the "L3: Large Lookup Layers" paper contained multiple syntactical and mathematical bugs affecting both `l3_layer.py` and the example allocation loop. We have corrected these issues in our provided repository codebase.
