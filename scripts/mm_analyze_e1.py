@@ -51,7 +51,7 @@ for rid, r in runs.items():
 for ax, t in zip(axes.flat, ("alpha of mlp_fc1 (block with the insert)", "alpha of mlp_fc2", "mean zero-shot acc (3 sets)", "alpha of adapter_down (adapter runs)", "fraction of silent spiking units", "train loss (smoothed)")):
     ax.set_title(t, fontsize=10); ax.grid(alpha=0.3); ax.set_xlabel("step")
 axes[0][0].legend(fontsize=6, ncol=2)
-fig.suptitle("E1: spiking / dense inserts in pretrained CLIP image block, fine-tuned on Imagenette (text-anchored CE)")
+fig.suptitle("E1: spiking / dense inserts in pretrained CLIP image block, fine-tuned on Imagenette (distillation to the clean embedding)")
 fig.tight_layout(); fig.savefig(out / "e1_trajectories.png", dpi=130)
 # k_sg dependence table
 lines += ["", "## Surrogate slope and T dependence (spike_replace, block 6)", "", "| run | k_sg | T | fc1 alpha end | fc2 alpha end | fc1 alpha change | mean_acc final | recovery (final - step0) | silent frac |", "|---|---|---|---|---|---|---|---|---|"]
