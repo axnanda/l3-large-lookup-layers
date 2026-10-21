@@ -179,6 +179,7 @@ class SpikingAct(nn.Module):
         self.detach_reset = detach_reset
         self.log_theta = nn.Parameter(torch.tensor(math.log(theta)), requires_grad=learn_theta)
         self.gain = nn.Parameter(torch.full((n,), float(theta)), requires_grad=learn_gain)
+        self.register_buffer("offset", torch.zeros(n))  # per-channel bias correction (mean GELU - rate-code error)
         self.track = False
         self.reset_stats()
 
@@ -218,7 +219,7 @@ class SpikingAct(nn.Module):
                 self._active_sum += (flat > 0).float().mean(0)
                 self._sat_sum += (flat >= 1 - 1e-6).float().mean(0)
                 self._count += 1
-        return rate * self.gain
+        return rate * self.gain + self.offset
 
     def stats(self) -> Dict[str, float]:
         if self._count == 0:
@@ -331,10 +332,25 @@ def firing_stats(model) -> Dict[str, Dict[str, float]]:
 
 
 @torch.no_grad()
-def calibrate_theta(block: nn.Module, tokens: torch.Tensor, percentile: float = 99.9, attn_mask=None) -> float:
-    """Threshold balancing: percentile of the block's MLP pre-activation on ``tokens`` (its input)."""
+def block_preact(block: nn.Module, tokens: torch.Tensor, attn_mask=None) -> torch.Tensor:
+    """The MLP pre-activation (input of the activation) of ``block`` for block input ``tokens``."""
     x = tokens
     x = x + block.ls_1(block.attention(q_x=block.ln_1(x), attn_mask=attn_mask))
-    pre = block.mlp.c_fc(block.ln_2(x))
+    mlp = block.mlp.mlp if isinstance(block.mlp, MLPWithAdapter) else block.mlp
+    return mlp.c_fc(block.ln_2(x))
+
+
+@torch.no_grad()
+def calibrate_theta(block: nn.Module, tokens: torch.Tensor, percentile: float = 99.9, attn_mask=None) -> float:
+    """Threshold balancing: percentile of the block's MLP pre-activation on ``tokens`` (its input)."""
+    pre = block_preact(block, tokens, attn_mask)
     q = torch.quantile(pre.reshape(-1).float()[:: max(1, pre.numel() // 2_000_000)], percentile / 100)
     return float(q)
+
+
+@torch.no_grad()
+def bias_correction(pre: torch.Tensor, theta: float) -> torch.Tensor:
+    """Per-channel mean of QuickGELU(x) - clamp(x, 0, theta) on calibration pre-activations ``pre``: the
+    systematic error of a ReLU-like rate code (mostly the negative lobe of GELU), folded into the output offset."""
+    g = pre * torch.sigmoid(1.702 * pre)
+    return (g - pre.clamp(0, theta)).reshape(-1, pre.shape[-1]).mean(0)

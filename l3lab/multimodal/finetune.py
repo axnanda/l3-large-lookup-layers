@@ -41,7 +41,9 @@ def ww_matrices_for(model, tower, k, adapter: Optional[nn.Module], scope: str):
 def run_insert(cfg: Dict, log=print) -> Dict:
     """cfg keys: tower('image'), block, variant (spike_replace|dense_replace|spike_adapter|dense_adapter),
     T, k_sg, beta, reset, r (adapter width), scope (block|later), train_set, n_train, epochs, lr, batch, seed,
-    ww_every (steps), eval_every (steps), label_noise (fraction), threads."""
+    ww_every (steps), eval_every (steps), label_noise (fraction), threads, objective (distill = 1 - cos to the
+    clean model's embedding of the same image, the standard conversion-repair objective; ce = text-anchored
+    cross-entropy; both = ce + 10 * distill)."""
     torch.set_num_threads(cfg.get("threads", 2))
     torch.manual_seed(cfg.get("seed", 0)); rng = np.random.default_rng(cfg.get("seed", 0))
     t0 = time.time()
@@ -57,6 +59,8 @@ def run_insert(cfg: Dict, log=print) -> Dict:
     if cfg.get("label_noise", 0) > 0:
         flip = rng.random(n_train) < cfg["label_noise"]; y[flip] = rng.integers(0, y.max() + 1, flip.sum())
     head = heads["imagenette_val_sub800"]  # same class names as imagenette train
+    clean_emb = F.normalize(torch.from_numpy(cache.load_emb(train_name)), dim=-1)  # distillation targets
+    objective = cfg.get("objective", "distill")
     # ---- insert
     blk = cm.get_block(model, tower, k)
     calib = torch.from_numpy(np.asarray(mm[idx[:256]])).float()
@@ -127,13 +131,16 @@ def run_insert(cfg: Dict, log=print) -> Dict:
             x = torch.from_numpy(np.asarray(mm[idx[bi]])).float(); yb = torch.from_numpy(y[bi]).long()
             emb = cm.image_embed_from_block(model, x, k)
             logits = 100.0 * F.normalize(emb, dim=-1) @ head.t()
-            loss = F.cross_entropy(logits, yb)
+            ce = F.cross_entropy(logits, yb)
+            distill = (1 - (F.normalize(emb, dim=-1) * clean_emb[idx[bi]]).sum(-1)).mean()
+            loss = ce if objective == "ce" else distill if objective == "distill" else ce + 10 * distill
             opt.zero_grad(); loss.backward()
             if cfg.get("clip_grad"):
                 torch.nn.utils.clip_grad_norm_(params, cfg["clip_grad"])
             opt.step(); step += 1
             history["step"].append(step); history["epoch"].append(ep + (b + 1) / steps_per_epoch)
             history["train_loss"].append(float(loss)); history["train_acc"].append(float((logits.argmax(-1) == yb).float().mean()))
+            history.setdefault("distill_loss", []).append(float(distill)); history.setdefault("ce_loss", []).append(float(ce))
             if step % ww_every == 0 or step == total_steps:
                 a = do_ww(step)
                 log(f"[{time.time()-t0:6.0f}s] step {step} ep {ep+1} loss {float(loss):.3f} acc {history['train_acc'][-1]:.2f} alpha {a}")

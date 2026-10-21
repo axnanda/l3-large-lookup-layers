@@ -32,8 +32,10 @@ calib_text = tok(all_prompts[:args.calib])
 
 
 class ReLUAct(torch.nn.Module):
-    def __init__(self, clip=None): super().__init__(); self.clip = clip
-    def forward(self, x): return torch.relu(x) if self.clip is None else torch.clamp(x, 0, self.clip)
+    def __init__(self, clip=None, offset=None): super().__init__(); self.clip = clip; self.offset = offset
+    def forward(self, x):
+        y = torch.relu(x) if self.clip is None else torch.clamp(x, 0, self.clip)
+        return y if self.offset is None else y + self.offset
 
 
 def block_input(tower, k):
@@ -56,18 +58,23 @@ def run(tower, k, variant, T):
     theta = cm.calibrate_theta(blk, x_in, args.pct, attn_mask=mask)
     ref_out = blk(x_in, attn_mask=mask) if tower == "text" else blk(x_in)
     pre_act = blk.mlp.c_fc(blk.ln_2(x_in + blk.ls_1(blk.attention(q_x=blk.ln_1(x_in), attn_mask=mask))))
+    bc = cm.bias_correction(pre_act, theta)
     if variant == "spike":
         act = cm.install_spiking_act(model, tower, k, T=T, theta=theta, k_sg=4.0); cm.set_tracking(model, True)
+    elif variant == "spike_bc":
+        act = cm.install_spiking_act(model, tower, k, T=T, theta=theta, k_sg=4.0); act.offset.copy_(bc); cm.set_tracking(model, True)
     elif variant == "relu":
         blk.mlp.gelu = ReLUAct()
     elif variant == "cliprelu":
         blk.mlp.gelu = ReLUAct(theta)
+    elif variant == "cliprelu_bc":
+        blk.mlp.gelu = ReLUAct(theta, bc)
     new_out = blk(x_in, attn_mask=mask) if tower == "text" else blk(x_in)
     rel_err = float(((new_out - ref_out).norm() / ref_out.norm()))
     mlp_ref = blk.ls_2(cm.QuickGELU()(pre_act) @ blk.mlp.c_proj.weight.t() + blk.mlp.c_proj.bias)
     mlp_new = blk.ls_2(blk.mlp.gelu(pre_act) @ blk.mlp.c_proj.weight.t() + blk.mlp.c_proj.bias)
     mlp_rel_err = float((mlp_new - mlp_ref).norm() / mlp_ref.norm())
-    fs = cm.firing_stats(model) if variant == "spike" else {}
+    fs = cm.firing_stats(model) if variant.startswith("spike") else {}
     if tower == "image":
         metrics = evalmm.evaluate(model, heads_clean, start_block=k)
     else:
@@ -83,8 +90,9 @@ def run(tower, k, variant, T):
 
 for tower in args.towers.split(","):
     for k in range(12):
-        for variant in ("relu", "cliprelu"):
+        for variant in ("relu", "cliprelu_bc"):
             run(tower, k, variant, None)
+        run(tower, k, "spike", 8)
         for T in Ts:
-            run(tower, k, "spike", T)
+            run(tower, k, "spike_bc", T)
 log("done")
