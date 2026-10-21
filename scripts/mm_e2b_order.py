@@ -42,8 +42,8 @@ def reset_model():
 def convert(blocks):
     thetas = {}
     for b in blocks:  # sequential calibration on the partly converted model
-        x = cm.run_image_blocks(model, calib0, 0, b); th = cm.calibrate_theta(cm.get_block(model, "image", b), x, 99.9)
-        cm.install_spiking_act(model, "image", b, T=args.T, theta=th, k_sg=4.0); thetas[b] = th
+        x = cm.run_image_blocks(model, calib0, 0, b); pre = cm.block_preact(cm.get_block(model, "image", b), x); th = cm.theta_from_preact(pre, 99.9)
+        act = cm.install_spiking_act(model, "image", b, T=args.T, theta=th, k_sg=4.0); act.offset.copy_(cm.bias_correction(pre, th)); thetas[b] = float(th.median())
     return thetas
 
 

@@ -64,11 +64,12 @@ def run_insert(cfg: Dict, log=print) -> Dict:
     # ---- insert
     blk = cm.get_block(model, tower, k)
     calib = torch.from_numpy(np.asarray(mm[idx[:256]])).float()
-    theta = cm.calibrate_theta(blk, calib, 99.9)
+    pre_c = cm.block_preact(blk, calib); theta = cm.theta_from_preact(pre_c, 99.9); bc = cm.bias_correction(pre_c, theta)
     adapter = None
     spk = dict(T=cfg.get("T", 8), k_sg=cfg.get("k_sg", 4.0), beta=cfg.get("beta", 1.0), reset=cfg.get("reset", "soft"))
     if variant == "spike_replace":
-        cm.install_spiking_act(model, tower, k, theta=theta, learn_theta=cfg.get("learn_theta", False), **spk)
+        act = cm.install_spiking_act(model, tower, k, theta=theta, learn_theta=cfg.get("learn_theta", False), **spk)
+        if cfg.get("bias_correct", True): act.offset.copy_(bc)
     elif variant == "dense_replace":
         cm.install_dense_act(model, tower, k)
     elif variant == "spike_adapter":
@@ -79,7 +80,7 @@ def run_insert(cfg: Dict, log=print) -> Dict:
         raise ValueError(variant)
     if adapter is not None and variant == "spike_adapter":
         with torch.no_grad():  # calibrate adapter threshold on its own pre-activation
-            pre_a = adapter.down(blk.ln_2(calib)); adapter.act.set_theta(float(torch.quantile(pre_a.reshape(-1), 0.999)))
+            pre_a = adapter.down(blk.ln_2(calib)); adapter.act.set_theta(cm.theta_from_preact(pre_a, 99.9))
     # ---- trainable parameters
     for p in model.parameters():
         p.requires_grad_(False)
@@ -122,7 +123,7 @@ def run_insert(cfg: Dict, log=print) -> Dict:
 
     model.train()
     a0 = do_ww(0); m0, f0 = do_eval(0)
-    log(f"[{time.time()-t0:6.0f}s] step 0: alpha {a0} eval {m0['mean_acc']:.4f} coco {m0['coco_R@1']:.3f} firing {list(f0.values())[0] if f0 else '-'} theta={theta:.3f} n_params={n_params}")
+    log(f"[{time.time()-t0:6.0f}s] step 0: alpha {a0} eval {m0['mean_acc']:.4f} coco {m0['coco_R@1']:.3f} firing {list(f0.values())[0] if f0 else '-'} theta={float(theta.median()):.3f} n_params={n_params}")
     step = 0
     for ep in range(cfg.get("epochs", 3)):
         perm = rng.permutation(n_train)
@@ -147,4 +148,4 @@ def run_insert(cfg: Dict, log=print) -> Dict:
             if step % eval_every == 0 or step == total_steps:
                 m, fs = do_eval(step)
                 log(f"[{time.time()-t0:6.0f}s] step {step} eval mean_acc {m['mean_acc']:.4f} imagenette {m['imagenette_acc']:.4f} pets {m['pets_acc']:.4f} cifar {m['cifar10_acc']:.4f} coco R@1 {m['coco_R@1']:.3f} firing {list(fs.values())[0] if fs else '-'}")
-    return {"config": cfg, "theta": theta, "n_params_trainable": n_params, "history": history, "seconds": time.time() - t0}
+    return {"config": cfg, "theta": float(theta.median()), "n_params_trainable": n_params, "history": history, "seconds": time.time() - t0}

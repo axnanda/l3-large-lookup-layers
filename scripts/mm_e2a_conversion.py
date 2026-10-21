@@ -34,7 +34,7 @@ calib_text = tok(all_prompts[:args.calib])
 class ReLUAct(torch.nn.Module):
     def __init__(self, clip=None, offset=None): super().__init__(); self.clip = clip; self.offset = offset
     def forward(self, x):
-        y = torch.relu(x) if self.clip is None else torch.clamp(x, 0, self.clip)
+        y = torch.relu(x) if self.clip is None else torch.minimum(torch.relu(x), self.clip)
         return y if self.offset is None else y + self.offset
 
 
@@ -80,19 +80,18 @@ def run(tower, k, variant, T):
     else:
         metrics = evalmm.evaluate(model, evalmm.text_heads(model, tok))
     cm.restore_act(model, tower, k)
-    rec = dict(tower=tower, block=k, variant=variant, T=T, theta=theta, rel_err_block=rel_err, rel_err_mlp=mlp_rel_err,
+    rec = dict(tower=tower, block=k, variant=variant, T=T, theta=float(theta.median()), theta_max=float(theta.max()), theta_min=float(theta.min()), rel_err_block=rel_err, rel_err_mlp=mlp_rel_err,
                frac_pos_preact=float((pre_act > 0).float().mean()), preact_std=float(pre_act.std()),
                mlp_out_share=float(mlp_ref.norm() / ref_out.norm()), firing=list(fs.values())[0] if fs else None,
                metrics=metrics, drop={m: base[m] - metrics[m] for m in metrics if metrics[m] is not None})
     json.dump(rec, open(p, "w"), indent=1)
-    log(f"{tag}: theta={theta:.2f} relerr_mlp={mlp_rel_err:.3f} mean_acc={metrics['mean_acc']:.4f} (drop {rec['drop']['mean_acc']:+.4f}) coco R@1 drop {rec['drop']['coco_R@1']:+.4f}")
+    log(f"{tag}: theta={float(theta.median()):.2f} relerr_mlp={mlp_rel_err:.3f} mean_acc={metrics['mean_acc']:.4f} (drop {rec['drop']['mean_acc']:+.4f}) coco R@1 drop {rec['drop']['coco_R@1']:+.4f}")
 
 
 for tower in args.towers.split(","):
     for k in range(12):
         for variant in ("relu", "cliprelu_bc"):
             run(tower, k, variant, None)
-        run(tower, k, "spike", 8)
         for T in Ts:
             run(tower, k, "spike_bc", T)
 log("done")

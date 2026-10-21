@@ -168,7 +168,8 @@ class SpikingAct(nn.Module):
     out = gain * mean_t s_t                       (gain per channel, init = theta)
 
     ``u0_frac * theta`` initialises the membrane (0.5 halves the conversion quantisation bias).
-    ``theta`` is set by :meth:`calibrate` (percentile of the pre-activation) or given.
+    ``theta`` is a scalar or a per-channel vector (channel-wise threshold balancing; needed because CLIP
+    blocks have a few massive-activation channels that a pooled percentile would clip).
     """
 
     def __init__(self, n: int, T: int = 8, theta: float = 1.0, beta: float = 1.0, k_sg: float = 4.0,
@@ -177,8 +178,9 @@ class SpikingAct(nn.Module):
         super().__init__()
         self.n, self.T, self.beta, self.k_sg, self.reset, self.u0_frac = n, T, beta, k_sg, reset, u0_frac
         self.detach_reset = detach_reset
-        self.log_theta = nn.Parameter(torch.tensor(math.log(theta)), requires_grad=learn_theta)
-        self.gain = nn.Parameter(torch.full((n,), float(theta)), requires_grad=learn_gain)
+        theta_t = torch.as_tensor(theta, dtype=torch.float32).expand(n).clone() if torch.is_tensor(theta) or isinstance(theta, (list, tuple)) else torch.full((n,), float(theta))
+        self.log_theta = nn.Parameter(theta_t.clamp_min(1e-6).log(), requires_grad=learn_theta)  # per-channel threshold
+        self.gain = nn.Parameter(theta_t.clone(), requires_grad=learn_gain)
         self.register_buffer("offset", torch.zeros(n))  # per-channel bias correction (mean GELU - rate-code error)
         self.track = False
         self.reset_stats()
@@ -187,10 +189,10 @@ class SpikingAct(nn.Module):
     def theta(self) -> torch.Tensor:
         return self.log_theta.exp()
 
-    def set_theta(self, theta: float):
+    def set_theta(self, theta):
         with torch.no_grad():
-            self.log_theta.fill_(math.log(max(theta, 1e-6)))
-            self.gain.fill_(float(theta))
+            t = torch.as_tensor(theta, dtype=torch.float32).expand(self.n).clone().clamp_min(1e-6)
+            self.log_theta.copy_(t.log()); self.gain.copy_(t)
 
     def reset_stats(self):
         self._rate_sum = torch.zeros(self.n)
@@ -341,11 +343,20 @@ def block_preact(block: nn.Module, tokens: torch.Tensor, attn_mask=None) -> torc
 
 
 @torch.no_grad()
-def calibrate_theta(block: nn.Module, tokens: torch.Tensor, percentile: float = 99.9, attn_mask=None) -> float:
-    """Threshold balancing: percentile of the block's MLP pre-activation on ``tokens`` (its input)."""
+def calibrate_theta(block: nn.Module, tokens: torch.Tensor, percentile: float = 99.9, attn_mask=None, per_channel: bool = True):
+    """Threshold balancing on the block's MLP pre-activation: per-channel percentile (default; a (n,) tensor,
+    floored at 1e-3) or a pooled scalar percentile."""
     pre = block_preact(block, tokens, attn_mask)
-    q = torch.quantile(pre.reshape(-1).float()[:: max(1, pre.numel() // 2_000_000)], percentile / 100)
-    return float(q)
+    return theta_from_preact(pre, percentile, per_channel)
+
+
+@torch.no_grad()
+def theta_from_preact(pre: torch.Tensor, percentile: float = 99.9, per_channel: bool = True):
+    flat = pre.reshape(-1, pre.shape[-1]).float()
+    if per_channel:
+        step = max(1, flat.shape[0] // 20000)
+        return torch.quantile(flat[::step], percentile / 100, dim=0).clamp_min(1e-3)
+    return float(torch.quantile(flat.reshape(-1)[:: max(1, flat.numel() // 2_000_000)], percentile / 100))
 
 
 @torch.no_grad()
@@ -353,4 +364,4 @@ def bias_correction(pre: torch.Tensor, theta: float) -> torch.Tensor:
     """Per-channel mean of QuickGELU(x) - clamp(x, 0, theta) on calibration pre-activations ``pre``: the
     systematic error of a ReLU-like rate code (mostly the negative lobe of GELU), folded into the output offset."""
     g = pre * torch.sigmoid(1.702 * pre)
-    return (g - pre.clamp(0, theta)).reshape(-1, pre.shape[-1]).mean(0)
+    return (g - torch.minimum(pre.clamp_min(0), torch.as_tensor(theta, dtype=pre.dtype))).reshape(-1, pre.shape[-1]).mean(0)

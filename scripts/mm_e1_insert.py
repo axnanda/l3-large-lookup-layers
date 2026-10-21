@@ -24,6 +24,7 @@ CONFIGS = {
     "dr_b6_ce":      dict(variant="dense_replace", objective="ce"),
     "sr_b6_noise":   dict(objective="ce", label_noise=0.2),
     "sr_b6_leak":    dict(beta=0.8),
+    "sr_b6_nobc":    dict(bias_correct=False),
 }
 ap = argparse.ArgumentParser(); ap.add_argument("--only", default=""); ap.add_argument("--threads", type=int, default=2); ap.add_argument("--out", default="results/mm/e1")
 args = ap.parse_args(); out = Path(args.out); out.mkdir(parents=True, exist_ok=True)

@@ -64,11 +64,11 @@ into q/k/v; embedding tables never averaged with dense layers.
 
 | id | what | status |
 |---|---|---|
-| E0 | alpha profile of the pretrained model per role and tower | running |
+| E0 | alpha profile of the pretrained model per role and tower | done |
 | E2a | single-block conversion damage (T = 4/8/16, ReLU and clipped-ReLU ablations) vs per-block alpha | pending |
 | E1 | fine-tuning with an insert: spike_replace (k_sg 1/4/10/25, T 4/8/16, leak, seed), dense_replace, spike/dense adapter, block 10, later-blocks scope, 20 % label noise | pending |
 | E2b | cumulative conversion in six orders, 3/6/9/12 blocks, conversion-only and after a brief fine-tune | pending |
-| E3 | adapters on frozen embeddings: dense MLP, spiking MLP, dense L3, spiking L3 (memory / rate query); 16-shot and full Pets, 16-shot Imagenette; 3 seeds | pending |
+| E3 | adapters on frozen embeddings: dense MLP, spiking MLP, dense L3, spiking L3 (memory / rate query); 16-shot and full Pets, 16-shot Imagenette; 3 seeds | done (45 runs) |
 
 ## 5. Results
 
@@ -103,6 +103,43 @@ Per-block `mlp_fc1` alpha of the image tower rises almost monotonically with dep
 4.22, 4.60, 4.64, 3.90, 4.79, 5.31, 5.79, 4.77 for blocks 0-11), so in this model "closest to 2" is confounded
 with "early block"; the depth-order and random-order arms of E2b are there to separate the two.
 
+
+### E3: adapters on frozen CLIP embeddings (results/mm/e3_summary.md, figures/mm/e3_adapters.png)
+
+45 runs (5 adapters x 3 settings x 3 seeds, 40 epochs, Adam 1e-3, text-anchored CE on the adapted embedding).
+Zero-shot references: Pets 0.834, Imagenette 0.985.
+
+| setting | dense MLP | spiking MLP | dense L3 | spiking L3 (memory) | spiking L3 (rate query) |
+|---|---|---|---|---|---|
+| Pets 16-shot, test acc | 0.854 +- 0.011 | 0.842 +- 0.020 | 0.729 +- 0.002 | 0.744 +- 0.002 | 0.763 +- 0.010 |
+| Pets 16-shot, transfer retained | 0.927 | 0.926 | 0.245 | 0.169 | 0.165 |
+| Pets full, test acc | 0.867 +- 0.005 | 0.852 +- 0.005 | 0.809 +- 0.014 | 0.849 +- 0.004 | 0.848 +- 0.004 |
+| Pets full, transfer retained / COCO R@1 | 0.875 / 0.204 | 0.886 / 0.087 | 0.179 / 0.049 | 0.447 / 0.149 | 0.404 / 0.128 |
+| Imagenette 16-shot, test acc | 0.982 | 0.984 | 0.956 | 0.977 | 0.977 |
+| end alpha, first matrix (adapter_down / W_up), Pets full | 1.85 | 2.09 | 5.34 | 2.75 | 2.74 |
+| end alpha, output matrix (adapter_up / W_mix), Pets full | 1.35 | 1.41 | 1.51 | 1.54 | 1.55 |
+
+Findings.
+
+* A spiking MLP adapter matches the dense one on classification (within 1-1.5 points, overlapping seeds)
+  and keeps transfer, but it costs image-to-text retrieval (COCO R@1 0.087 vs 0.204 in the full-shot
+  setting): the rate-coded bottleneck is fine for the class decision and bad for the fine-grained geometry
+  the retrieval head needs.
+* The L3 lookup adapters as designed are harmful: routing by a k-means token of the embedding applies a
+  training-set-specific offset to every input, so transfer collapses (0.17-0.25 of the zero-shot accuracy on
+  the other sets) and the 16-shot runs end *below* zero-shot. The spiking memory version is consistently
+  better than the dense L3 (full-shot 0.849 vs 0.809, transfer 0.45 vs 0.18): the threshold-selected,
+  normalised memory read-out is a weaker, sparser perturbation than the softmax-weighted dense read-out.
+  (Memory firing fraction 0.17-0.35.)
+* Alpha. The first matrix of a well-working adapter converges to alpha ~2 (dense 1.85, spiking 2.09 with all
+  Pets data) and stays at 2.7-2.9 with 16 shots and 4.1-4.5 on the easy Imagenette task where little is
+  learned; alpha of the first matrix correlates with the accuracy *gain* over zero-shot at Spearman -0.73
+  (p = 0.001, n = 18) for the MLP adapters, i.e. lower alpha = more learned. The output matrices sit at
+  alpha 1.35-1.7 in every run, below the "ideal" 2, and across all 45 runs the output-matrix alpha correlates
+  with transfer retained at Spearman -0.78 (p < 1e-4): the adapters whose output matrix became most
+  heavy-tailed are the ones that over-specialised. For the H3 prediction "W_up / W_mix settle at 2.0-2.2":
+  W_up of the spiking L3 lands at 2.4-2.9 (dense L3: 4-5), W_mix at 1.5-1.7; the direction (spiking mixing
+  layers closer to 2 than dense ones) holds, the number does not.
 
 ## 6. Verdicts on H1-H3
 
