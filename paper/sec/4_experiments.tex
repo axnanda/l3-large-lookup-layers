@@ -11,11 +11,44 @@
 WeightWatcher analysed all 148 matrices (Fig.~\ref{fig:e0}). No layer has $\alpha < 2$ (minimum 2.24); the model-wide mean is 6.3 and the median 5.5. Well-trained layers ($2<\alpha<5$) are the MLP input projections, the $q/k$ projections of the first six image blocks and the last block's output projection ($\alpha = 3.56$ with 459 eigenvalues beyond the Marchenko--Pastur bulk); $v$ and output projections of attention sit at 5--18. Image-tower $\alpha_{\mathrm{fc1}}$ rises almost monotonically with depth (2.6 at block 0 to 5.8 at block 10), so in this model ``closest to 2'' is confounded with ``early'', which is why E2b includes depth and random orders.
 
 \subsection{E2a: single-block conversion damage versus $\alpha$}
-\TODO{fill from results/mm/e2a\_summary.md: per-block damage curves (ReLU, clipped-ReLU+bc, spike T=4/16) for both towers; Spearman of drop vs fc1/fc2 $\alpha$, $\alpha_w$, log spectral norm; competing predictors (fraction of positive pre-activations, MLP output share).}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig/e2a_damage_vs_alpha.png}
+\caption{E2a. Left: drop in mean zero-shot accuracy when the MLP activation of one block is converted (ReLU rate code without correction; clipped ReLU and spiking populations at $T{=}4$ and $16$ with per-channel thresholds and bias correction). Right: the same drop against the block's pretrained $\alpha_{\mathrm{fc1}}$ (crosses: uncorrected ReLU).}
+\label{fig:e2a}
+\end{figure}
+Figure~\ref{fig:e2a} and Tab.~\ref{tab:e2a} summarise 96 configurations. Without bias correction a single early image block costs 21--38 points and text block 0 costs 13; with per-channel thresholds and bias correction every block costs at most 2 points (image mean 1.1 at $T{=}4$, 0.9 at $T{=}16$ and in the clipped-ReLU limit; text mean 0.4), so the spike quantisation itself is worth 0.1--0.2 points and the GELU negative lobe is the whole story.
 
+Does $\alpha$ predict the damage? In the image tower the \emph{sign is opposite to H2}: the blocks whose MLP $\alpha$ is closest to 2 (blocks 0, 1, 7, $\alpha_{\mathrm{fc1}}=2.6, 3.4, 3.9$) are the most damaged, strongly without correction (Spearman $-0.75$ with $\alpha_{\mathrm{fc1}}$, $-0.90$ with $\hat\alpha$, $p<0.01$) and weakly with it ($-0.59$ with $\alpha_{\mathrm{fc2}}$, $p=0.04$; $-0.25$ with $\alpha_{\mathrm{fc1}}$, n.s.). ``Well-trained'' by the HTSR reading means ``carries the signal'', and the signal is what a lossy activation destroys; the relation is confounded with depth and with the MLP's share of the block output (0.7--0.8 in blocks 0--7, 0.3--0.4 in blocks 8--10). In the text tower $\alpha$ does not predict damage ($|\rho|\le0.44$, $p>0.15$); the fc1 log spectral norm does weakly ($+0.54$ to $+0.60$, $p\approx0.05$). Retrieval is damaged in different places from classification: converting text block 0 or 1 costs 18 / 10 points of COCO R@1 against 0.5--0.8 points of accuracy, and the last image block costs 6 points of R@1.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{3}{c}{image tower} & \multicolumn{3}{c}{text tower} \\
+predictor of drop & ReLU & spk$_4$ & spk$_{16}$ & ReLU & spk$_4$ & spk$_{16}$ \\
+\midrule
+$\alpha_{\mathrm{fc1}}$ & $-.75^{*}$ & $-.25$ & $-.20$ & $-.23$ & $-.37$ & $-.44$ \\
+$\alpha_{\mathrm{fc2}}$ & $-.62^{*}$ & $-.59^{*}$ & $-.53$ & $+.13$ & $-.28$ & $-.30$ \\
+$\hat\alpha_{\mathrm{fc1}}$ & $-.90^{*}$ & $-.43$ & $-.42$ & $+.35$ & $-.04$ & $-.18$ \\
+$\log\|W_{\mathrm{fc1}}\|_2$ & $-.54$ & $-.29$ & $-.27$ & $+.60^{*}$ & $+.56$ & $+.57$ \\
+frac.\ positive pre-act. & $+.72^{*}$ & $+.42$ & $+.34$ & $-.48$ & $-.49$ & $-.46$ \\
+\midrule
+mean drop (points) & 13.4 & 1.1 & 0.9 & 2.7 & 0.4 & 0.4 \\
+\bottomrule
+\end{tabular}
+\caption{E2a: Spearman correlation across the 12 blocks of a tower between the single-block conversion damage (drop in mean zero-shot accuracy) and pretrained weight statistics; $^{*}$: $p<0.05$. $\hat\alpha$ is WeightWatcher's alpha-weighted; spk$_T$: spiking population with bias correction.}
+\label{tab:e2a}
+\end{table}
 \subsection{E1: $\alpha$ during fine-tuning of an insert}
-\TODO{fill from results/mm/e1\_summary.md: trajectories of $\alpha_{\mathrm{fc1}}$, $\alpha_{\mathrm{fc2}}$, adapter $\alpha$, firing fraction and mean\_acc; spiking vs dense twin; $k_{\mathrm{sg}} \in \{1,4,10,25\}$, $T \in \{4,8,16\}$, leak, no bias correction, block 10, later-blocks scope, CE objective.}
-
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig/e1_trajectories.png}
+\caption{E1. Trajectories during three epochs of distillation fine-tuning after inserting a spiking (coloured) or dense (red) block into image block 6: $\alpha$ of fc1 / fc2, mean zero-shot accuracy, adapter $\alpha$, silent-unit fraction and training loss.}
+\label{fig:e1}
+\end{figure}
+Every bias-corrected spiking replacement recovers from 0.892--0.895 to 0.900--0.902 (clean 0.903) and the uncorrected one from 0.806 to 0.893--0.899, while $\alpha_{\mathrm{fc1}}$ of the converted block moves by at most 0.04 and $\alpha_{\mathrm{fc2}}$ by at most 0.22 -- the same range as the dense twin that had nothing to repair (Fig.~\ref{fig:e1}; \TODO{final table}). The repair is carried by small weight changes that do not touch the power-law tail of a $3072\times768$ matrix trained for 32 epochs on 400M pairs, so a within-run correlation between the block's $\alpha$ and the metric is meaningless (it flips sign across seeds on $\alpha$ changes of 0.01). Neither the surrogate slope ($k_{\mathrm{sg}}\in\{1,4,25\}$: $\alpha_{\mathrm{fc1}}$ 4.62, 4.62, 4.64, recovery 0.900--0.902), the time budget ($T\in\{4,8\}$), the seed, nor a $10\times$ larger learning rate creates dynamic range in $\alpha$. This is the opposite of the small-MLP result, where fc1 $\alpha$ rose monotonically with the slope ($1.60\to1.99$): the slope shapes a layer learned \emph{through} the spikes, not one that is nudged. The signals that do track the repair are the distillation loss and the firing statistics (silent fraction constant at 3.8--4.4\,\% in block 6, 1.2\,\% in block 10; no dead-unit growth). Zero-initialised adapters under distillation are a null task: accuracy is unchanged and the $\alpha$ of the random down-projection \emph{rises} from 3.6 to 5.0--5.6, the signature of an insert that is not needed; adapters under a learning objective are E3.
 \subsection{E2b: cumulative conversion order}
 \TODO{fill from results/mm/e2b: mean\_acc vs number of converted blocks for six orders, conversion-only.}
 
