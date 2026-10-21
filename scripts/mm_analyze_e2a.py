@@ -42,21 +42,24 @@ for ti, tower in enumerate(("image", "text")):
         ax.plot(blocks, drop, marker="o", ms=4, label=lab)
     ax.set_xlabel("converted block"); ax.set_ylabel("drop in mean zero-shot acc"); ax.set_title(f"{tower}: single-block conversion damage"); ax.grid(alpha=0.3); ax.legend(fontsize=7)
     ax2 = axes[ti][1]
-    S = sorted([r for r in R if r["variant"] == "spike" and r["T"] == 8], key=lambda r: r["block"])
+    S = sorted([r for r in R if r["variant"] == "spike_bc" and r["T"] == 4], key=lambda r: r["block"])
     if S:
         x = [alpha[(tower, r["block"])]["mlp_fc1"]["alpha"] for r in S]; y = [r["drop"]["mean_acc"] for r in S]
         ax2.scatter(x, y, c=[r["block"] for r in S], cmap="viridis")
         for r, xi, yi in zip(S, x, y): ax2.annotate(str(r["block"]), (xi, yi), fontsize=7, xytext=(3, 3), textcoords="offset points")
-        rho, p = spearmanr(x, y); ax2.set_title(f"{tower}: drop (T=8) vs fc1 alpha, Spearman {rho:+.2f} (p={p:.2f})")
+        rho, p = spearmanr(x, y); ax2.set_title(f"{tower}: drop (spike_bc, T=4) vs fc1 alpha, Spearman {rho:+.2f} (p={p:.2f})", fontsize=10)
+        xr = [alpha[(tower, r["block"])]["mlp_fc1"]["alpha"] for r in R if r["variant"] == "relu"]; yr = [r["drop"]["mean_acc"] for r in R if r["variant"] == "relu"]
+        ax2.scatter(xr, yr, marker="x", c="gray", label="relu (no bias corr.)"); ax2.legend(fontsize=7)
         ax2.set_xlabel("pretrained alpha of mlp_fc1"); ax2.set_ylabel("drop in mean zero-shot acc"); ax2.grid(alpha=0.3)
     lines.append("")
     # per-block table
-    lines += ["| block | fc1 alpha | fc2 alpha | fc1 lsn | theta | frac_pos | mlp share | relu drop | cliprelu drop | " + " | ".join(f"spike T={T} drop" for T in (4, 8, 16)) + " | spike T=8 mlp err | silent frac |", "|" + "---|" * 14]
+    lines += ["| block | fc1 alpha | fc2 alpha | fc1 lsn | theta (median) | frac_pos | mlp share | relu drop | cliprelu_bc drop | spike_bc T=4 drop | spike_bc T=16 drop | coco R@1 drop (spike T=4) | relu mlp err | spike_bc T=4 mlp err | silent frac |", "|" + "---|" * 15]
     for b in range(12):
         g = {(r["variant"], r["T"]): r for r in R if r["block"] == b}
-        a = alpha[(tower, b)]; s8 = g.get(("spike", 8))
-        def d(v): return "-" if v is None else f"{v['drop']['mean_acc']:+.4f}"
-        lines.append(f"| {b} | {a['mlp_fc1']['alpha']:.2f} | {a['mlp_fc2']['alpha']:.2f} | {a['mlp_fc1']['log_spectral_norm']:.2f} | {s8['theta'] if s8 else float('nan'):.2f} | {s8['frac_pos_preact'] if s8 else float('nan'):.2f} | {s8['mlp_out_share'] if s8 else float('nan'):.2f} | {d(g.get(('relu', None)))} | {d(g.get(('cliprelu', None)))} | " + " | ".join(d(g.get(("spike", T))) for T in (4, 8, 16)) + f" | {s8['rel_err_mlp'] if s8 else float('nan'):.3f} | {s8['firing']['frac_silent_units'] if s8 else float('nan'):.3f} |")
+        a = alpha[(tower, b)]; s4 = g.get(("spike_bc", 4)); rl = g.get(("relu", None))
+        def d(v, key="mean_acc"): return "-" if v is None else f"{v['drop'][key]:+.4f}"
+        def f(v, key, nd=2): return "nan" if v is None or v.get(key) is None else f"{v[key]:.{nd}f}"
+        lines.append(f"| {b} | {a['mlp_fc1']['alpha']:.2f} | {a['mlp_fc2']['alpha']:.2f} | {a['mlp_fc1']['log_spectral_norm']:.2f} | {f(s4, 'theta')} | {f(s4, 'frac_pos_preact')} | {f(s4, 'mlp_out_share')} | {d(rl)} | {d(g.get(('cliprelu_bc', None)))} | {d(s4)} | {d(g.get(('spike_bc', 16)))} | {d(s4, 'coco_R@1')} | {f(rl, 'rel_err_mlp', 3)} | {f(s4, 'rel_err_mlp', 3)} | {f(s4['firing'] if s4 else None, 'frac_silent_units', 3)} |")
     lines.append("")
 fig.tight_layout(); fig.savefig(out / "e2a_damage_vs_alpha.png", dpi=130)
 Path("results/mm/e2a_summary.md").write_text("\n".join(lines) + "\n"); print("\n".join(lines))
