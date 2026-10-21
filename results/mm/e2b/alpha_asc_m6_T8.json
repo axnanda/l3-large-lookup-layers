@@ -1,0 +1,84 @@
+{
+ "order": "alpha_asc",
+ "m": 6,
+ "T": 8,
+ "blocks": [
+  0,
+  11,
+  1,
+  3,
+  5,
+  6
+ ],
+ "thetas": {
+  "0": 0.6261109709739685,
+  "11": 1.125706672668457,
+  "1": 1.5856928825378418,
+  "3": 1.1316484212875366,
+  "5": 1.0876176357269287,
+  "6": 1.1226999759674072
+ },
+ "block_alpha": [
+  2.9660094901660212,
+  4.164432687176472,
+  4.557903363253972,
+  4.744463505181878,
+  4.7569623322214065,
+  4.985743423308107
+ ],
+ "conversion_only": {
+  "imagenette_acc": 0.9612500071525574,
+  "pets_acc": 0.6924999952316284,
+  "cifar10_acc": 0.7400000095367432,
+  "coco_R@1": 0.14100000262260437,
+  "coco_R@5": 0.37700000405311584,
+  "mean_acc": 0.7979166706403097
+ },
+ "firing": {
+  "visual.transformer.resblocks.0.mlp.gelu": {
+   "mean_rate": 0.014843224547803402,
+   "frac_silent_units": 0.3704427182674408,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.046035125851631165
+  },
+  "visual.transformer.resblocks.1.mlp.gelu": {
+   "mean_rate": 0.033150363713502884,
+   "frac_silent_units": 0.01692708395421505,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.11439589411020279
+  },
+  "visual.transformer.resblocks.3.mlp.gelu": {
+   "mean_rate": 0.04510498046875,
+   "frac_silent_units": 0.0107421875,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.14960701763629913
+  },
+  "visual.transformer.resblocks.5.mlp.gelu": {
+   "mean_rate": 0.04083758965134621,
+   "frac_silent_units": 0.011393229477107525,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.1314135640859604
+  },
+  "visual.transformer.resblocks.6.mlp.gelu": {
+   "mean_rate": 0.02872520685195923,
+   "frac_silent_units": 0.0319010429084301,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.0910932794213295
+  },
+  "visual.transformer.resblocks.11.mlp.gelu": {
+   "mean_rate": 0.03243279829621315,
+   "frac_silent_units": 0.001953125,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.10314445942640305
+  }
+ },
+ "drop_conversion": 0.10499999920527137,
+ "baseline": {
+  "imagenette_acc": 0.9850000143051147,
+  "pets_acc": 0.8337500095367432,
+  "cifar10_acc": 0.8899999856948853,
+  "coco_R@1": 0.2240000069141388,
+  "coco_R@5": 0.5830000042915344,
+  "mean_acc": 0.902916669845581
+ }
+}

@@ -1,0 +1,84 @@
+{
+ "order": "alpha_desc",
+ "m": 6,
+ "T": 8,
+ "blocks": [
+  8,
+  9,
+  10,
+  7,
+  4,
+  2
+ ],
+ "thetas": {
+  "8": 1.7455083131790161,
+  "9": 2.0271108150482178,
+  "10": 1.5479059219360352,
+  "7": 1.3774378299713135,
+  "4": 1.151159644126892,
+  "2": 0.9912123680114746
+ },
+ "block_alpha": [
+  6.808878499606211,
+  6.77937881777547,
+  6.2709776792404535,
+  5.350927011615416,
+  5.143804275942793,
+  4.9949425082712615
+ ],
+ "conversion_only": {
+  "imagenette_acc": 0.981249988079071,
+  "pets_acc": 0.7850000262260437,
+  "cifar10_acc": 0.8149999976158142,
+  "coco_R@1": 0.15700000524520874,
+  "coco_R@5": 0.5109999775886536,
+  "mean_acc": 0.8604166706403097
+ },
+ "firing": {
+  "visual.transformer.resblocks.2.mlp.gelu": {
+   "mean_rate": 0.04088703915476799,
+   "frac_silent_units": 0.008138020522892475,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.12879540026187897
+  },
+  "visual.transformer.resblocks.4.mlp.gelu": {
+   "mean_rate": 0.04159380868077278,
+   "frac_silent_units": 0.0078125,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.1361604630947113
+  },
+  "visual.transformer.resblocks.7.mlp.gelu": {
+   "mean_rate": 0.023246780037879944,
+   "frac_silent_units": 0.015299479477107525,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.07425427436828613
+  },
+  "visual.transformer.resblocks.8.mlp.gelu": {
+   "mean_rate": 0.014513482339680195,
+   "frac_silent_units": 0.0055338540114462376,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.043789058923721313
+  },
+  "visual.transformer.resblocks.9.mlp.gelu": {
+   "mean_rate": 0.010708716697990894,
+   "frac_silent_units": 0.014322916977107525,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.03074953891336918
+  },
+  "visual.transformer.resblocks.10.mlp.gelu": {
+   "mean_rate": 0.010118977166712284,
+   "frac_silent_units": 0.01627604104578495,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.02883191965520382
+  }
+ },
+ "drop_conversion": 0.042499999205271366,
+ "baseline": {
+  "imagenette_acc": 0.9850000143051147,
+  "pets_acc": 0.8337500095367432,
+  "cifar10_acc": 0.8899999856948853,
+  "coco_R@1": 0.2240000069141388,
+  "coco_R@5": 0.5830000042915344,
+  "mean_acc": 0.902916669845581
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "order": "alpha_desc",
+ "m": 3,
+ "T": 8,
+ "blocks": [
+  8,
+  9,
+  10
+ ],
+ "thetas": {
+  "8": 1.7455083131790161,
+  "9": 2.0271108150482178,
+  "10": 1.5479059219360352
+ },
+ "block_alpha": [
+  6.808878499606211,
+  6.77937881777547,
+  6.2709776792404535
+ ],
+ "conversion_only": {
+  "imagenette_acc": 0.9862499833106995,
+  "pets_acc": 0.7987499833106995,
+  "cifar10_acc": 0.8637499809265137,
+  "coco_R@1": 0.19099999964237213,
+  "coco_R@5": 0.5410000085830688,
+  "mean_acc": 0.8829166491826376
+ },
+ "firing": {
+  "visual.transformer.resblocks.8.mlp.gelu": {
+   "mean_rate": 0.01517962384968996,
+   "frac_silent_units": 0.0045572915114462376,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.04549992457032204
+  },
+  "visual.transformer.resblocks.9.mlp.gelu": {
+   "mean_rate": 0.011037662625312805,
+   "frac_silent_units": 0.014973958022892475,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.031340423971414566
+  },
+  "visual.transformer.resblocks.10.mlp.gelu": {
+   "mean_rate": 0.011354971677064896,
+   "frac_silent_units": 0.013671875,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.03194187581539154
+  }
+ },
+ "drop_conversion": 0.020000020662943485,
+ "baseline": {
+  "imagenette_acc": 0.9850000143051147,
+  "pets_acc": 0.8337500095367432,
+  "cifar10_acc": 0.8899999856948853,
+  "coco_R@1": 0.2240000069141388,
+  "coco_R@5": 0.5830000042915344,
+  "mean_acc": 0.902916669845581
+ }
+}
