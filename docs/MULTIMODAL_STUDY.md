@@ -65,7 +65,7 @@ into q/k/v; embedding tables never averaged with dense layers.
 | id | what | status |
 |---|---|---|
 | E0 | alpha profile of the pretrained model per role and tower | done |
-| E2a | single-block conversion damage (T = 4/8/16, ReLU and clipped-ReLU ablations) vs per-block alpha | pending |
+| E2a | single-block conversion damage (ReLU, clipped-ReLU + bias correction, spike + bias correction at T = 4/16) vs per-block alpha | done (96 configs) |
 | E1 | fine-tuning with an insert: spike_replace (k_sg 1/4/10/25, T 4/8/16, leak, seed), dense_replace, spike/dense adapter, block 10, later-blocks scope, 20 % label noise | pending |
 | E2b | cumulative conversion in six orders, 3/6/9/12 blocks, conversion-only and after a brief fine-tune | pending |
 | E3 | adapters on frozen embeddings: dense MLP, spiking MLP, dense L3, spiking L3 (memory / rate query); 16-shot and full Pets, 16-shot Imagenette; 3 seeds | done (45 runs) |
