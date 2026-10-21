@@ -1,0 +1,45 @@
+\section{Experiments}
+\label{sec:exp}
+
+\subsection{E0: $\alpha$ profile of the pretrained model}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig/e0_alpha_profile.png}
+\caption{HTSR $\alpha$ per layer and role of the pretrained CLIP ViT-B/32 (LAION-400M). Shaded band: $2 < \alpha < 6$. No layer is below 2; attention value/output projections and late MLP output projections are ``under-trained'' by the HTSR reading.}
+\label{fig:e0}
+\end{figure}
+WeightWatcher analysed all 148 matrices (Fig.~\ref{fig:e0}). No layer has $\alpha < 2$ (minimum 2.24); the model-wide mean is 6.3 and the median 5.5. Well-trained layers ($2<\alpha<5$) are the MLP input projections, the $q/k$ projections of the first six image blocks and the last block's output projection ($\alpha = 3.56$ with 459 eigenvalues beyond the Marchenko--Pastur bulk); $v$ and output projections of attention sit at 5--18. Image-tower $\alpha_{\mathrm{fc1}}$ rises almost monotonically with depth (2.6 at block 0 to 5.8 at block 10), so in this model ``closest to 2'' is confounded with ``early'', which is why E2b includes depth and random orders.
+
+\subsection{E2a: single-block conversion damage versus $\alpha$}
+\TODO{fill from results/mm/e2a\_summary.md: per-block damage curves (ReLU, clipped-ReLU+bc, spike T=4/16) for both towers; Spearman of drop vs fc1/fc2 $\alpha$, $\alpha_w$, log spectral norm; competing predictors (fraction of positive pre-activations, MLP output share).}
+
+\subsection{E1: $\alpha$ during fine-tuning of an insert}
+\TODO{fill from results/mm/e1\_summary.md: trajectories of $\alpha_{\mathrm{fc1}}$, $\alpha_{\mathrm{fc2}}$, adapter $\alpha$, firing fraction and mean\_acc; spiking vs dense twin; $k_{\mathrm{sg}} \in \{1,4,10,25\}$, $T \in \{4,8,16\}$, leak, no bias correction, block 10, later-blocks scope, CE objective.}
+
+\subsection{E2b: cumulative conversion order}
+\TODO{fill from results/mm/e2b: mean\_acc vs number of converted blocks for six orders, conversion-only.}
+
+\subsection{E3: adapters on frozen embeddings}
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lccccc}
+\toprule
+ & MLP & MLP & L3 & L3 spike & L3 spike \\
+setting & dense & spike & dense & memory & rate \\
+\midrule
+Pets 16-shot acc & .854 & .842 & .729 & .744 & .763 \\
+\quad transfer retained & .927 & .926 & .245 & .169 & .165 \\
+Pets full acc & .867 & .852 & .809 & .849 & .848 \\
+\quad transfer / COCO R@1 & .875/.204 & .886/.087 & .179/.049 & .447/.149 & .404/.128 \\
+Imagenette 16-shot acc & .982 & .984 & .956 & .977 & .977 \\
+$\alpha$ first matrix (Pets full) & 1.85 & 2.09 & 5.34 & 2.75 & 2.74 \\
+$\alpha$ output matrix (Pets full) & 1.35 & 1.41 & 1.51 & 1.54 & 1.55 \\
+\bottomrule
+\end{tabular}
+\caption{E3: residual adapters on frozen CLIP image embeddings, mean over 3 seeds (std $\le$ 0.02). Zero-shot: Pets 0.834, Imagenette 0.985. ``Transfer retained'' is the mean zero-shot accuracy on the two other classification sets after adaptation.}
+\label{tab:e3}
+\end{table}
+Table~\ref{tab:e3} summarises 45 runs. A spiking MLP adapter matches its dense twin on classification within 1--1.5 points and keeps transfer, but halves retrieval R@1 in the full-shot setting: the rate-coded bottleneck preserves the class decision and not the fine-grained embedding geometry. The L3 lookup adapters as designed are harmful: routing by a $k$-means token applies a training-set-specific offset to every input, so transfer collapses and the 16-shot runs end below zero-shot. The spiking memory is consistently better than the dense L3 (full-shot 0.849 vs 0.809, transfer 0.45 vs 0.18) because the threshold-selected, count-normalised read-out is a sparser perturbation than the softmax-weighted one (memory firing fraction 0.17--0.35).
+
+$\alpha$ behaves as a diagnostic in both directions. The first matrix of a working adapter converges to $\alpha \approx 2$ with the full Pets set (dense 1.85, spiking 2.09), stays at 2.7--2.9 with 16 shots and at 4.1--4.5 on the easy Imagenette task where nothing needs to be learned; across the 18 MLP-adapter runs its $\alpha$ correlates with the accuracy gain over zero-shot at Spearman $-0.73$ ($p=0.001$). The output matrices sit at $\alpha$ 1.35--1.7 in every run, and across all 45 runs the output-matrix $\alpha$ correlates with transfer retained at Spearman $-0.78$ ($p<10^{-4}$): the adapters whose output matrix became most heavy-tailed are the ones that over-specialised. The H3 prediction that the spiking memory's mixing layers settle at 2.0--2.2 is directionally right (spiking $W_{\mathrm{up}}$ 2.4--2.9 vs dense 4--5) but numerically wrong.
