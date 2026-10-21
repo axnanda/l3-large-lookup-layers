@@ -104,7 +104,101 @@ Per-block `mlp_fc1` alpha of the image tower rises almost monotonically with dep
 with "early block"; the depth-order and random-order arms of E2b are there to separate the two.
 
 
-### E3: adapters on frozen CLIP embeddings (results/mm/e3_summary.md, figures/mm/e3_adapters.png)
+### E2a: single-block conversion damage versus alpha (results/mm/e2a_summary.md, figures/mm/e2a_damage_vs_alpha.png)
+
+96 configs: 24 blocks x {ReLU, clipped-ReLU + bias correction, spike + bias correction at T = 4 and 16}.
+Clean model: mean_acc 0.9029, COCO R@1 0.224.
+
+Two methodological results first, because they decide everything downstream.
+
+* **Only 2-17 % of MLP pre-activations are positive** (image blocks 0.03-0.17, text blocks 0.02-0.08), so the
+  MLP output of a CLIP block is dominated by the negative lobe of QuickGELU summed over thousands of channels.
+  A ReLU-like rate code that discards it has a relative MLP output error of 0.7-1.3 and costs 21-38 points of
+  zero-shot accuracy for a single early image block (block 3: -38 points), 13 points for text block 0.
+* **Per-channel thresholds and a per-channel bias correction** (the calibration mean of GELU(x) - clipped
+  ReLU(x), folded into the output offset) reduce the MLP error to 0.1-0.35 and the damage to 0-2 points per
+  block (image mean 1.1 points at T = 4, 0.9 at T = 16 and in the clipped-ReLU limit; text mean 0.4 points).
+  The spike quantisation itself (T = 4 vs the T -> inf limit) is worth 0.1-0.2 points. Pooled thresholds
+  would clip the massive-activation channels (pre-activations up to 15 in image, 93 in text blocks, against a
+  pooled 99.9th percentile of 0.6-2.3) and give relative errors near 1.
+
+Does the pretrained alpha of a block predict its conversion damage?
+
+| tower / variant | rho(drop, fc1 alpha) | rho(drop, fc2 alpha) | rho(drop, fc1 alpha_w) | rho(drop, frac. positive pre-act) | rho(drop, MLP share of block output) | mean drop |
+|---|---|---|---|---|---|---|
+| image, ReLU (no correction) | -0.75 (p 0.01) | -0.62 (p 0.03) | -0.90 (p < 0.01) | +0.72 | +0.55 | 0.134 |
+| image, spike_bc T = 4 | -0.25 (p 0.43) | -0.59 (p 0.04) | -0.43 (p 0.16) | +0.42 | +0.12 | 0.011 |
+| image, spike_bc T = 16 | -0.20 (p 0.53) | -0.53 (p 0.08) | -0.42 (p 0.17) | +0.34 | +0.02 | 0.009 |
+| text, ReLU | -0.23 (p 0.46) | +0.13 | +0.35 | -0.48 | +0.19 | 0.027 |
+| text, spike_bc T = 4 | -0.37 (p 0.23) | -0.28 | -0.04 | -0.49 | -0.08 | 0.004 |
+
+* In the image tower the **direction is the opposite of H2**: the blocks whose MLP alpha is closest to 2
+  (blocks 0, 1, 7: fc1 alpha 2.6, 3.4, 3.9) are the *most* damaged by conversion, strongly so without bias
+  correction (Spearman -0.75 with fc1 alpha, -0.90 with alpha_weighted) and weakly after it (-0.59 with fc2
+  alpha, p = 0.04; -0.25 with fc1 alpha, n.s.). "Well-trained" by the HTSR reading means "carries the
+  signal", and the signal is what a lossy activation destroys. The relation is confounded with depth and with
+  how much of the block's output the MLP contributes (share 0.7-0.8 in blocks 0-7, 0.3-0.4 in blocks 8-10);
+  E2b separates the orders directly.
+* In the text tower alpha does not predict damage (|rho| <= 0.44, all p > 0.15); the fc1 log spectral norm does
+  weakly (+0.54 to +0.60, p ~ 0.05). Text block 0 is the fragile one (ReLU: -13 points).
+* **Retrieval is more sensitive than classification and in different places.** With bias correction the
+  zero-shot accuracy loses at most 2 points anywhere, but COCO R@1 loses 18 points when text block 0 is
+  converted, 10 points for text block 1 and 6 points for image block 11 (the last block), against 1 point of
+  mean_acc. Fine-grained text geometry (near-duplicate captions) lives in the first text blocks and the last
+  image block.
+* Silent units after conversion: 0.2-1.2 % of channels in image blocks 1-11 (37 % in block 0), 8-48 % in text
+  blocks, i.e. the per-channel threshold leaves channels that are almost never positive silent.
+
+### E1: alpha during fine-tuning of an insert (results/mm/e1_summary.md, figures/mm/e1_trajectories.png)
+
+21 runs. Setting: image block 6 (or 10), insert, then 3 epochs of distillation fine-tuning on 2 000
+Imagenette-train images (loss 1 - cos to the clean model's embedding), Adam 3e-5 unless stated, WW on the
+trained matrices every 24 steps, metrics every epoch. Clean model 0.9029 / COCO R@1 0.224.
+
+| run | insert | mean_acc at insertion -> after 3 epochs | fc1 alpha 0 -> end | fc2 alpha 0 -> end | insert-specific alpha | silent units |
+|---|---|---|---|---|---|---|
+| sr_b6_k4 / seed 1 | spike (T 8, k_sg 4, bias-corrected) | 0.894 -> 0.900 / 0.895 -> 0.900 | 4.64 -> 4.62 / 4.63 | 5.33 -> 5.31 / 5.32 | - | 4.1 / 4.0 % |
+| sr_b6_k1 / k10 / k25 | k_sg 1 / 10 / 25 | 0.894 -> 0.900 / 0.899 / 0.902 | 4.64 -> 4.62 / 4.67 / 4.64 | 5.33 -> 5.31 / 5.31 / 5.30 | - | 4.4 / 4.1 / 4.1 % |
+| sr_b6_T4 / T16 | T 4 / 16 | 0.892 -> 0.901 / 0.897 -> 0.899 | 4.64 -> 4.65 / 4.65 | 5.33 -> 5.31 / 5.31 | - | 4.1 % |
+| sr_b6_leak | beta 0.8 | 0.887 -> 0.899 | 4.64 -> 4.59 | 5.33 -> 5.29 | - | 3.9 % |
+| sr_b6_lr1e4 / lr3e4 | lr 1e-4 / 3e-4 | 0.894 -> 0.898 / 0.895 | 4.64 -> 4.66 / 4.66 | 5.33 -> 5.30 / 5.36 | - | 4.1 / 3.6 % |
+| sr_b6_ce | text-anchored CE objective instead of distillation | 0.894 -> 0.894 (COCO R@1 0.216 -> 0.190) | 4.64 -> 4.65 | 5.33 -> 5.34 | - | 4.0 % |
+| sr_b6_later | also train blocks 7-11 and the projection | 0.894 -> 0.897 | 4.64 -> 4.64 | 5.33 -> 5.32 | later blocks: mean abs. alpha change 0.15 | 4.2 % |
+| sr_b6_nobc | no bias correction | 0.806 -> 0.893 | 4.64 -> 4.66 | 5.33 -> 5.28 | - | 3.8 % |
+| sr_b6_nobc_lr1e4 / k1 / k25 | no bias correction, lr 1e-4 (k_sg 4 / 1 / 25) | 0.806 -> 0.899 / 0.900 / 0.902 | 4.64 -> 4.68 / 4.62 / 4.65 | 5.33 -> 5.11 / 5.11 / 5.03 | - | 4.0 / 5.0 / 3.6 % |
+| sr_b10_k4 | spike in block 10 | 0.898 -> 0.898 | 5.79 -> 5.56 | 6.75 -> 6.71 | - | 1.2 % |
+| dr_b6 / dr_b10 | dense twin (QuickGELU + gain), same training | 0.903 -> 0.902 / 0.903 | 4.64 -> 4.64 / 5.79 -> 5.78 | 5.33 -> 5.34 / 6.75 -> 6.79 | - | - |
+| sa_b6 | spiking adapter r = 64, lr 1e-3 | 0.903 -> 0.903 | unchanged | unchanged | down 3.58 -> 5.56, up 0 -> 2.4 | 1.6 % |
+| da_b6 | dense adapter r = 64, lr 1e-3 | 0.903 -> 0.903 | unchanged | unchanged | down 3.58 -> 5.00, up 0 -> 2.4 | - |
+
+Findings.
+
+* **The spectrum of a pretrained block is inert under repair fine-tuning.** Every bias-corrected spiking
+  replacement recovers to within 0.1-0.4 points of the clean model and the uncorrected ones recover 8.7-9.5
+  of their 9.7-point loss, while fc1 alpha of the converted block moves by at most 0.05 and fc2 alpha by at
+  most 0.30 (the uncorrected, higher-LR runs; 0.02 otherwise) - the same range as the dense twin that had
+  nothing to repair (0.00 / +0.01) and as block 10's dense control (-0.01 / +0.04). The repair is done by
+  small weight changes that do not touch the power-law tail of a 3072 x 768 matrix trained for 32 epochs on
+  400 M pairs. A within-run correlation between the block's alpha and the metric is therefore meaningless
+  (it flips sign from seed to seed, -0.8 to +1.0, on alpha changes of 0.01). H1 in the "block alpha certifies
+  the insert" form is **not supported** at this scale of fine-tuning.
+* **Surrogate slope, time budget, leak and learning rate do not move alpha here.** In the small-MLP study fc1
+  alpha rose monotonically with k_sg (1.60 -> 1.99 for k = 1 -> 10); in the pretrained block k_sg = 1, 4, 10,
+  25 give fc1 alpha 4.62-4.67 and the same recovery (0.899-0.902), with or without bias correction. The
+  slope matters when a layer is learned from scratch through the spikes, not when it is nudged.
+* **What does carry the signal**: the distillation loss (0.009 at insertion with bias correction, 0.03
+  without; both to ~0.001-0.01 within an epoch) and the firing statistics (silent fraction constant at
+  3.6-5.0 % in block 6, 1.2 % in block 10, no saturated units); none of the runs shows the dead-unit growth
+  that flagged failure in the small-MLP study.
+* **The objective matters more than any spiking knob**: text-anchored CE on Imagenette (98.5 % zero-shot
+  already) gives no gradient to repair with - mean_acc stays at 0.894 and COCO R@1 falls from 0.216 to 0.190
+  - whereas distillation to the clean embedding repairs all three classification sets and retrieval.
+* **Adapters under distillation are a null task**: the zero-initialised adapter has nothing to learn from a
+  clean model, so mean_acc is unchanged and alpha of the random-initialised down-projection *rises* from
+  3.58 to 5.0-5.6 (dense / spiking), the signature of an insert that is not needed. Adapters under a real
+  learning objective are E3, where the down-projection alpha fell toward 2 as the adapter learned.
+
+<<E2B>>### E3: adapters on frozen CLIP embeddings (results/mm/e3_summary.md, figures/mm/e3_adapters.png)
 
 45 runs (5 adapters x 3 settings x 3 seeds, 40 epochs, Adam 1e-3, text-anchored CE on the adapted embedding).
 Zero-shot references: Pets 0.834, Imagenette 0.985.
