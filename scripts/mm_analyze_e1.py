@@ -12,12 +12,23 @@ base = json.load(open("results/mm/e2a/baseline.json")) if Path("results/mm/e2a/b
 
 
 def alpha_series(r, name_suffix):
+    """alpha trajectory of the matrix ``<tower>.b<block>.<name_suffix>`` of the insert block only."""
+    blk = r["config"]["block"]; tower = r["config"].get("tower", "image"); full = f"{tower}.b{blk:02d}.{name_suffix}"
     xs, ys = [], []
     for w in r["history"]["ww"]:
         for row in w["rows"]:
-            if row["name"].endswith(name_suffix) and row.get("alpha") is not None and row["alpha"] > 0:
+            if row["name"] == full and row.get("alpha") is not None and row["alpha"] > 0:
                 xs.append(w["step"]); ys.append(row["alpha"])
     return np.array(xs), np.array(ys)
+
+
+def later_alpha_change(r):
+    """For scope=later runs: mean |alpha change| of the later blocks' matrices."""
+    if r["config"].get("scope") != "later": return None
+    first, last = r["history"]["ww"][0]["rows"], r["history"]["ww"][-1]["rows"]
+    a0 = {x["name"]: x["alpha"] for x in first if x.get("alpha")}; a1 = {x["name"]: x["alpha"] for x in last if x.get("alpha")}
+    d = [abs(a1[k] - a0[k]) for k in a0 if k in a1 and a0[k] > 0 and a1[k] > 0]
+    return (float(np.mean(d)), float(np.max(d)), len(d)) if d else None
 
 
 def eval_series(r, key):
@@ -25,7 +36,7 @@ def eval_series(r, key):
 
 
 lines = [f"# E1 summary ({len(runs)} runs)" + (f"; clean baseline mean_acc {base['mean_acc']:.4f}, coco R@1 {base['coco_R@1']:.3f}" if base else ""), "",
-         "| run | variant | block | T | k_sg | scope | noise | mean_acc step0 | mean_acc final | imagenette final | pets final | coco R@1 final | fc1 alpha 0 -> end | fc2 alpha 0 -> end | insert alpha 0 -> end | rho(alpha_insert, mean_acc) | silent frac end | mean rate end | minutes |",
+         "| run | variant | block | T | k_sg | scope | objective | mean_acc step0 | mean_acc final | imagenette final | pets final | coco R@1 final | fc1 alpha 0 -> end | fc2 alpha 0 -> end | insert alpha 0 -> end | rho(alpha_insert, mean_acc) | silent frac end | mean rate end | minutes |",
          "|" + "---|" * 19]
 fig, axes = plt.subplots(2, 3, figsize=(16, 8.5))
 for rid, r in runs.items():
@@ -40,7 +51,9 @@ for rid, r in runs.items():
         ai_at = np.interp(se, si, ai); rho = spearmanr(ai_at, me)[0]
     f = r["history"]["firing"][-1] if r["history"]["firing"] else {}
     def fmt(a): return f"{a[0]:.2f} -> {a[-1]:.2f}" if len(a) else "-"
-    lines.append(f"| {rid} | {c['variant']} | {c['block']} | {c['T']} | {c['k_sg']} | {c['scope']} | {c.get('label_noise', 0)} | {ev0['mean_acc']:.4f} | {evN['mean_acc']:.4f} | {evN['imagenette_acc']:.4f} | {evN['pets_acc']:.4f} | {evN['coco_R@1']:.3f} | {fmt(a1)} | {fmt(a2)} | {fmt(ai)} | {rho:+.2f} | {f.get('frac_silent_units', float('nan')):.3f} | {f.get('mean_rate', float('nan')):.3f} | {r['seconds']/60:.0f} |")
+    lc = later_alpha_change(r)
+    if lc: lines.append(f"| ({rid}: later blocks' alpha changes: mean {lc[0]:.3f}, max {lc[1]:.3f} over {lc[2]} matrices) |" + " |" * 18)
+    lines.append(f"| {rid} | {c['variant']} | {c['block']} | {c['T']} | {c['k_sg']} | {c['scope']} | {c.get('objective', 'distill')} | {ev0['mean_acc']:.4f} | {evN['mean_acc']:.4f} | {evN['imagenette_acc']:.4f} | {evN['pets_acc']:.4f} | {evN['coco_R@1']:.3f} | {fmt(a1)} | {fmt(a2)} | {fmt(ai)} | {rho:+.2f} | {f.get('frac_silent_units', float('nan')):.3f} | {f.get('mean_rate', float('nan')):.3f} | {r['seconds']/60:.0f} |")
     col = "C3" if c["variant"].startswith("dense") else None
     axes[0][0].plot(s1, a1, label=rid, color=col, alpha=0.8); axes[0][1].plot(s2, a2, label=rid, color=col, alpha=0.8)
     axes[0][2].plot(se, me, label=rid, color=col, alpha=0.8, marker="o", ms=3)
