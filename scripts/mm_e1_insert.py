@@ -5,7 +5,7 @@ from pathlib import Path
 from l3lab.multimodal.finetune import run_insert
 
 BASE = dict(tower="image", block=6, variant="spike_replace", T=8, k_sg=4.0, beta=1.0, reset="soft", r=64, scope="block",
-            n_train=3000, epochs=3, lr=3e-4, batch=64, seed=0, ww_every=24, label_noise=0.0, objective="distill")
+            n_train=2000, epochs=3, lr=3e-5, batch=64, seed=0, ww_every=24, label_noise=0.0, objective="distill")
 CONFIGS = {
     "sr_b6_k4":      dict(),
     "dr_b6":         dict(variant="dense_replace"),
@@ -15,6 +15,7 @@ CONFIGS = {
     "sr_b6_T4":      dict(T=4),
     "sr_b6_T16":     dict(T=16),
     "sa_b6":         dict(variant="spike_adapter", lr=1e-3),
+    "sr_b6_lr1e4":   dict(lr=1e-4),
     "da_b6":         dict(variant="dense_adapter", lr=1e-3),
     "sr_b6_k4_s1":   dict(seed=1),
     "sr_b10_k4":     dict(block=10),
