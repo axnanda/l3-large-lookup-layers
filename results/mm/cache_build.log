@@ -1,0 +1,30 @@
+[      5s] start imagenette_val_sub800 n=800 blocks=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+[     31s] cache imagenette_val_sub800: 640/800
+[     39s] start pets_test_sub800 n=800 blocks=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+[     87s] cache pets_test_sub800: 640/800
+[     99s] start cifar10_test_sub800 n=800 blocks=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+[    153s] cache cifar10_test_sub800: 640/800
+[    167s] start coco_sample n=1000 blocks=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+[    242s] cache coco_sample: 640/1000
+[    296s] start imagenette_train n=9469 blocks=[6, 8, 10]
+[    369s] cache imagenette_train: 640/9469
+[    419s] cache imagenette_train: 1280/9469
+[    465s] cache imagenette_train: 1920/9469
+[    514s] cache imagenette_train: 2560/9469
+[    561s] cache imagenette_train: 3200/9469
+[    637s] cache imagenette_train: 3840/9469
+[    730s] cache imagenette_train: 4480/9469
+[    820s] cache imagenette_train: 5120/9469
+[    917s] cache imagenette_train: 5760/9469
+[   1009s] cache imagenette_train: 6400/9469
+[   1074s] cache imagenette_train: 7040/9469
+[   1124s] cache imagenette_train: 7680/9469
+[   1165s] cache imagenette_train: 8320/9469
+[   1206s] cache imagenette_train: 8960/9469
+[   1239s] start pets_train n=3680 blocks=[6, 10]
+[   1282s] cache pets_train: 640/3680
+[   1322s] cache pets_train: 1280/3680
+[   1366s] cache pets_train: 1920/3680
+[   1408s] cache pets_train: 2560/3680
+[   1452s] cache pets_train: 3200/3680
+[   1476s] done

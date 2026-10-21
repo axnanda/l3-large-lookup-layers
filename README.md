@@ -86,3 +86,5 @@ The paper's function signature was `def train_lzw(files, tok, k):` but the embed
 **Bug #7: Undefined Variable inside Concat**
 Both implementations of `forward` and `forward_flexattn` attempt to return using `torch.concat([... , inputs])`. `inputs` is undefined—the actual tensor param is named `input`.
 - **Fixed (Lines 120 and 140):** Changed to `input`.
+
+* **Multimodal spiking-alpha study** (`docs/MULTIMODAL_STUDY.md`, `l3lab/multimodal/`, `scripts/mm_*.py`, `paper/`): spiking inserts in a pretrained CLIP ViT-B/32, tested against the HTSR alpha hypotheses H1-H3 (E0-E3, 181 runs/configs); CVPR-format draft in `paper/`.

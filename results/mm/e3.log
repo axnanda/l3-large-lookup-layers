@@ -1,0 +1,361 @@
+[    43s] pets_16shot_mlp_dense_s0 ep 5 loss 0.147 test 0.8600 transfer [0.981, 0.86, 0.863, 0.205] alpha {'adapter_down': 4.37, 'adapter_up': 1.46} mem_rate None
+[    45s] pets_16shot_mlp_dense_s0 ep 10 loss 0.029 test 0.8550 transfer [0.981, 0.855, 0.874, 0.2] alpha {'adapter_down': 3.27, 'adapter_up': 1.43} mem_rate None
+[    46s] pets_16shot_mlp_dense_s0 ep 15 loss 0.013 test 0.8525 transfer [0.981, 0.853, 0.874, 0.204] alpha {'adapter_down': 3.04, 'adapter_up': 1.42} mem_rate None
+[    46s] pets_16shot_mlp_dense_s0 ep 20 loss 0.006 test 0.8550 transfer [0.981, 0.855, 0.877, 0.196] alpha {'adapter_down': 2.95, 'adapter_up': 1.42} mem_rate None
+[    47s] pets_16shot_mlp_dense_s0 ep 25 loss 0.003 test 0.8475 transfer [0.98, 0.848, 0.875, 0.192] alpha {'adapter_down': 2.91, 'adapter_up': 1.41} mem_rate None
+[    49s] pets_16shot_mlp_dense_s0 ep 30 loss 0.002 test 0.8500 transfer [0.98, 0.85, 0.875, 0.179] alpha {'adapter_down': 2.83, 'adapter_up': 1.41} mem_rate None
+[    50s] pets_16shot_mlp_dense_s0 ep 35 loss 0.001 test 0.8475 transfer [0.979, 0.848, 0.874, 0.178] alpha {'adapter_down': 2.8, 'adapter_up': 1.41} mem_rate None
+[    51s] pets_16shot_mlp_dense_s0 ep 40 loss 0.001 test 0.8475 transfer [0.979, 0.848, 0.873, 0.172] alpha {'adapter_down': 2.79, 'adapter_up': 1.41} mem_rate None
+[    55s] pets_16shot_mlp_spike_s0 ep 5 loss 0.231 test 0.8675 transfer [0.981, 0.868, 0.865, 0.204] alpha {'adapter_down': 3.88, 'adapter_up': 1.51} mem_rate None
+[    56s] pets_16shot_mlp_spike_s0 ep 10 loss 0.035 test 0.8462 transfer [0.983, 0.846, 0.869, 0.199] alpha {'adapter_down': 3.06, 'adapter_up': 1.41} mem_rate None
+[    58s] pets_16shot_mlp_spike_s0 ep 15 loss 0.008 test 0.8363 transfer [0.983, 0.836, 0.875, 0.191] alpha {'adapter_down': 2.94, 'adapter_up': 1.43} mem_rate None
+[    59s] pets_16shot_mlp_spike_s0 ep 20 loss 0.002 test 0.8375 transfer [0.983, 0.837, 0.879, 0.186] alpha {'adapter_down': 2.9, 'adapter_up': 1.42} mem_rate None
+[    61s] pets_16shot_mlp_spike_s0 ep 25 loss 0.001 test 0.8338 transfer [0.981, 0.834, 0.875, 0.179] alpha {'adapter_down': 2.89, 'adapter_up': 1.42} mem_rate None
+[    62s] pets_16shot_mlp_spike_s0 ep 30 loss 0.001 test 0.8338 transfer [0.981, 0.834, 0.87, 0.168] alpha {'adapter_down': 2.88, 'adapter_up': 1.39} mem_rate None
+[    64s] pets_16shot_mlp_spike_s0 ep 35 loss 0.000 test 0.8313 transfer [0.981, 0.831, 0.868, 0.162] alpha {'adapter_down': 2.88, 'adapter_up': 1.38} mem_rate None
+[    65s] pets_16shot_mlp_spike_s0 ep 40 loss 0.000 test 0.8338 transfer [0.981, 0.834, 0.865, 0.159] alpha {'adapter_down': 2.87, 'adapter_up': 1.39} mem_rate None
+[    72s] pets_16shot_l3_dense_s0 ep 5 loss 0.863 test 0.7088 transfer [0.174, 0.709, 0.205, 0.084] alpha {'l3_wk': 6.96, 'l3_wv': 7.87, 'l3_wup': 5.58, 'l3_wmix': 1.63} mem_rate None
+[    73s] pets_16shot_l3_dense_s0 ep 10 loss 0.111 test 0.7188 transfer [0.169, 0.719, 0.22, 0.087] alpha {'l3_wk': 7.84, 'l3_wv': 7.87, 'l3_wup': 4.84, 'l3_wmix': 1.6} mem_rate None
+[    75s] pets_16shot_l3_dense_s0 ep 15 loss 0.091 test 0.7138 transfer [0.175, 0.714, 0.228, 0.087] alpha {'l3_wk': 7.58, 'l3_wv': 7.88, 'l3_wup': 9.22, 'l3_wmix': 1.6} mem_rate None
+[    77s] pets_16shot_l3_dense_s0 ep 20 loss 0.013 test 0.7237 transfer [0.188, 0.724, 0.237, 0.089] alpha {'l3_wk': 7.5, 'l3_wv': 7.89, 'l3_wup': 4.91, 'l3_wmix': 1.6} mem_rate None
+[    79s] pets_16shot_l3_dense_s0 ep 25 loss 0.008 test 0.7225 transfer [0.191, 0.723, 0.244, 0.09] alpha {'l3_wk': 7.49, 'l3_wv': 7.91, 'l3_wup': 4.93, 'l3_wmix': 1.59} mem_rate None
+[    80s] pets_16shot_l3_dense_s0 ep 30 loss 0.004 test 0.7237 transfer [0.196, 0.724, 0.245, 0.089] alpha {'l3_wk': 7.48, 'l3_wv': 7.93, 'l3_wup': 4.96, 'l3_wmix': 1.59} mem_rate None
+[    83s] pets_16shot_l3_dense_s0 ep 35 loss 0.002 test 0.7262 transfer [0.198, 0.726, 0.246, 0.087] alpha {'l3_wk': 7.48, 'l3_wv': 7.94, 'l3_wup': 4.99, 'l3_wmix': 1.59} mem_rate None
+[    85s] pets_16shot_l3_dense_s0 ep 40 loss 0.002 test 0.7287 transfer [0.201, 0.729, 0.246, 0.087] alpha {'l3_wk': 7.47, 'l3_wv': 7.96, 'l3_wup': 5.0, 'l3_wmix': 1.59} mem_rate None
+[    93s] pets_16shot_l3_spike_mem_s0 ep 5 loss 1.549 test 0.6750 transfer [0.1, 0.675, 0.164, 0.081] alpha {'l3_wk': 5.38, 'l3_wv': 7.07, 'l3_wup': 3.29, 'l3_wmix': 1.6} mem_rate 0.21717187762260437
+[    97s] pets_16shot_l3_spike_mem_s0 ep 10 loss 0.239 test 0.7675 transfer [0.104, 0.767, 0.157, 0.071] alpha {'l3_wk': 5.06, 'l3_wv': 5.4, 'l3_wup': 2.74, 'l3_wmix': 1.57} mem_rate 0.1705625057220459
+[   102s] pets_16shot_l3_spike_mem_s0 ep 15 loss 0.087 test 0.7675 transfer [0.106, 0.767, 0.154, 0.071] alpha {'l3_wk': 5.23, 'l3_wv': 4.45, 'l3_wup': 2.62, 'l3_wmix': 1.56} mem_rate 0.13764062523841858
+[   106s] pets_16shot_l3_spike_mem_s0 ep 20 loss 0.033 test 0.7600 transfer [0.109, 0.76, 0.147, 0.073] alpha {'l3_wk': 5.02, 'l3_wv': 4.11, 'l3_wup': 2.56, 'l3_wmix': 1.56} mem_rate 0.13071875274181366
+[   110s] pets_16shot_l3_spike_mem_s0 ep 25 loss 0.014 test 0.7550 transfer [0.11, 0.755, 0.146, 0.072] alpha {'l3_wk': 4.86, 'l3_wv': 3.55, 'l3_wup': 2.48, 'l3_wmix': 1.55} mem_rate 0.13264063000679016
+[   114s] pets_16shot_l3_spike_mem_s0 ep 30 loss 0.008 test 0.7500 transfer [0.11, 0.75, 0.15, 0.073] alpha {'l3_wk': 5.07, 'l3_wv': 3.48, 'l3_wup': 2.44, 'l3_wmix': 1.55} mem_rate 0.13518750667572021
+[   118s] pets_16shot_l3_spike_mem_s0 ep 35 loss 0.005 test 0.7475 transfer [0.11, 0.748, 0.147, 0.071] alpha {'l3_wk': 4.94, 'l3_wv': 3.43, 'l3_wup': 2.43, 'l3_wmix': 1.55} mem_rate 0.13426563143730164
+[   123s] pets_16shot_l3_spike_mem_s0 ep 40 loss 0.003 test 0.7425 transfer [0.11, 0.743, 0.146, 0.071] alpha {'l3_wk': 4.91, 'l3_wv': 3.39, 'l3_wup': 2.41, 'l3_wmix': 1.56} mem_rate 0.13259375095367432
+[   131s] pets_16shot_l3_spike_rate_s0 ep 5 loss 1.466 test 0.6825 transfer [0.1, 0.683, 0.155, 0.079] alpha {'l3_wk': 4.31, 'l3_wv': 8.67, 'l3_wup': 3.26, 'l3_wmix': 1.61} mem_rate None
+[   135s] pets_16shot_l3_spike_rate_s0 ep 10 loss 0.239 test 0.7650 transfer [0.102, 0.765, 0.157, 0.069] alpha {'l3_wk': 4.29, 'l3_wv': 5.54, 'l3_wup': 2.94, 'l3_wmix': 1.59} mem_rate None
+[   138s] pets_16shot_l3_spike_rate_s0 ep 15 loss 0.091 test 0.7825 transfer [0.106, 0.783, 0.162, 0.071] alpha {'l3_wk': 3.72, 'l3_wv': 5.04, 'l3_wup': 2.83, 'l3_wmix': 1.57} mem_rate None
+[   142s] pets_16shot_l3_spike_rate_s0 ep 20 loss 0.046 test 0.7837 transfer [0.108, 0.784, 0.162, 0.069] alpha {'l3_wk': 3.33, 'l3_wv': 4.57, 'l3_wup': 2.68, 'l3_wmix': 1.57} mem_rate None
+[   145s] pets_16shot_l3_spike_rate_s0 ep 25 loss 0.026 test 0.7875 transfer [0.11, 0.788, 0.162, 0.07] alpha {'l3_wk': 3.05, 'l3_wv': 4.77, 'l3_wup': 2.65, 'l3_wmix': 1.56} mem_rate None
+[   149s] pets_16shot_l3_spike_rate_s0 ep 30 loss 0.017 test 0.7862 transfer [0.11, 0.786, 0.164, 0.071] alpha {'l3_wk': 2.98, 'l3_wv': 4.7, 'l3_wup': 2.52, 'l3_wmix': 1.56} mem_rate None
+[   153s] pets_16shot_l3_spike_rate_s0 ep 35 loss 0.012 test 0.7812 transfer [0.11, 0.781, 0.162, 0.07] alpha {'l3_wk': 2.89, 'l3_wv': 4.66, 'l3_wup': 2.51, 'l3_wmix': 1.55} mem_rate None
+[   157s] pets_16shot_l3_spike_rate_s0 ep 40 loss 0.008 test 0.7775 transfer [0.11, 0.777, 0.162, 0.07] alpha {'l3_wk': 3.38, 'l3_wv': 4.62, 'l3_wup': 2.51, 'l3_wmix': 1.55} mem_rate None
+[   160s] pets_fullshot_mlp_dense_s0 ep 5 loss 0.122 test 0.8637 transfer [0.978, 0.864, 0.875, 0.228] alpha {'adapter_down': 2.42, 'adapter_up': 1.39} mem_rate None
+[   162s] pets_fullshot_mlp_dense_s0 ep 10 loss 0.033 test 0.8425 transfer [0.973, 0.842, 0.87, 0.23] alpha {'adapter_down': 2.18, 'adapter_up': 1.36} mem_rate None
+[   165s] pets_fullshot_mlp_dense_s0 ep 15 loss 0.027 test 0.8575 transfer [0.973, 0.858, 0.869, 0.241] alpha {'adapter_down': 2.02, 'adapter_up': 1.36} mem_rate None
+[   167s] pets_fullshot_mlp_dense_s0 ep 20 loss 0.002 test 0.8625 transfer [0.966, 0.863, 0.86, 0.23] alpha {'adapter_down': 1.99, 'adapter_up': 1.36} mem_rate None
+[   169s] pets_fullshot_mlp_dense_s0 ep 25 loss 0.001 test 0.8637 transfer [0.966, 0.864, 0.849, 0.216] alpha {'adapter_down': 1.98, 'adapter_up': 1.35} mem_rate None
+[   171s] pets_fullshot_mlp_dense_s0 ep 30 loss 0.001 test 0.8662 transfer [0.964, 0.866, 0.832, 0.203] alpha {'adapter_down': 1.98, 'adapter_up': 1.36} mem_rate None
+[   174s] pets_fullshot_mlp_dense_s0 ep 35 loss 0.001 test 0.8650 transfer [0.961, 0.865, 0.825, 0.197] alpha {'adapter_down': 1.97, 'adapter_up': 1.36} mem_rate None
+[   176s] pets_fullshot_mlp_dense_s0 ep 40 loss 0.001 test 0.8650 transfer [0.962, 0.865, 0.814, 0.192] alpha {'adapter_down': 1.96, 'adapter_up': 1.36} mem_rate None
+[   181s] pets_fullshot_mlp_spike_s0 ep 5 loss 0.135 test 0.8800 transfer [0.975, 0.88, 0.879, 0.199] alpha {'adapter_down': 2.34, 'adapter_up': 1.45} mem_rate None
+[   185s] pets_fullshot_mlp_spike_s0 ep 10 loss 0.033 test 0.8300 transfer [0.969, 0.83, 0.859, 0.184] alpha {'adapter_down': 2.15, 'adapter_up': 1.42} mem_rate None
+[   188s] pets_fullshot_mlp_spike_s0 ep 15 loss 0.003 test 0.8637 transfer [0.966, 0.864, 0.856, 0.145] alpha {'adapter_down': 2.09, 'adapter_up': 1.42} mem_rate None
+[   192s] pets_fullshot_mlp_spike_s0 ep 20 loss 0.001 test 0.8525 transfer [0.964, 0.853, 0.846, 0.123] alpha {'adapter_down': 2.09, 'adapter_up': 1.42} mem_rate None
+[   195s] pets_fullshot_mlp_spike_s0 ep 25 loss 0.000 test 0.8525 transfer [0.961, 0.853, 0.837, 0.104] alpha {'adapter_down': 2.09, 'adapter_up': 1.42} mem_rate None
+[   199s] pets_fullshot_mlp_spike_s0 ep 30 loss 0.000 test 0.8537 transfer [0.961, 0.854, 0.832, 0.101] alpha {'adapter_down': 2.09, 'adapter_up': 1.42} mem_rate None
+[   203s] pets_fullshot_mlp_spike_s0 ep 35 loss 0.000 test 0.8500 transfer [0.96, 0.85, 0.82, 0.091] alpha {'adapter_down': 2.09, 'adapter_up': 1.42} mem_rate None
+[   206s] pets_fullshot_mlp_spike_s0 ep 40 loss 0.000 test 0.8512 transfer [0.96, 0.851, 0.816, 0.088] alpha {'adapter_down': 2.08, 'adapter_up': 1.42} mem_rate None
+[   221s] pets_fullshot_l3_dense_s0 ep 5 loss 0.267 test 0.7912 transfer [0.161, 0.791, 0.168, 0.102] alpha {'l3_wk': 6.41, 'l3_wv': 9.19, 'l3_wup': 4.16, 'l3_wmix': 1.57} mem_rate None
+[   226s] pets_fullshot_l3_dense_s0 ep 10 loss 0.155 test 0.8275 transfer [0.205, 0.827, 0.171, 0.068] alpha {'l3_wk': 3.92, 'l3_wv': 7.7, 'l3_wup': 4.07, 'l3_wmix': 1.54} mem_rate None
+[   231s] pets_fullshot_l3_dense_s0 ep 15 loss 0.030 test 0.8325 transfer [0.18, 0.832, 0.17, 0.078] alpha {'l3_wk': 3.51, 'l3_wv': 7.62, 'l3_wup': 6.91, 'l3_wmix': 1.53} mem_rate None
+[   235s] pets_fullshot_l3_dense_s0 ep 20 loss 0.009 test 0.8213 transfer [0.2, 0.821, 0.18, 0.072] alpha {'l3_wk': 3.4, 'l3_wv': 7.66, 'l3_wup': 6.35, 'l3_wmix': 1.53} mem_rate None
+[   240s] pets_fullshot_l3_dense_s0 ep 25 loss 0.022 test 0.8200 transfer [0.205, 0.82, 0.165, 0.064] alpha {'l3_wk': 3.4, 'l3_wv': 7.36, 'l3_wup': 7.19, 'l3_wmix': 1.53} mem_rate None
+[   244s] pets_fullshot_l3_dense_s0 ep 30 loss 0.064 test 0.8188 transfer [0.244, 0.819, 0.174, 0.058] alpha {'l3_wk': 3.29, 'l3_wv': 7.07, 'l3_wup': 6.01, 'l3_wmix': 1.52} mem_rate None
+[   249s] pets_fullshot_l3_dense_s0 ep 35 loss 0.197 test 0.7763 transfer [0.188, 0.776, 0.151, 0.03] alpha {'l3_wk': 2.92, 'l3_wv': 10.49, 'l3_wup': 4.71, 'l3_wmix': 1.51} mem_rate None
+[   254s] pets_fullshot_l3_dense_s0 ep 40 loss 0.063 test 0.8275 transfer [0.159, 0.827, 0.126, 0.036] alpha {'l3_wk': 2.75, 'l3_wv': 9.41, 'l3_wup': 4.39, 'l3_wmix': 1.5} mem_rate None
+[   283s] pets_fullshot_l3_spike_mem_s0 ep 5 loss 0.140 test 0.8537 transfer [0.155, 0.854, 0.153, 0.104] alpha {'l3_wk': 4.89, 'l3_wv': 4.98, 'l3_wup': 2.93, 'l3_wmix': 1.55} mem_rate 0.15860937535762787
+[   298s] pets_fullshot_l3_spike_mem_s0 ep 10 loss 0.013 test 0.8487 transfer [0.458, 0.849, 0.201, 0.107] alpha {'l3_wk': 3.99, 'l3_wv': 4.46, 'l3_wup': 2.84, 'l3_wmix': 1.54} mem_rate 0.18754687905311584
+[   313s] pets_fullshot_l3_spike_mem_s0 ep 15 loss 0.001 test 0.8512 transfer [0.485, 0.851, 0.299, 0.121] alpha {'l3_wk': 3.91, 'l3_wv': 4.38, 'l3_wup': 2.84, 'l3_wmix': 1.54} mem_rate 0.2108124941587448
+[   329s] pets_fullshot_l3_spike_mem_s0 ep 20 loss 0.000 test 0.8500 transfer [0.504, 0.85, 0.354, 0.13] alpha {'l3_wk': 3.81, 'l3_wv': 4.34, 'l3_wup': 2.84, 'l3_wmix': 1.54} mem_rate 0.21085937321186066
+[   343s] pets_fullshot_l3_spike_mem_s0 ep 25 loss 0.000 test 0.8500 transfer [0.516, 0.85, 0.381, 0.134] alpha {'l3_wk': 3.73, 'l3_wv': 4.32, 'l3_wup': 2.9, 'l3_wmix': 1.54} mem_rate 0.2102968692779541
+[   359s] pets_fullshot_l3_spike_mem_s0 ep 30 loss 0.000 test 0.8512 transfer [0.531, 0.851, 0.405, 0.14] alpha {'l3_wk': 3.69, 'l3_wv': 4.3, 'l3_wup': 2.89, 'l3_wmix': 1.54} mem_rate 0.21034374833106995
+[   375s] pets_fullshot_l3_spike_mem_s0 ep 35 loss 0.000 test 0.8525 transfer [0.536, 0.853, 0.428, 0.14] alpha {'l3_wk': 3.71, 'l3_wv': 4.28, 'l3_wup': 2.88, 'l3_wmix': 1.54} mem_rate 0.2108437567949295
+[   390s] pets_fullshot_l3_spike_mem_s0 ep 40 loss 0.000 test 0.8525 transfer [0.554, 0.853, 0.434, 0.144] alpha {'l3_wk': 3.71, 'l3_wv': 4.26, 'l3_wup': 2.88, 'l3_wmix': 1.54} mem_rate 0.21128125488758087
+[   420s] pets_fullshot_l3_spike_rate_s0 ep 5 loss 0.142 test 0.8487 transfer [0.181, 0.849, 0.155, 0.105] alpha {'l3_wk': 3.34, 'l3_wv': 5.36, 'l3_wup': 3.03, 'l3_wmix': 1.56} mem_rate None
+[   434s] pets_fullshot_l3_spike_rate_s0 ep 10 loss 0.006 test 0.8512 transfer [0.409, 0.851, 0.19, 0.099] alpha {'l3_wk': 2.37, 'l3_wv': 4.65, 'l3_wup': 2.95, 'l3_wmix': 1.55} mem_rate None
+[   447s] pets_fullshot_l3_spike_rate_s0 ep 15 loss 0.002 test 0.8525 transfer [0.455, 0.853, 0.229, 0.101] alpha {'l3_wk': 2.32, 'l3_wv': 4.54, 'l3_wup': 2.95, 'l3_wmix': 1.55} mem_rate None
+[   460s] pets_fullshot_l3_spike_rate_s0 ep 20 loss 0.000 test 0.8512 transfer [0.484, 0.851, 0.251, 0.104] alpha {'l3_wk': 2.31, 'l3_wv': 4.51, 'l3_wup': 2.93, 'l3_wmix': 1.55} mem_rate None
+[   475s] pets_fullshot_l3_spike_rate_s0 ep 25 loss 0.000 test 0.8537 transfer [0.498, 0.854, 0.273, 0.105] alpha {'l3_wk': 2.29, 'l3_wv': 4.55, 'l3_wup': 2.92, 'l3_wmix': 1.54} mem_rate None
+[   490s] pets_fullshot_l3_spike_rate_s0 ep 30 loss 0.000 test 0.8562 transfer [0.507, 0.856, 0.292, 0.113] alpha {'l3_wk': 2.3, 'l3_wv': 4.54, 'l3_wup': 2.91, 'l3_wmix': 1.54} mem_rate None
+[   503s] pets_fullshot_l3_spike_rate_s0 ep 35 loss 0.000 test 0.8550 transfer [0.519, 0.855, 0.311, 0.117] alpha {'l3_wk': 2.3, 'l3_wv': 4.47, 'l3_wup': 2.91, 'l3_wmix': 1.54} mem_rate None
+[   517s] pets_fullshot_l3_spike_rate_s0 ep 40 loss 0.000 test 0.8525 transfer [0.521, 0.853, 0.321, 0.119] alpha {'l3_wk': 2.3, 'l3_wv': 4.46, 'l3_wup': 2.9, 'l3_wmix': 1.54} mem_rate None
+[   520s] imagenette_16shot_mlp_dense_s0 ep 5 loss 0.001 test 0.9837 transfer [0.984, 0.83, 0.89, 0.196] alpha {'adapter_down': 5.77, 'adapter_up': 1.52} mem_rate None
+[   521s] imagenette_16shot_mlp_dense_s0 ep 10 loss 0.000 test 0.9825 transfer [0.983, 0.831, 0.892, 0.189] alpha {'adapter_down': 4.98, 'adapter_up': 1.51} mem_rate None
+[   522s] imagenette_16shot_mlp_dense_s0 ep 15 loss 0.000 test 0.9825 transfer [0.983, 0.831, 0.892, 0.188] alpha {'adapter_down': 4.49, 'adapter_up': 1.51} mem_rate None
+[   523s] imagenette_16shot_mlp_dense_s0 ep 20 loss 0.000 test 0.9825 transfer [0.983, 0.831, 0.891, 0.189] alpha {'adapter_down': 4.47, 'adapter_up': 1.51} mem_rate None
+[   524s] imagenette_16shot_mlp_dense_s0 ep 25 loss 0.000 test 0.9825 transfer [0.983, 0.831, 0.89, 0.189] alpha {'adapter_down': 4.47, 'adapter_up': 1.51} mem_rate None
+[   525s] imagenette_16shot_mlp_dense_s0 ep 30 loss 0.000 test 0.9825 transfer [0.983, 0.831, 0.89, 0.189] alpha {'adapter_down': 4.46, 'adapter_up': 1.51} mem_rate None
+[   527s] imagenette_16shot_mlp_dense_s0 ep 35 loss 0.000 test 0.9825 transfer [0.983, 0.83, 0.89, 0.189] alpha {'adapter_down': 4.46, 'adapter_up': 1.51} mem_rate None
+[   528s] imagenette_16shot_mlp_dense_s0 ep 40 loss 0.000 test 0.9825 transfer [0.983, 0.831, 0.89, 0.19] alpha {'adapter_down': 4.46, 'adapter_up': 1.51} mem_rate None
+[   530s] imagenette_16shot_mlp_spike_s0 ep 5 loss 0.001 test 0.9850 transfer [0.985, 0.831, 0.89, 0.2] alpha {'adapter_down': 5.81, 'adapter_up': 1.55} mem_rate None
+[   531s] imagenette_16shot_mlp_spike_s0 ep 10 loss 0.000 test 0.9837 transfer [0.984, 0.827, 0.892, 0.201] alpha {'adapter_down': 4.6, 'adapter_up': 1.54} mem_rate None
+[   532s] imagenette_16shot_mlp_spike_s0 ep 15 loss 0.000 test 0.9825 transfer [0.983, 0.827, 0.892, 0.2] alpha {'adapter_down': 4.5, 'adapter_up': 1.54} mem_rate None
+[   533s] imagenette_16shot_mlp_spike_s0 ep 20 loss 0.000 test 0.9825 transfer [0.983, 0.829, 0.892, 0.202] alpha {'adapter_down': 4.13, 'adapter_up': 1.54} mem_rate None
+[   535s] imagenette_16shot_mlp_spike_s0 ep 25 loss 0.000 test 0.9825 transfer [0.983, 0.827, 0.891, 0.205] alpha {'adapter_down': 4.18, 'adapter_up': 1.53} mem_rate None
+[   536s] imagenette_16shot_mlp_spike_s0 ep 30 loss 0.000 test 0.9825 transfer [0.983, 0.827, 0.891, 0.208] alpha {'adapter_down': 4.16, 'adapter_up': 1.51} mem_rate None
+[   537s] imagenette_16shot_mlp_spike_s0 ep 35 loss 0.000 test 0.9825 transfer [0.983, 0.827, 0.891, 0.207] alpha {'adapter_down': 4.14, 'adapter_up': 1.5} mem_rate None
+[   538s] imagenette_16shot_mlp_spike_s0 ep 40 loss 0.000 test 0.9825 transfer [0.983, 0.827, 0.89, 0.205] alpha {'adapter_down': 4.13, 'adapter_up': 1.49} mem_rate None
+[   541s] imagenette_16shot_l3_dense_s0 ep 5 loss 0.000 test 0.9725 transfer [0.973, 0.095, 0.399, 0.038] alpha {'l3_wk': 7.05, 'l3_wv': 8.55, 'l3_wup': 5.14, 'l3_wmix': 1.76} mem_rate None
+[   542s] imagenette_16shot_l3_dense_s0 ep 10 loss 0.000 test 0.9600 transfer [0.96, 0.051, 0.393, 0.04] alpha {'l3_wk': 15.12, 'l3_wv': 8.54, 'l3_wup': 5.09, 'l3_wmix': 1.74} mem_rate None
+[   543s] imagenette_16shot_l3_dense_s0 ep 15 loss 0.000 test 0.9688 transfer [0.969, 0.051, 0.391, 0.04] alpha {'l3_wk': 14.47, 'l3_wv': 8.53, 'l3_wup': 5.08, 'l3_wmix': 1.74} mem_rate None
+[   545s] imagenette_16shot_l3_dense_s0 ep 20 loss 0.000 test 0.9700 transfer [0.97, 0.05, 0.391, 0.039] alpha {'l3_wk': 14.28, 'l3_wv': 8.53, 'l3_wup': 5.08, 'l3_wmix': 1.74} mem_rate None
+[   546s] imagenette_16shot_l3_dense_s0 ep 25 loss 0.000 test 0.9700 transfer [0.97, 0.05, 0.391, 0.039] alpha {'l3_wk': 14.24, 'l3_wv': 8.53, 'l3_wup': 5.07, 'l3_wmix': 1.74} mem_rate None
+[   547s] imagenette_16shot_l3_dense_s0 ep 30 loss 0.000 test 0.9700 transfer [0.97, 0.05, 0.391, 0.038] alpha {'l3_wk': 14.23, 'l3_wv': 8.53, 'l3_wup': 5.07, 'l3_wmix': 1.74} mem_rate None
+[   549s] imagenette_16shot_l3_dense_s0 ep 35 loss 0.000 test 0.9700 transfer [0.97, 0.05, 0.391, 0.038] alpha {'l3_wk': 14.23, 'l3_wv': 8.53, 'l3_wup': 5.07, 'l3_wmix': 1.74} mem_rate None
+[   550s] imagenette_16shot_l3_dense_s0 ep 40 loss 0.000 test 0.9700 transfer [0.97, 0.05, 0.391, 0.038] alpha {'l3_wk': 14.23, 'l3_wv': 8.53, 'l3_wup': 5.07, 'l3_wmix': 1.74} mem_rate None
+[   553s] imagenette_16shot_l3_spike_mem_s0 ep 5 loss 3.490 test 0.7775 transfer [0.777, 0.051, 0.425, 0.07] alpha {'l3_wk': 6.24, 'l3_wv': 7.87, 'l3_wup': 6.82, 'l3_wmix': 1.73} mem_rate 0.22971874475479126
+[   556s] imagenette_16shot_l3_spike_mem_s0 ep 10 loss 0.823 test 0.8913 transfer [0.891, 0.045, 0.405, 0.04] alpha {'l3_wk': 5.7, 'l3_wv': 7.1, 'l3_wup': 4.55, 'l3_wmix': 1.69} mem_rate 0.2779531180858612
+[   558s] imagenette_16shot_l3_spike_mem_s0 ep 15 loss 0.011 test 0.9775 transfer [0.978, 0.044, 0.391, 0.033] alpha {'l3_wk': 5.62, 'l3_wv': 6.77, 'l3_wup': 3.55, 'l3_wmix': 1.68} mem_rate 0.28434374928474426
+[   561s] imagenette_16shot_l3_spike_mem_s0 ep 20 loss 0.002 test 0.9762 transfer [0.976, 0.04, 0.387, 0.031] alpha {'l3_wk': 5.36, 'l3_wv': 6.83, 'l3_wup': 3.44, 'l3_wmix': 1.69} mem_rate 0.28626561164855957
+[   563s] imagenette_16shot_l3_spike_mem_s0 ep 25 loss 0.002 test 0.9762 transfer [0.976, 0.04, 0.391, 0.031] alpha {'l3_wk': 5.36, 'l3_wv': 5.91, 'l3_wup': 3.42, 'l3_wmix': 1.69} mem_rate 0.2874999940395355
+[   566s] imagenette_16shot_l3_spike_mem_s0 ep 30 loss 0.001 test 0.9762 transfer [0.976, 0.04, 0.394, 0.031] alpha {'l3_wk': 5.35, 'l3_wv': 6.29, 'l3_wup': 3.42, 'l3_wmix': 1.69} mem_rate 0.2897968888282776
+[   568s] imagenette_16shot_l3_spike_mem_s0 ep 35 loss 0.001 test 0.9762 transfer [0.976, 0.04, 0.396, 0.03] alpha {'l3_wk': 5.34, 'l3_wv': 5.75, 'l3_wup': 3.41, 'l3_wmix': 1.69} mem_rate 0.2923906147480011
+[   571s] imagenette_16shot_l3_spike_mem_s0 ep 40 loss 0.001 test 0.9762 transfer [0.976, 0.04, 0.398, 0.031] alpha {'l3_wk': 5.4, 'l3_wv': 5.47, 'l3_wup': 3.41, 'l3_wmix': 1.69} mem_rate 0.2944374978542328
+[   575s] imagenette_16shot_l3_spike_rate_s0 ep 5 loss 3.535 test 0.7800 transfer [0.78, 0.052, 0.423, 0.066] alpha {'l3_wk': 6.94, 'l3_wv': 7.88, 'l3_wup': 7.24, 'l3_wmix': 1.74} mem_rate None
+[   577s] imagenette_16shot_l3_spike_rate_s0 ep 10 loss 0.844 test 0.8900 transfer [0.89, 0.049, 0.379, 0.038] alpha {'l3_wk': 5.3, 'l3_wv': 7.25, 'l3_wup': 4.62, 'l3_wmix': 1.7} mem_rate None
+[   579s] imagenette_16shot_l3_spike_rate_s0 ep 15 loss 0.005 test 0.9775 transfer [0.978, 0.044, 0.361, 0.024] alpha {'l3_wk': 4.85, 'l3_wv': 7.03, 'l3_wup': 3.6, 'l3_wmix': 1.72} mem_rate None
+[   581s] imagenette_16shot_l3_spike_rate_s0 ep 20 loss 0.002 test 0.9762 transfer [0.976, 0.041, 0.36, 0.024] alpha {'l3_wk': 4.78, 'l3_wv': 7.0, 'l3_wup': 3.54, 'l3_wmix': 1.71} mem_rate None
+[   584s] imagenette_16shot_l3_spike_rate_s0 ep 25 loss 0.002 test 0.9762 transfer [0.976, 0.041, 0.36, 0.023] alpha {'l3_wk': 4.76, 'l3_wv': 6.97, 'l3_wup': 3.53, 'l3_wmix': 1.71} mem_rate None
+[   586s] imagenette_16shot_l3_spike_rate_s0 ep 30 loss 0.001 test 0.9762 transfer [0.976, 0.041, 0.364, 0.024] alpha {'l3_wk': 4.72, 'l3_wv': 6.88, 'l3_wup': 3.53, 'l3_wmix': 1.71} mem_rate None
+[   588s] imagenette_16shot_l3_spike_rate_s0 ep 35 loss 0.001 test 0.9762 transfer [0.976, 0.041, 0.366, 0.025] alpha {'l3_wk': 4.69, 'l3_wv': 6.76, 'l3_wup': 3.52, 'l3_wmix': 1.71} mem_rate None
+[   590s] imagenette_16shot_l3_spike_rate_s0 ep 40 loss 0.001 test 0.9762 transfer [0.976, 0.041, 0.366, 0.026] alpha {'l3_wk': 4.67, 'l3_wv': 6.61, 'l3_wup': 3.52, 'l3_wmix': 1.71} mem_rate None
+[   593s] pets_16shot_mlp_dense_s1 ep 5 loss 0.147 test 0.8512 transfer [0.981, 0.851, 0.879, 0.22] alpha {'adapter_down': 4.0, 'adapter_up': 1.46} mem_rate None
+[   594s] pets_16shot_mlp_dense_s1 ep 10 loss 0.026 test 0.8550 transfer [0.983, 0.855, 0.873, 0.217] alpha {'adapter_down': 3.06, 'adapter_up': 1.43} mem_rate None
+[   596s] pets_16shot_mlp_dense_s1 ep 15 loss 0.009 test 0.8537 transfer [0.979, 0.854, 0.869, 0.216] alpha {'adapter_down': 2.9, 'adapter_up': 1.42} mem_rate None
+[   597s] pets_16shot_mlp_dense_s1 ep 20 loss 0.004 test 0.8500 transfer [0.979, 0.85, 0.874, 0.211] alpha {'adapter_down': 2.85, 'adapter_up': 1.42} mem_rate None
+[   598s] pets_16shot_mlp_dense_s1 ep 25 loss 0.003 test 0.8450 transfer [0.98, 0.845, 0.873, 0.206] alpha {'adapter_down': 2.78, 'adapter_up': 1.42} mem_rate None
+[   599s] pets_16shot_mlp_dense_s1 ep 30 loss 0.002 test 0.8462 transfer [0.98, 0.846, 0.871, 0.204] alpha {'adapter_down': 2.76, 'adapter_up': 1.42} mem_rate None
+[   600s] pets_16shot_mlp_dense_s1 ep 35 loss 0.001 test 0.8462 transfer [0.981, 0.846, 0.874, 0.2] alpha {'adapter_down': 2.74, 'adapter_up': 1.42} mem_rate None
+[   601s] pets_16shot_mlp_dense_s1 ep 40 loss 0.001 test 0.8450 transfer [0.981, 0.845, 0.874, 0.196] alpha {'adapter_down': 2.69, 'adapter_up': 1.42} mem_rate None
+[   603s] pets_16shot_mlp_spike_s1 ep 5 loss 0.186 test 0.8650 transfer [0.98, 0.865, 0.876, 0.214] alpha {'adapter_down': 3.67, 'adapter_up': 1.51} mem_rate None
+[   604s] pets_16shot_mlp_spike_s1 ep 10 loss 0.023 test 0.8425 transfer [0.983, 0.842, 0.879, 0.212] alpha {'adapter_down': 3.14, 'adapter_up': 1.45} mem_rate None
+[   605s] pets_16shot_mlp_spike_s1 ep 15 loss 0.005 test 0.8263 transfer [0.983, 0.826, 0.877, 0.201] alpha {'adapter_down': 2.92, 'adapter_up': 1.44} mem_rate None
+[   606s] pets_16shot_mlp_spike_s1 ep 20 loss 0.001 test 0.8263 transfer [0.981, 0.826, 0.877, 0.199] alpha {'adapter_down': 2.89, 'adapter_up': 1.44} mem_rate None
+[   608s] pets_16shot_mlp_spike_s1 ep 25 loss 0.001 test 0.8238 transfer [0.98, 0.824, 0.877, 0.196] alpha {'adapter_down': 2.87, 'adapter_up': 1.44} mem_rate None
+[   609s] pets_16shot_mlp_spike_s1 ep 30 loss 0.000 test 0.8225 transfer [0.98, 0.822, 0.876, 0.194] alpha {'adapter_down': 2.86, 'adapter_up': 1.44} mem_rate None
+[   611s] pets_16shot_mlp_spike_s1 ep 35 loss 0.000 test 0.8188 transfer [0.979, 0.819, 0.875, 0.186] alpha {'adapter_down': 2.86, 'adapter_up': 1.43} mem_rate None
+[   613s] pets_16shot_mlp_spike_s1 ep 40 loss 0.000 test 0.8225 transfer [0.978, 0.822, 0.876, 0.181] alpha {'adapter_down': 2.81, 'adapter_up': 1.43} mem_rate None
+[   619s] pets_16shot_l3_dense_s1 ep 5 loss 0.511 test 0.7063 transfer [0.326, 0.706, 0.236, 0.052] alpha {'l3_wk': 8.04, 'l3_wv': 10.56, 'l3_wup': 6.71, 'l3_wmix': 1.62} mem_rate None
+[   621s] pets_16shot_l3_dense_s1 ep 10 loss 0.060 test 0.7100 transfer [0.316, 0.71, 0.23, 0.051] alpha {'l3_wk': 8.0, 'l3_wv': 4.22, 'l3_wup': 5.67, 'l3_wmix': 1.61} mem_rate None
+[   623s] pets_16shot_l3_dense_s1 ep 15 loss 0.018 test 0.7150 transfer [0.322, 0.715, 0.234, 0.053] alpha {'l3_wk': 8.41, 'l3_wv': 4.22, 'l3_wup': 5.69, 'l3_wmix': 1.61} mem_rate None
+[   625s] pets_16shot_l3_dense_s1 ep 20 loss 0.013 test 0.7250 transfer [0.331, 0.725, 0.229, 0.045] alpha {'l3_wk': 8.47, 'l3_wv': 4.23, 'l3_wup': 5.66, 'l3_wmix': 1.61} mem_rate None
+[   627s] pets_16shot_l3_dense_s1 ep 25 loss 0.004 test 0.7287 transfer [0.33, 0.729, 0.228, 0.046] alpha {'l3_wk': 8.54, 'l3_wv': 4.23, 'l3_wup': 5.67, 'l3_wmix': 1.61} mem_rate None
+[   628s] pets_16shot_l3_dense_s1 ep 30 loss 0.003 test 0.7275 transfer [0.331, 0.728, 0.228, 0.045] alpha {'l3_wk': 8.49, 'l3_wv': 4.24, 'l3_wup': 5.67, 'l3_wmix': 1.61} mem_rate None
+[   630s] pets_16shot_l3_dense_s1 ep 35 loss 0.002 test 0.7287 transfer [0.334, 0.729, 0.228, 0.045] alpha {'l3_wk': 8.43, 'l3_wv': 4.24, 'l3_wup': 5.68, 'l3_wmix': 1.61} mem_rate None
+[   632s] pets_16shot_l3_dense_s1 ep 40 loss 0.001 test 0.7312 transfer [0.334, 0.731, 0.23, 0.044] alpha {'l3_wk': 8.41, 'l3_wv': 11.29, 'l3_wup': 5.68, 'l3_wmix': 1.61} mem_rate None
+[   641s] pets_16shot_l3_spike_mem_s1 ep 5 loss 1.718 test 0.7325 transfer [0.1, 0.733, 0.159, 0.038] alpha {'l3_wk': 5.36, 'l3_wv': 8.52, 'l3_wup': 3.26, 'l3_wmix': 1.59} mem_rate 0.2534843683242798
+[   645s] pets_16shot_l3_spike_mem_s1 ep 10 loss 0.190 test 0.7738 transfer [0.101, 0.774, 0.155, 0.059] alpha {'l3_wk': 4.8, 'l3_wv': 5.66, 'l3_wup': 2.72, 'l3_wmix': 1.58} mem_rate 0.238343745470047
+[   649s] pets_16shot_l3_spike_mem_s1 ep 15 loss 0.061 test 0.7725 transfer [0.147, 0.772, 0.159, 0.06] alpha {'l3_wk': 5.13, 'l3_wv': 5.06, 'l3_wup': 2.63, 'l3_wmix': 1.57} mem_rate 0.22145313024520874
+[   652s] pets_16shot_l3_spike_mem_s1 ep 20 loss 0.027 test 0.7650 transfer [0.198, 0.765, 0.159, 0.069] alpha {'l3_wk': 5.42, 'l3_wv': 4.51, 'l3_wup': 2.57, 'l3_wmix': 1.57} mem_rate 0.2103593796491623
+[   656s] pets_16shot_l3_spike_mem_s1 ep 25 loss 0.012 test 0.7513 transfer [0.221, 0.751, 0.156, 0.072] alpha {'l3_wk': 5.42, 'l3_wv': 4.17, 'l3_wup': 2.53, 'l3_wmix': 1.57} mem_rate 0.2101718783378601
+[   660s] pets_16shot_l3_spike_mem_s1 ep 30 loss 0.007 test 0.7487 transfer [0.243, 0.749, 0.155, 0.073] alpha {'l3_wk': 5.34, 'l3_wv': 4.03, 'l3_wup': 2.47, 'l3_wmix': 1.56} mem_rate 0.21009375154972076
+[   665s] pets_16shot_l3_spike_mem_s1 ep 35 loss 0.004 test 0.7462 transfer [0.256, 0.746, 0.154, 0.075] alpha {'l3_wk': 5.22, 'l3_wv': 3.92, 'l3_wup': 2.44, 'l3_wmix': 1.57} mem_rate 0.20615625381469727
+[   669s] pets_16shot_l3_spike_mem_s1 ep 40 loss 0.003 test 0.7462 transfer [0.261, 0.746, 0.153, 0.077] alpha {'l3_wk': 5.25, 'l3_wv': 3.83, 'l3_wup': 2.43, 'l3_wmix': 1.56} mem_rate 0.20421874523162842
+[   677s] pets_16shot_l3_spike_rate_s1 ep 5 loss 1.723 test 0.7513 transfer [0.1, 0.751, 0.156, 0.043] alpha {'l3_wk': 4.36, 'l3_wv': 7.68, 'l3_wup': 3.04, 'l3_wmix': 1.61} mem_rate None
+[   681s] pets_16shot_l3_spike_rate_s1 ep 10 loss 0.197 test 0.7825 transfer [0.102, 0.783, 0.159, 0.058] alpha {'l3_wk': 4.1, 'l3_wv': 5.56, 'l3_wup': 2.77, 'l3_wmix': 1.59} mem_rate None
+[   685s] pets_16shot_l3_spike_rate_s1 ep 15 loss 0.065 test 0.7713 transfer [0.136, 0.771, 0.165, 0.07] alpha {'l3_wk': 3.67, 'l3_wv': 5.17, 'l3_wup': 2.7, 'l3_wmix': 1.59} mem_rate None
+[   688s] pets_16shot_l3_spike_rate_s1 ep 20 loss 0.029 test 0.7638 transfer [0.155, 0.764, 0.164, 0.07] alpha {'l3_wk': 3.35, 'l3_wv': 4.91, 'l3_wup': 2.65, 'l3_wmix': 1.58} mem_rate None
+[   692s] pets_16shot_l3_spike_rate_s1 ep 25 loss 0.015 test 0.7625 transfer [0.156, 0.762, 0.168, 0.075] alpha {'l3_wk': 3.18, 'l3_wv': 4.76, 'l3_wup': 2.57, 'l3_wmix': 1.58} mem_rate None
+[   696s] pets_16shot_l3_spike_rate_s1 ep 30 loss 0.009 test 0.7638 transfer [0.166, 0.764, 0.168, 0.074] alpha {'l3_wk': 3.14, 'l3_wv': 4.3, 'l3_wup': 2.51, 'l3_wmix': 1.58} mem_rate None
+[   700s] pets_16shot_l3_spike_rate_s1 ep 35 loss 0.005 test 0.7588 transfer [0.171, 0.759, 0.17, 0.077] alpha {'l3_wk': 2.98, 'l3_wv': 4.25, 'l3_wup': 2.49, 'l3_wmix': 1.58} mem_rate None
+[   704s] pets_16shot_l3_spike_rate_s1 ep 40 loss 0.004 test 0.7588 transfer [0.174, 0.759, 0.172, 0.077] alpha {'l3_wk': 2.98, 'l3_wv': 4.22, 'l3_wup': 2.48, 'l3_wmix': 1.58} mem_rate None
+[   707s] pets_fullshot_mlp_dense_s1 ep 5 loss 0.131 test 0.8687 transfer [0.976, 0.869, 0.889, 0.206] alpha {'adapter_down': 2.45, 'adapter_up': 1.38} mem_rate None
+[   709s] pets_fullshot_mlp_dense_s1 ep 10 loss 0.060 test 0.8750 transfer [0.971, 0.875, 0.879, 0.233] alpha {'adapter_down': 2.09, 'adapter_up': 1.36} mem_rate None
+[   710s] pets_fullshot_mlp_dense_s1 ep 15 loss 0.007 test 0.8763 transfer [0.966, 0.876, 0.871, 0.229] alpha {'adapter_down': 2.02, 'adapter_up': 1.35} mem_rate None
+[   713s] pets_fullshot_mlp_dense_s1 ep 20 loss 0.004 test 0.8650 transfer [0.962, 0.865, 0.86, 0.222] alpha {'adapter_down': 1.99, 'adapter_up': 1.35} mem_rate None
+[   715s] pets_fullshot_mlp_dense_s1 ep 25 loss 0.076 test 0.8388 transfer [0.961, 0.839, 0.839, 0.228] alpha {'adapter_down': 1.89, 'adapter_up': 1.35} mem_rate None
+[   719s] pets_fullshot_mlp_dense_s1 ep 30 loss 0.031 test 0.8662 transfer [0.936, 0.866, 0.841, 0.201] alpha {'adapter_down': 1.8, 'adapter_up': 1.34} mem_rate None
+[   722s] pets_fullshot_mlp_dense_s1 ep 35 loss 0.001 test 0.8750 transfer [0.933, 0.875, 0.829, 0.206] alpha {'adapter_down': 1.8, 'adapter_up': 1.33} mem_rate None
+[   725s] pets_fullshot_mlp_dense_s1 ep 40 loss 0.001 test 0.8737 transfer [0.931, 0.874, 0.821, 0.207] alpha {'adapter_down': 1.8, 'adapter_up': 1.34} mem_rate None
+[   730s] pets_fullshot_mlp_spike_s1 ep 5 loss 0.133 test 0.8850 transfer [0.98, 0.885, 0.882, 0.196] alpha {'adapter_down': 2.38, 'adapter_up': 1.43} mem_rate None
+[   733s] pets_fullshot_mlp_spike_s1 ep 10 loss 0.029 test 0.8737 transfer [0.966, 0.874, 0.865, 0.181] alpha {'adapter_down': 2.12, 'adapter_up': 1.41} mem_rate None
+[   738s] pets_fullshot_mlp_spike_s1 ep 15 loss 0.002 test 0.8662 transfer [0.962, 0.866, 0.856, 0.129] alpha {'adapter_down': 2.1, 'adapter_up': 1.41} mem_rate None
+[   742s] pets_fullshot_mlp_spike_s1 ep 20 loss 0.001 test 0.8587 transfer [0.962, 0.859, 0.845, 0.103] alpha {'adapter_down': 2.09, 'adapter_up': 1.41} mem_rate None
+[   745s] pets_fullshot_mlp_spike_s1 ep 25 loss 0.000 test 0.8562 transfer [0.964, 0.856, 0.835, 0.099] alpha {'adapter_down': 2.09, 'adapter_up': 1.41} mem_rate None
+[   749s] pets_fullshot_mlp_spike_s1 ep 30 loss 0.000 test 0.8475 transfer [0.964, 0.848, 0.829, 0.091] alpha {'adapter_down': 2.09, 'adapter_up': 1.41} mem_rate None
+[   753s] pets_fullshot_mlp_spike_s1 ep 35 loss 0.000 test 0.8450 transfer [0.964, 0.845, 0.819, 0.084] alpha {'adapter_down': 2.09, 'adapter_up': 1.4} mem_rate None
+[   757s] pets_fullshot_mlp_spike_s1 ep 40 loss 0.000 test 0.8462 transfer [0.962, 0.846, 0.811, 0.083] alpha {'adapter_down': 2.09, 'adapter_up': 1.4} mem_rate None
+[   779s] pets_fullshot_l3_dense_s1 ep 5 loss 0.319 test 0.7775 transfer [0.194, 0.777, 0.196, 0.038] alpha {'l3_wk': 6.49, 'l3_wv': 5.75, 'l3_wup': 6.62, 'l3_wmix': 1.58} mem_rate None
+[   784s] pets_fullshot_l3_dense_s1 ep 10 loss 0.136 test 0.7825 transfer [0.22, 0.783, 0.195, 0.08] alpha {'l3_wk': 4.36, 'l3_wv': 5.8, 'l3_wup': 6.48, 'l3_wmix': 1.55} mem_rate None
+[   788s] pets_fullshot_l3_dense_s1 ep 15 loss 0.076 test 0.8050 transfer [0.201, 0.805, 0.214, 0.041] alpha {'l3_wk': 4.05, 'l3_wv': 8.79, 'l3_wup': 7.36, 'l3_wmix': 1.53} mem_rate None
+[   793s] pets_fullshot_l3_dense_s1 ep 20 loss 0.113 test 0.8075 transfer [0.207, 0.808, 0.231, 0.041] alpha {'l3_wk': 3.6, 'l3_wv': 6.31, 'l3_wup': 6.73, 'l3_wmix': 1.53} mem_rate None
+[   798s] pets_fullshot_l3_dense_s1 ep 25 loss 0.122 test 0.7725 transfer [0.146, 0.772, 0.199, 0.033] alpha {'l3_wk': 3.24, 'l3_wv': 10.42, 'l3_wup': 5.63, 'l3_wmix': 1.52} mem_rate None
+[   802s] pets_fullshot_l3_dense_s1 ep 30 loss 0.039 test 0.8138 transfer [0.165, 0.814, 0.198, 0.035] alpha {'l3_wk': 2.74, 'l3_wv': 9.77, 'l3_wup': 4.82, 'l3_wmix': 1.52} mem_rate None
+[   807s] pets_fullshot_l3_dense_s1 ep 35 loss 0.010 test 0.8100 transfer [0.255, 0.81, 0.214, 0.042] alpha {'l3_wk': 2.73, 'l3_wv': 9.82, 'l3_wup': 4.75, 'l3_wmix': 1.52} mem_rate None
+[   812s] pets_fullshot_l3_dense_s1 ep 40 loss 0.004 test 0.8075 transfer [0.268, 0.808, 0.229, 0.061] alpha {'l3_wk': 2.75, 'l3_wv': 9.91, 'l3_wup': 6.79, 'l3_wmix': 1.52} mem_rate None
+[   845s] pets_fullshot_l3_spike_mem_s1 ep 5 loss 0.175 test 0.8425 transfer [0.188, 0.842, 0.172, 0.051] alpha {'l3_wk': 4.63, 'l3_wv': 4.54, 'l3_wup': 2.76, 'l3_wmix': 1.55} mem_rate 0.20490625500679016
+[   860s] pets_fullshot_l3_spike_mem_s1 ep 10 loss 0.022 test 0.8525 transfer [0.38, 0.853, 0.219, 0.16] alpha {'l3_wk': 4.08, 'l3_wv': 4.37, 'l3_wup': 2.67, 'l3_wmix': 1.55} mem_rate 0.19407811760902405
+[   876s] pets_fullshot_l3_spike_mem_s1 ep 15 loss 0.002 test 0.8450 transfer [0.479, 0.845, 0.33, 0.198] alpha {'l3_wk': 4.09, 'l3_wv': 4.25, 'l3_wup': 2.67, 'l3_wmix': 1.55} mem_rate 0.18229687213897705
+[   891s] pets_fullshot_l3_spike_mem_s1 ep 20 loss 0.000 test 0.8525 transfer [0.486, 0.853, 0.417, 0.207] alpha {'l3_wk': 4.12, 'l3_wv': 4.21, 'l3_wup': 2.67, 'l3_wmix': 1.55} mem_rate 0.1836874932050705
+[   906s] pets_fullshot_l3_spike_mem_s1 ep 25 loss 0.000 test 0.8500 transfer [0.512, 0.85, 0.46, 0.2] alpha {'l3_wk': 4.35, 'l3_wv': 4.17, 'l3_wup': 2.66, 'l3_wmix': 1.55} mem_rate 0.1841093748807907
+[   921s] pets_fullshot_l3_spike_mem_s1 ep 30 loss 0.000 test 0.8450 transfer [0.516, 0.845, 0.48, 0.206] alpha {'l3_wk': 4.3, 'l3_wv': 4.11, 'l3_wup': 2.66, 'l3_wmix': 1.55} mem_rate 0.18229687213897705
+[   937s] pets_fullshot_l3_spike_mem_s1 ep 35 loss 0.000 test 0.8475 transfer [0.519, 0.848, 0.494, 0.204] alpha {'l3_wk': 4.2, 'l3_wv': 4.09, 'l3_wup': 2.65, 'l3_wmix': 1.55} mem_rate 0.1808750033378601
+[   953s] pets_fullshot_l3_spike_mem_s1 ep 40 loss 0.000 test 0.8500 transfer [0.522, 0.85, 0.499, 0.2] alpha {'l3_wk': 4.35, 'l3_wv': 4.06, 'l3_wup': 2.65, 'l3_wmix': 1.55} mem_rate 0.1804218739271164
+[   983s] pets_fullshot_l3_spike_rate_s1 ep 5 loss 0.163 test 0.8375 transfer [0.175, 0.837, 0.159, 0.049] alpha {'l3_wk': 2.91, 'l3_wv': 4.89, 'l3_wup': 2.92, 'l3_wmix': 1.56} mem_rate None
+[   998s] pets_fullshot_l3_spike_rate_s1 ep 10 loss 0.007 test 0.8450 transfer [0.282, 0.845, 0.213, 0.126] alpha {'l3_wk': 3.55, 'l3_wv': 4.38, 'l3_wup': 2.64, 'l3_wmix': 1.56} mem_rate None
+[  1011s] pets_fullshot_l3_spike_rate_s1 ep 15 loss 0.001 test 0.8425 transfer [0.341, 0.842, 0.234, 0.153] alpha {'l3_wk': 3.49, 'l3_wv': 4.33, 'l3_wup': 2.61, 'l3_wmix': 1.55} mem_rate None
+[  1026s] pets_fullshot_l3_spike_rate_s1 ep 20 loss 0.000 test 0.8462 transfer [0.371, 0.846, 0.255, 0.17] alpha {'l3_wk': 3.54, 'l3_wv': 4.3, 'l3_wup': 2.56, 'l3_wmix': 1.55} mem_rate None
+[  1040s] pets_fullshot_l3_spike_rate_s1 ep 25 loss 0.000 test 0.8450 transfer [0.401, 0.845, 0.281, 0.177] alpha {'l3_wk': 3.49, 'l3_wv': 4.24, 'l3_wup': 2.55, 'l3_wmix': 1.55} mem_rate None
+[  1055s] pets_fullshot_l3_spike_rate_s1 ep 30 loss 0.000 test 0.8450 transfer [0.423, 0.845, 0.319, 0.186] alpha {'l3_wk': 3.51, 'l3_wv': 4.23, 'l3_wup': 2.55, 'l3_wmix': 1.55} mem_rate None
+[  1070s] pets_fullshot_l3_spike_rate_s1 ep 35 loss 0.000 test 0.8462 transfer [0.44, 0.846, 0.343, 0.196] alpha {'l3_wk': 3.53, 'l3_wv': 4.22, 'l3_wup': 2.54, 'l3_wmix': 1.54} mem_rate None
+[  1084s] pets_fullshot_l3_spike_rate_s1 ep 40 loss 0.000 test 0.8438 transfer [0.456, 0.844, 0.36, 0.198] alpha {'l3_wk': 3.54, 'l3_wv': 4.22, 'l3_wup': 2.54, 'l3_wmix': 1.54} mem_rate None
+[  1086s] imagenette_16shot_mlp_dense_s1 ep 5 loss 0.002 test 0.9825 transfer [0.983, 0.822, 0.896, 0.174] alpha {'adapter_down': 6.16, 'adapter_up': 1.52} mem_rate None
+[  1087s] imagenette_16shot_mlp_dense_s1 ep 10 loss 0.000 test 0.9825 transfer [0.983, 0.83, 0.894, 0.179] alpha {'adapter_down': 4.39, 'adapter_up': 1.5} mem_rate None
+[  1088s] imagenette_16shot_mlp_dense_s1 ep 15 loss 0.000 test 0.9800 transfer [0.98, 0.83, 0.895, 0.179] alpha {'adapter_down': 4.23, 'adapter_up': 1.49} mem_rate None
+[  1089s] imagenette_16shot_mlp_dense_s1 ep 20 loss 0.000 test 0.9800 transfer [0.98, 0.831, 0.895, 0.181] alpha {'adapter_down': 4.22, 'adapter_up': 1.5} mem_rate None
+[  1090s] imagenette_16shot_mlp_dense_s1 ep 25 loss 0.000 test 0.9800 transfer [0.98, 0.831, 0.895, 0.18] alpha {'adapter_down': 4.22, 'adapter_up': 1.5} mem_rate None
+[  1091s] imagenette_16shot_mlp_dense_s1 ep 30 loss 0.000 test 0.9800 transfer [0.98, 0.831, 0.895, 0.18] alpha {'adapter_down': 4.21, 'adapter_up': 1.5} mem_rate None
+[  1092s] imagenette_16shot_mlp_dense_s1 ep 35 loss 0.000 test 0.9800 transfer [0.98, 0.831, 0.894, 0.18] alpha {'adapter_down': 4.21, 'adapter_up': 1.5} mem_rate None
+[  1092s] imagenette_16shot_mlp_dense_s1 ep 40 loss 0.000 test 0.9800 transfer [0.98, 0.83, 0.894, 0.18] alpha {'adapter_down': 4.21, 'adapter_up': 1.49} mem_rate None
+[  1094s] imagenette_16shot_mlp_spike_s1 ep 5 loss 0.001 test 0.9812 transfer [0.981, 0.827, 0.895, 0.176] alpha {'adapter_down': 6.4, 'adapter_up': 1.52} mem_rate None
+[  1096s] imagenette_16shot_mlp_spike_s1 ep 10 loss 0.000 test 0.9825 transfer [0.983, 0.829, 0.895, 0.19] alpha {'adapter_down': 4.47, 'adapter_up': 1.52} mem_rate None
+[  1097s] imagenette_16shot_mlp_spike_s1 ep 15 loss 0.000 test 0.9800 transfer [0.98, 0.829, 0.892, 0.191] alpha {'adapter_down': 4.0, 'adapter_up': 1.52} mem_rate None
+[  1098s] imagenette_16shot_mlp_spike_s1 ep 20 loss 0.000 test 0.9812 transfer [0.981, 0.829, 0.892, 0.189] alpha {'adapter_down': 3.98, 'adapter_up': 1.51} mem_rate None
+[  1098s] imagenette_16shot_mlp_spike_s1 ep 25 loss 0.000 test 0.9812 transfer [0.981, 0.829, 0.892, 0.188] alpha {'adapter_down': 3.97, 'adapter_up': 1.49} mem_rate None
+[  1099s] imagenette_16shot_mlp_spike_s1 ep 30 loss 0.000 test 0.9825 transfer [0.983, 0.829, 0.892, 0.188] alpha {'adapter_down': 3.96, 'adapter_up': 1.53} mem_rate None
+[  1101s] imagenette_16shot_mlp_spike_s1 ep 35 loss 0.000 test 0.9825 transfer [0.983, 0.83, 0.892, 0.185] alpha {'adapter_down': 3.95, 'adapter_up': 1.52} mem_rate None
+[  1102s] imagenette_16shot_mlp_spike_s1 ep 40 loss 0.000 test 0.9837 transfer [0.984, 0.83, 0.892, 0.185] alpha {'adapter_down': 3.94, 'adapter_up': 1.52} mem_rate None
+[  1105s] imagenette_16shot_l3_dense_s1 ep 5 loss 0.030 test 0.9525 transfer [0.952, 0.097, 0.476, 0.142] alpha {'l3_wk': 8.86, 'l3_wv': 14.71, 'l3_wup': 10.19, 'l3_wmix': 1.67} mem_rate None
+[  1107s] imagenette_16shot_l3_dense_s1 ep 10 loss 0.000 test 0.9513 transfer [0.951, 0.05, 0.463, 0.154] alpha {'l3_wk': 16.54, 'l3_wv': 14.92, 'l3_wup': 3.69, 'l3_wmix': 1.66} mem_rate None
+[  1108s] imagenette_16shot_l3_dense_s1 ep 15 loss 0.000 test 0.9488 transfer [0.949, 0.044, 0.455, 0.169] alpha {'l3_wk': 14.45, 'l3_wv': 13.0, 'l3_wup': 3.67, 'l3_wmix': 1.65} mem_rate None
+[  1109s] imagenette_16shot_l3_dense_s1 ep 20 loss 0.000 test 0.9488 transfer [0.949, 0.043, 0.456, 0.171] alpha {'l3_wk': 14.19, 'l3_wv': 13.03, 'l3_wup': 3.66, 'l3_wmix': 1.65} mem_rate None
+[  1110s] imagenette_16shot_l3_dense_s1 ep 25 loss 0.000 test 0.9488 transfer [0.949, 0.043, 0.456, 0.171] alpha {'l3_wk': 14.12, 'l3_wv': 13.04, 'l3_wup': 3.66, 'l3_wmix': 1.65} mem_rate None
+[  1112s] imagenette_16shot_l3_dense_s1 ep 30 loss 0.000 test 0.9488 transfer [0.949, 0.043, 0.455, 0.171] alpha {'l3_wk': 14.11, 'l3_wv': 13.05, 'l3_wup': 3.66, 'l3_wmix': 1.65} mem_rate None
+[  1113s] imagenette_16shot_l3_dense_s1 ep 35 loss 0.000 test 0.9488 transfer [0.949, 0.043, 0.455, 0.171] alpha {'l3_wk': 14.11, 'l3_wv': 13.05, 'l3_wup': 3.66, 'l3_wmix': 1.65} mem_rate None
+[  1115s] imagenette_16shot_l3_dense_s1 ep 40 loss 0.000 test 0.9488 transfer [0.949, 0.043, 0.455, 0.171] alpha {'l3_wk': 14.11, 'l3_wv': 13.06, 'l3_wup': 3.66, 'l3_wmix': 1.65} mem_rate None
+[  1119s] imagenette_16shot_l3_spike_mem_s1 ep 5 loss 0.108 test 0.9563 transfer [0.956, 0.051, 0.326, 0.071] alpha {'l3_wk': 9.06, 'l3_wv': 15.51, 'l3_wup': 4.32, 'l3_wmix': 1.7} mem_rate 0.22223436832427979
+[  1121s] imagenette_16shot_l3_spike_mem_s1 ep 10 loss 0.025 test 0.9162 transfer [0.916, 0.055, 0.224, 0.003] alpha {'l3_wk': 7.11, 'l3_wv': 12.56, 'l3_wup': 5.68, 'l3_wmix': 1.67} mem_rate 0.2741406261920929
+[  1124s] imagenette_16shot_l3_spike_mem_s1 ep 15 loss 0.004 test 0.9538 transfer [0.954, 0.054, 0.224, 0.006] alpha {'l3_wk': 7.03, 'l3_wv': 4.82, 'l3_wup': 5.32, 'l3_wmix': 1.67} mem_rate 0.279421865940094
+[  1126s] imagenette_16shot_l3_spike_mem_s1 ep 20 loss 0.002 test 0.9638 transfer [0.964, 0.054, 0.228, 0.01] alpha {'l3_wk': 7.01, 'l3_wv': 4.76, 'l3_wup': 5.14, 'l3_wmix': 1.67} mem_rate 0.2815312445163727
+[  1129s] imagenette_16shot_l3_spike_mem_s1 ep 25 loss 0.001 test 0.9688 transfer [0.969, 0.054, 0.23, 0.012] alpha {'l3_wk': 6.99, 'l3_wv': 8.99, 'l3_wup': 5.06, 'l3_wmix': 1.67} mem_rate 0.28098437190055847
+[  1131s] imagenette_16shot_l3_spike_mem_s1 ep 30 loss 0.001 test 0.9750 transfer [0.975, 0.054, 0.231, 0.014] alpha {'l3_wk': 6.98, 'l3_wv': 8.66, 'l3_wup': 5.02, 'l3_wmix': 1.67} mem_rate 0.28037500381469727
+[  1134s] imagenette_16shot_l3_spike_mem_s1 ep 35 loss 0.001 test 0.9762 transfer [0.976, 0.054, 0.234, 0.014] alpha {'l3_wk': 6.96, 'l3_wv': 7.64, 'l3_wup': 4.99, 'l3_wmix': 1.67} mem_rate 0.28154686093330383
+[  1136s] imagenette_16shot_l3_spike_mem_s1 ep 40 loss 0.000 test 0.9762 transfer [0.976, 0.054, 0.234, 0.016] alpha {'l3_wk': 6.91, 'l3_wv': 8.04, 'l3_wup': 4.97, 'l3_wmix': 1.67} mem_rate 0.2804843783378601
+[  1141s] imagenette_16shot_l3_spike_rate_s1 ep 5 loss 0.102 test 0.9613 transfer [0.961, 0.051, 0.311, 0.044] alpha {'l3_wk': 8.18, 'l3_wv': 10.8, 'l3_wup': 5.11, 'l3_wmix': 1.7} mem_rate None
+[  1143s] imagenette_16shot_l3_spike_rate_s1 ep 10 loss 0.032 test 0.9087 transfer [0.909, 0.054, 0.219, 0.002] alpha {'l3_wk': 6.25, 'l3_wv': 10.61, 'l3_wup': 7.92, 'l3_wmix': 1.69} mem_rate None
+[  1146s] imagenette_16shot_l3_spike_rate_s1 ep 15 loss 0.004 test 0.9475 transfer [0.947, 0.054, 0.219, 0.005] alpha {'l3_wk': 5.81, 'l3_wv': 10.12, 'l3_wup': 5.03, 'l3_wmix': 1.69} mem_rate None
+[  1148s] imagenette_16shot_l3_spike_rate_s1 ep 20 loss 0.001 test 0.9663 transfer [0.966, 0.054, 0.224, 0.01] alpha {'l3_wk': 5.63, 'l3_wv': 9.06, 'l3_wup': 4.88, 'l3_wmix': 1.68} mem_rate None
+[  1150s] imagenette_16shot_l3_spike_rate_s1 ep 25 loss 0.001 test 0.9700 transfer [0.97, 0.055, 0.226, 0.011] alpha {'l3_wk': 5.25, 'l3_wv': 4.76, 'l3_wup': 4.82, 'l3_wmix': 1.68} mem_rate None
+[  1153s] imagenette_16shot_l3_spike_rate_s1 ep 30 loss 0.001 test 0.9750 transfer [0.975, 0.054, 0.226, 0.012] alpha {'l3_wk': 5.37, 'l3_wv': 5.66, 'l3_wup': 4.62, 'l3_wmix': 1.68} mem_rate None
+[  1155s] imagenette_16shot_l3_spike_rate_s1 ep 35 loss 0.001 test 0.9750 transfer [0.975, 0.054, 0.228, 0.013] alpha {'l3_wk': 5.29, 'l3_wv': 5.65, 'l3_wup': 4.61, 'l3_wmix': 1.68} mem_rate None
+[  1157s] imagenette_16shot_l3_spike_rate_s1 ep 40 loss 0.000 test 0.9750 transfer [0.975, 0.054, 0.228, 0.014] alpha {'l3_wk': 5.29, 'l3_wv': 5.63, 'l3_wup': 5.11, 'l3_wmix': 1.68} mem_rate None
+[  1158s] pets_16shot_mlp_dense_s2 ep 5 loss 0.141 test 0.8600 transfer [0.981, 0.86, 0.886, 0.204] alpha {'adapter_down': 3.82, 'adapter_up': 1.47} mem_rate None
+[  1159s] pets_16shot_mlp_dense_s2 ep 10 loss 0.023 test 0.8737 transfer [0.98, 0.874, 0.892, 0.213] alpha {'adapter_down': 3.13, 'adapter_up': 1.45} mem_rate None
+[  1160s] pets_16shot_mlp_dense_s2 ep 15 loss 0.009 test 0.8687 transfer [0.98, 0.869, 0.891, 0.215] alpha {'adapter_down': 2.95, 'adapter_up': 1.44} mem_rate None
+[  1162s] pets_16shot_mlp_dense_s2 ep 20 loss 0.004 test 0.8687 transfer [0.979, 0.869, 0.891, 0.212] alpha {'adapter_down': 2.9, 'adapter_up': 1.43} mem_rate None
+[  1164s] pets_16shot_mlp_dense_s2 ep 25 loss 0.002 test 0.8725 transfer [0.978, 0.873, 0.892, 0.216] alpha {'adapter_down': 2.81, 'adapter_up': 1.43} mem_rate None
+[  1165s] pets_16shot_mlp_dense_s2 ep 30 loss 0.002 test 0.8712 transfer [0.978, 0.871, 0.89, 0.216] alpha {'adapter_down': 2.75, 'adapter_up': 1.43} mem_rate None
+[  1166s] pets_16shot_mlp_dense_s2 ep 35 loss 0.001 test 0.8712 transfer [0.978, 0.871, 0.882, 0.21] alpha {'adapter_down': 2.73, 'adapter_up': 1.43} mem_rate None
+[  1168s] pets_16shot_mlp_dense_s2 ep 40 loss 0.001 test 0.8687 transfer [0.978, 0.869, 0.879, 0.211] alpha {'adapter_down': 2.72, 'adapter_up': 1.43} mem_rate None
+[  1170s] pets_16shot_mlp_spike_s2 ep 5 loss 0.228 test 0.8587 transfer [0.981, 0.859, 0.884, 0.193] alpha {'adapter_down': 3.61, 'adapter_up': 1.52} mem_rate None
+[  1172s] pets_16shot_mlp_spike_s2 ep 10 loss 0.017 test 0.8600 transfer [0.981, 0.86, 0.892, 0.201] alpha {'adapter_down': 2.91, 'adapter_up': 1.48} mem_rate None
+[  1174s] pets_16shot_mlp_spike_s2 ep 15 loss 0.003 test 0.8687 transfer [0.979, 0.869, 0.895, 0.19] alpha {'adapter_down': 2.86, 'adapter_up': 1.45} mem_rate None
+[  1175s] pets_16shot_mlp_spike_s2 ep 20 loss 0.001 test 0.8700 transfer [0.979, 0.87, 0.89, 0.188] alpha {'adapter_down': 2.85, 'adapter_up': 1.45} mem_rate None
+[  1177s] pets_16shot_mlp_spike_s2 ep 25 loss 0.001 test 0.8725 transfer [0.978, 0.873, 0.89, 0.18] alpha {'adapter_down': 2.84, 'adapter_up': 1.45} mem_rate None
+[  1178s] pets_16shot_mlp_spike_s2 ep 30 loss 0.000 test 0.8687 transfer [0.978, 0.869, 0.889, 0.172] alpha {'adapter_down': 2.85, 'adapter_up': 1.44} mem_rate None
+[  1180s] pets_16shot_mlp_spike_s2 ep 35 loss 0.000 test 0.8675 transfer [0.978, 0.868, 0.881, 0.166] alpha {'adapter_down': 2.85, 'adapter_up': 1.44} mem_rate None
+[  1181s] pets_16shot_mlp_spike_s2 ep 40 loss 0.000 test 0.8687 transfer [0.978, 0.869, 0.88, 0.16] alpha {'adapter_down': 2.85, 'adapter_up': 1.44} mem_rate None
+[  1188s] pets_16shot_l3_dense_s2 ep 5 loss 0.511 test 0.7013 transfer [0.29, 0.701, 0.151, 0.026] alpha {'l3_wk': 7.86, 'l3_wv': 13.03, 'l3_wup': 10.37, 'l3_wmix': 1.62} mem_rate None
+[  1189s] pets_16shot_l3_dense_s2 ep 10 loss 0.088 test 0.7387 transfer [0.285, 0.739, 0.149, 0.034] alpha {'l3_wk': 7.93, 'l3_wv': 11.49, 'l3_wup': 4.58, 'l3_wmix': 1.6} mem_rate None
+[  1192s] pets_16shot_l3_dense_s2 ep 15 loss 0.052 test 0.7275 transfer [0.294, 0.728, 0.149, 0.035] alpha {'l3_wk': 7.82, 'l3_wv': 11.84, 'l3_wup': 4.74, 'l3_wmix': 1.61} mem_rate None
+[  1194s] pets_16shot_l3_dense_s2 ep 20 loss 0.008 test 0.7275 transfer [0.289, 0.728, 0.15, 0.037] alpha {'l3_wk': 7.82, 'l3_wv': 11.84, 'l3_wup': 4.75, 'l3_wmix': 1.6} mem_rate None
+[  1196s] pets_16shot_l3_dense_s2 ep 25 loss 0.002 test 0.7262 transfer [0.3, 0.726, 0.15, 0.04] alpha {'l3_wk': 7.76, 'l3_wv': 11.85, 'l3_wup': 4.75, 'l3_wmix': 1.6} mem_rate None
+[  1197s] pets_16shot_l3_dense_s2 ep 30 loss 0.002 test 0.7225 transfer [0.303, 0.723, 0.149, 0.041] alpha {'l3_wk': 7.74, 'l3_wv': 11.87, 'l3_wup': 4.75, 'l3_wmix': 1.6} mem_rate None
+[  1199s] pets_16shot_l3_dense_s2 ep 35 loss 0.001 test 0.7237 transfer [0.306, 0.724, 0.15, 0.042] alpha {'l3_wk': 8.22, 'l3_wv': 11.87, 'l3_wup': 4.75, 'l3_wmix': 1.6} mem_rate None
+[  1201s] pets_16shot_l3_dense_s2 ep 40 loss 0.001 test 0.7262 transfer [0.31, 0.726, 0.15, 0.043] alpha {'l3_wk': 8.23, 'l3_wv': 11.88, 'l3_wup': 4.75, 'l3_wmix': 1.6} mem_rate None
+[  1209s] pets_16shot_l3_spike_mem_s2 ep 5 loss 1.487 test 0.7225 transfer [0.156, 0.723, 0.177, 0.023] alpha {'l3_wk': 5.46, 'l3_wv': 4.76, 'l3_wup': 3.12, 'l3_wmix': 1.59} mem_rate 0.24589063227176666
+[  1213s] pets_16shot_l3_spike_mem_s2 ep 10 loss 0.175 test 0.7638 transfer [0.136, 0.764, 0.177, 0.027] alpha {'l3_wk': 5.53, 'l3_wv': 5.92, 'l3_wup': 2.64, 'l3_wmix': 1.58} mem_rate 0.21595312654972076
+[  1217s] pets_16shot_l3_spike_mem_s2 ep 15 loss 0.068 test 0.7700 transfer [0.142, 0.77, 0.175, 0.038] alpha {'l3_wk': 5.28, 'l3_wv': 4.5, 'l3_wup': 2.57, 'l3_wmix': 1.56} mem_rate 0.17826563119888306
+[  1222s] pets_16shot_l3_spike_mem_s2 ep 20 loss 0.028 test 0.7525 transfer [0.141, 0.752, 0.175, 0.048] alpha {'l3_wk': 5.08, 'l3_wv': 4.44, 'l3_wup': 2.52, 'l3_wmix': 1.56} mem_rate 0.17159375548362732
+[  1226s] pets_16shot_l3_spike_mem_s2 ep 25 loss 0.013 test 0.7588 transfer [0.149, 0.759, 0.174, 0.052] alpha {'l3_wk': 5.16, 'l3_wv': 4.15, 'l3_wup': 2.46, 'l3_wmix': 1.56} mem_rate 0.17204686999320984
+[  1232s] pets_16shot_l3_spike_mem_s2 ep 30 loss 0.007 test 0.7500 transfer [0.157, 0.75, 0.176, 0.055] alpha {'l3_wk': 4.97, 'l3_wv': 3.93, 'l3_wup': 2.42, 'l3_wmix': 1.55} mem_rate 0.17112499475479126
+[  1236s] pets_16shot_l3_spike_mem_s2 ep 35 loss 0.004 test 0.7500 transfer [0.159, 0.75, 0.18, 0.059] alpha {'l3_wk': 5.46, 'l3_wv': 3.86, 'l3_wup': 2.41, 'l3_wmix': 1.56} mem_rate 0.16770312190055847
+[  1240s] pets_16shot_l3_spike_mem_s2 ep 40 loss 0.003 test 0.7437 transfer [0.164, 0.744, 0.18, 0.063] alpha {'l3_wk': 5.37, 'l3_wv': 3.76, 'l3_wup': 2.38, 'l3_wmix': 1.56} mem_rate 0.16801562905311584
+[  1248s] pets_16shot_l3_spike_rate_s2 ep 5 loss 1.422 test 0.7100 transfer [0.156, 0.71, 0.175, 0.023] alpha {'l3_wk': 4.11, 'l3_wv': 6.54, 'l3_wup': 3.01, 'l3_wmix': 1.62} mem_rate None
+[  1252s] pets_16shot_l3_spike_rate_s2 ep 10 loss 0.189 test 0.7763 transfer [0.123, 0.776, 0.175, 0.025] alpha {'l3_wk': 4.3, 'l3_wv': 5.55, 'l3_wup': 2.83, 'l3_wmix': 1.59} mem_rate None
+[  1256s] pets_16shot_l3_spike_rate_s2 ep 15 loss 0.077 test 0.7862 transfer [0.14, 0.786, 0.171, 0.032] alpha {'l3_wk': 3.71, 'l3_wv': 4.98, 'l3_wup': 2.72, 'l3_wmix': 1.58} mem_rate None
+[  1259s] pets_16shot_l3_spike_rate_s2 ep 20 loss 0.033 test 0.7725 transfer [0.159, 0.772, 0.174, 0.036] alpha {'l3_wk': 3.4, 'l3_wv': 4.7, 'l3_wup': 2.62, 'l3_wmix': 1.58} mem_rate None
+[  1263s] pets_16shot_l3_spike_rate_s2 ep 25 loss 0.015 test 0.7763 transfer [0.171, 0.776, 0.174, 0.043] alpha {'l3_wk': 2.98, 'l3_wv': 4.32, 'l3_wup': 2.59, 'l3_wmix': 1.57} mem_rate None
+[  1267s] pets_16shot_l3_spike_rate_s2 ep 30 loss 0.009 test 0.7675 transfer [0.176, 0.767, 0.175, 0.046] alpha {'l3_wk': 2.98, 'l3_wv': 4.28, 'l3_wup': 2.55, 'l3_wmix': 1.57} mem_rate None
+[  1271s] pets_16shot_l3_spike_rate_s2 ep 35 loss 0.005 test 0.7563 transfer [0.188, 0.756, 0.176, 0.047] alpha {'l3_wk': 2.98, 'l3_wv': 4.26, 'l3_wup': 2.53, 'l3_wmix': 1.58} mem_rate None
+[  1275s] pets_16shot_l3_spike_rate_s2 ep 40 loss 0.003 test 0.7538 transfer [0.195, 0.754, 0.176, 0.051] alpha {'l3_wk': 2.97, 'l3_wv': 4.23, 'l3_wup': 2.48, 'l3_wmix': 1.58} mem_rate None
+[  1279s] pets_fullshot_mlp_dense_s2 ep 5 loss 0.116 test 0.8662 transfer [0.974, 0.866, 0.875, 0.241] alpha {'adapter_down': 2.45, 'adapter_up': 1.39} mem_rate None
+[  1281s] pets_fullshot_mlp_dense_s2 ep 10 loss 0.040 test 0.8662 transfer [0.971, 0.866, 0.869, 0.235] alpha {'adapter_down': 2.13, 'adapter_up': 1.37} mem_rate None
+[  1284s] pets_fullshot_mlp_dense_s2 ep 15 loss 0.029 test 0.8600 transfer [0.965, 0.86, 0.865, 0.237] alpha {'adapter_down': 2.03, 'adapter_up': 1.35} mem_rate None
+[  1285s] pets_fullshot_mlp_dense_s2 ep 20 loss 0.019 test 0.8637 transfer [0.961, 0.864, 0.864, 0.241] alpha {'adapter_down': 1.96, 'adapter_up': 1.35} mem_rate None
+[  1288s] pets_fullshot_mlp_dense_s2 ep 25 loss 0.005 test 0.8650 transfer [0.96, 0.865, 0.848, 0.221] alpha {'adapter_down': 1.93, 'adapter_up': 1.35} mem_rate None
+[  1291s] pets_fullshot_mlp_dense_s2 ep 30 loss 0.076 test 0.8338 transfer [0.95, 0.834, 0.83, 0.251] alpha {'adapter_down': 1.84, 'adapter_up': 1.35} mem_rate None
+[  1293s] pets_fullshot_mlp_dense_s2 ep 35 loss 0.009 test 0.8575 transfer [0.931, 0.858, 0.809, 0.216] alpha {'adapter_down': 1.78, 'adapter_up': 1.34} mem_rate None
+[  1297s] pets_fullshot_mlp_dense_s2 ep 40 loss 0.001 test 0.8625 transfer [0.925, 0.863, 0.795, 0.212] alpha {'adapter_down': 1.78, 'adapter_up': 1.35} mem_rate None
+[  1303s] pets_fullshot_mlp_spike_s2 ep 5 loss 0.129 test 0.8863 transfer [0.965, 0.886, 0.88, 0.223] alpha {'adapter_down': 2.3, 'adapter_up': 1.45} mem_rate None
+[  1306s] pets_fullshot_mlp_spike_s2 ep 10 loss 0.021 test 0.8712 transfer [0.955, 0.871, 0.869, 0.187] alpha {'adapter_down': 2.14, 'adapter_up': 1.42} mem_rate None
+[  1309s] pets_fullshot_mlp_spike_s2 ep 15 loss 0.003 test 0.8700 transfer [0.941, 0.87, 0.859, 0.142] alpha {'adapter_down': 2.12, 'adapter_up': 1.42} mem_rate None
+[  1312s] pets_fullshot_mlp_spike_s2 ep 20 loss 0.001 test 0.8650 transfer [0.941, 0.865, 0.85, 0.128] alpha {'adapter_down': 2.09, 'adapter_up': 1.42} mem_rate None
+[  1316s] pets_fullshot_mlp_spike_s2 ep 25 loss 0.000 test 0.8600 transfer [0.941, 0.86, 0.845, 0.114] alpha {'adapter_down': 2.09, 'adapter_up': 1.42} mem_rate None
+[  1319s] pets_fullshot_mlp_spike_s2 ep 30 loss 0.000 test 0.8600 transfer [0.941, 0.86, 0.839, 0.101] alpha {'adapter_down': 2.09, 'adapter_up': 1.42} mem_rate None
+[  1323s] pets_fullshot_mlp_spike_s2 ep 35 loss 0.000 test 0.8600 transfer [0.94, 0.86, 0.832, 0.095] alpha {'adapter_down': 2.08, 'adapter_up': 1.42} mem_rate None
+[  1327s] pets_fullshot_mlp_spike_s2 ep 40 loss 0.000 test 0.8575 transfer [0.939, 0.858, 0.829, 0.089] alpha {'adapter_down': 2.08, 'adapter_up': 1.42} mem_rate None
+[  1350s] pets_fullshot_l3_dense_s2 ep 5 loss 0.313 test 0.7600 transfer [0.144, 0.76, 0.16, 0.057] alpha {'l3_wk': 6.16, 'l3_wv': 11.73, 'l3_wup': 5.34, 'l3_wmix': 1.57} mem_rate None
+[  1355s] pets_fullshot_l3_dense_s2 ep 10 loss 0.180 test 0.8037 transfer [0.141, 0.804, 0.154, 0.06] alpha {'l3_wk': 3.98, 'l3_wv': 9.6, 'l3_wup': 7.16, 'l3_wmix': 1.54} mem_rate None
+[  1360s] pets_fullshot_l3_dense_s2 ep 15 loss 0.056 test 0.8025 transfer [0.147, 0.803, 0.15, 0.058] alpha {'l3_wk': 3.48, 'l3_wv': 9.9, 'l3_wup': 7.72, 'l3_wmix': 1.53} mem_rate None
+[  1365s] pets_fullshot_l3_dense_s2 ep 20 loss 0.058 test 0.8000 transfer [0.141, 0.8, 0.153, 0.043] alpha {'l3_wk': 3.38, 'l3_wv': 9.49, 'l3_wup': 6.58, 'l3_wmix': 1.53} mem_rate None
+[  1370s] pets_fullshot_l3_dense_s2 ep 25 loss 0.015 test 0.8112 transfer [0.141, 0.811, 0.156, 0.055] alpha {'l3_wk': 3.09, 'l3_wv': 4.29, 'l3_wup': 6.58, 'l3_wmix': 1.52} mem_rate None
+[  1375s] pets_fullshot_l3_dense_s2 ep 30 loss 0.038 test 0.8075 transfer [0.146, 0.808, 0.156, 0.053] alpha {'l3_wk': 3.18, 'l3_wv': 8.66, 'l3_wup': 6.23, 'l3_wmix': 1.53} mem_rate None
+[  1379s] pets_fullshot_l3_dense_s2 ep 35 loss 0.035 test 0.7837 transfer [0.145, 0.784, 0.144, 0.052] alpha {'l3_wk': 3.01, 'l3_wv': 8.06, 'l3_wup': 5.38, 'l3_wmix': 1.52} mem_rate None
+[  1384s] pets_fullshot_l3_dense_s2 ep 40 loss 0.074 test 0.7925 transfer [0.15, 0.793, 0.145, 0.051] alpha {'l3_wk': 2.65, 'l3_wv': 7.79, 'l3_wup': 4.83, 'l3_wmix': 1.51} mem_rate None
+[  1416s] pets_fullshot_l3_spike_mem_s2 ep 5 loss 0.167 test 0.8325 transfer [0.209, 0.832, 0.174, 0.047] alpha {'l3_wk': 4.69, 'l3_wv': 5.63, 'l3_wup': 3.06, 'l3_wmix': 1.59} mem_rate 0.22206249833106995
+[  1431s] pets_fullshot_l3_spike_mem_s2 ep 10 loss 0.015 test 0.8500 transfer [0.379, 0.85, 0.24, 0.049] alpha {'l3_wk': 4.43, 'l3_wv': 4.58, 'l3_wup': 2.9, 'l3_wmix': 1.56} mem_rate 0.15276563167572021
+[  1448s] pets_fullshot_l3_spike_mem_s2 ep 15 loss 0.001 test 0.8487 transfer [0.425, 0.849, 0.324, 0.058] alpha {'l3_wk': 3.98, 'l3_wv': 4.4, 'l3_wup': 2.87, 'l3_wmix': 1.56} mem_rate 0.14939062297344208
+[  1463s] pets_fullshot_l3_spike_mem_s2 ep 20 loss 0.139 test 0.8200 transfer [0.26, 0.82, 0.177, 0.048] alpha {'l3_wk': 3.86, 'l3_wv': 3.93, 'l3_wup': 2.89, 'l3_wmix': 1.55} mem_rate 0.3520781397819519
+[  1479s] pets_fullshot_l3_spike_mem_s2 ep 25 loss 0.002 test 0.8512 transfer [0.317, 0.851, 0.234, 0.061] alpha {'l3_wk': 3.97, 'l3_wv': 3.67, 'l3_wup': 2.75, 'l3_wmix': 1.54} mem_rate 0.34898436069488525
+[  1494s] pets_fullshot_l3_spike_mem_s2 ep 30 loss 0.001 test 0.8450 transfer [0.338, 0.845, 0.273, 0.085] alpha {'l3_wk': 3.97, 'l3_wv': 3.64, 'l3_wup': 2.74, 'l3_wmix': 1.54} mem_rate 0.3492499887943268
+[  1510s] pets_fullshot_l3_spike_mem_s2 ep 35 loss 0.000 test 0.8438 transfer [0.346, 0.844, 0.301, 0.097] alpha {'l3_wk': 3.94, 'l3_wv': 3.62, 'l3_wup': 2.74, 'l3_wmix': 1.54} mem_rate 0.3490937352180481
+[  1525s] pets_fullshot_l3_spike_mem_s2 ep 40 loss 0.000 test 0.8438 transfer [0.355, 0.844, 0.319, 0.104] alpha {'l3_wk': 3.92, 'l3_wv': 3.47, 'l3_wup': 2.73, 'l3_wmix': 1.54} mem_rate 0.3487499952316284
+[  1556s] pets_fullshot_l3_spike_rate_s2 ep 5 loss 0.160 test 0.8300 transfer [0.205, 0.83, 0.165, 0.046] alpha {'l3_wk': 3.3, 'l3_wv': 5.22, 'l3_wup': 2.82, 'l3_wmix': 1.57} mem_rate None
+[  1570s] pets_fullshot_l3_spike_rate_s2 ep 10 loss 0.010 test 0.8413 transfer [0.265, 0.841, 0.203, 0.046] alpha {'l3_wk': 2.31, 'l3_wv': 4.62, 'l3_wup': 2.89, 'l3_wmix': 1.56} mem_rate None
+[  1583s] pets_fullshot_l3_spike_rate_s2 ep 15 loss 0.001 test 0.8475 transfer [0.338, 0.848, 0.23, 0.048] alpha {'l3_wk': 2.29, 'l3_wv': 4.53, 'l3_wup': 2.84, 'l3_wmix': 1.57} mem_rate None
+[  1597s] pets_fullshot_l3_spike_rate_s2 ep 20 loss 0.000 test 0.8487 transfer [0.36, 0.849, 0.256, 0.05] alpha {'l3_wk': 2.27, 'l3_wv': 4.47, 'l3_wup': 2.82, 'l3_wmix': 1.57} mem_rate None
+[  1610s] pets_fullshot_l3_spike_rate_s2 ep 25 loss 0.000 test 0.8475 transfer [0.384, 0.848, 0.274, 0.054] alpha {'l3_wk': 2.25, 'l3_wv': 4.44, 'l3_wup': 2.81, 'l3_wmix': 1.57} mem_rate None
+[  1625s] pets_fullshot_l3_spike_rate_s2 ep 30 loss 0.000 test 0.8450 transfer [0.407, 0.845, 0.304, 0.059] alpha {'l3_wk': 2.21, 'l3_wv': 4.36, 'l3_wup': 2.8, 'l3_wmix': 1.57} mem_rate None
+[  1638s] pets_fullshot_l3_spike_rate_s2 ep 35 loss 0.000 test 0.8475 transfer [0.416, 0.848, 0.317, 0.06] alpha {'l3_wk': 2.2, 'l3_wv': 4.34, 'l3_wup': 2.79, 'l3_wmix': 1.56} mem_rate None
+[  1652s] pets_fullshot_l3_spike_rate_s2 ep 40 loss 0.000 test 0.8462 transfer [0.425, 0.846, 0.34, 0.067] alpha {'l3_wk': 2.2, 'l3_wv': 4.33, 'l3_wup': 2.78, 'l3_wmix': 1.56} mem_rate None
+[  1655s] imagenette_16shot_mlp_dense_s2 ep 5 loss 0.001 test 0.9812 transfer [0.981, 0.836, 0.894, 0.163] alpha {'adapter_down': 6.08, 'adapter_up': 1.51} mem_rate None
+[  1655s] imagenette_16shot_mlp_dense_s2 ep 10 loss 0.000 test 0.9837 transfer [0.984, 0.835, 0.896, 0.15] alpha {'adapter_down': 4.99, 'adapter_up': 1.5} mem_rate None
+[  1657s] imagenette_16shot_mlp_dense_s2 ep 15 loss 0.000 test 0.9837 transfer [0.984, 0.836, 0.894, 0.149] alpha {'adapter_down': 4.66, 'adapter_up': 1.5} mem_rate None
+[  1658s] imagenette_16shot_mlp_dense_s2 ep 20 loss 0.000 test 0.9825 transfer [0.983, 0.836, 0.894, 0.149] alpha {'adapter_down': 4.76, 'adapter_up': 1.5} mem_rate None
+[  1659s] imagenette_16shot_mlp_dense_s2 ep 25 loss 0.000 test 0.9837 transfer [0.984, 0.837, 0.895, 0.149] alpha {'adapter_down': 4.74, 'adapter_up': 1.5} mem_rate None
+[  1659s] imagenette_16shot_mlp_dense_s2 ep 30 loss 0.000 test 0.9837 transfer [0.984, 0.836, 0.895, 0.149] alpha {'adapter_down': 4.72, 'adapter_up': 1.5} mem_rate None
+[  1660s] imagenette_16shot_mlp_dense_s2 ep 35 loss 0.000 test 0.9837 transfer [0.984, 0.836, 0.895, 0.148] alpha {'adapter_down': 4.71, 'adapter_up': 1.5} mem_rate None
+[  1662s] imagenette_16shot_mlp_dense_s2 ep 40 loss 0.000 test 0.9837 transfer [0.984, 0.836, 0.895, 0.149] alpha {'adapter_down': 4.7, 'adapter_up': 1.5} mem_rate None
+[  1663s] imagenette_16shot_mlp_spike_s2 ep 5 loss 0.001 test 0.9837 transfer [0.984, 0.835, 0.892, 0.16] alpha {'adapter_down': 5.95, 'adapter_up': 1.51} mem_rate None
+[  1664s] imagenette_16shot_mlp_spike_s2 ep 10 loss 0.000 test 0.9812 transfer [0.981, 0.835, 0.894, 0.162] alpha {'adapter_down': 4.61, 'adapter_up': 1.52} mem_rate None
+[  1664s] imagenette_16shot_mlp_spike_s2 ep 15 loss 0.000 test 0.9825 transfer [0.983, 0.835, 0.892, 0.162] alpha {'adapter_down': 4.36, 'adapter_up': 1.52} mem_rate None
+[  1665s] imagenette_16shot_mlp_spike_s2 ep 20 loss 0.000 test 0.9862 transfer [0.986, 0.834, 0.894, 0.159] alpha {'adapter_down': 4.3, 'adapter_up': 1.53} mem_rate None
+[  1666s] imagenette_16shot_mlp_spike_s2 ep 25 loss 0.000 test 0.9862 transfer [0.986, 0.835, 0.892, 0.157] alpha {'adapter_down': 4.27, 'adapter_up': 1.52} mem_rate None
+[  1667s] imagenette_16shot_mlp_spike_s2 ep 30 loss 0.000 test 0.9837 transfer [0.984, 0.835, 0.891, 0.157] alpha {'adapter_down': 4.26, 'adapter_up': 1.52} mem_rate None
+[  1668s] imagenette_16shot_mlp_spike_s2 ep 35 loss 0.000 test 0.9850 transfer [0.985, 0.834, 0.891, 0.159] alpha {'adapter_down': 4.25, 'adapter_up': 1.52} mem_rate None
+[  1670s] imagenette_16shot_mlp_spike_s2 ep 40 loss 0.000 test 0.9850 transfer [0.985, 0.834, 0.894, 0.158] alpha {'adapter_down': 4.25, 'adapter_up': 1.52} mem_rate None
+[  1672s] imagenette_16shot_l3_dense_s2 ep 5 loss 0.007 test 0.9425 transfer [0.942, 0.068, 0.491, 0.1] alpha {'l3_wk': 19.01, 'l3_wv': 12.2, 'l3_wup': 4.71, 'l3_wmix': 1.7} mem_rate None
+[  1673s] imagenette_16shot_l3_dense_s2 ep 10 loss 0.000 test 0.9475 transfer [0.947, 0.05, 0.44, 0.077] alpha {'l3_wk': 13.88, 'l3_wv': 13.31, 'l3_wup': 3.48, 'l3_wmix': 1.69} mem_rate None
+[  1676s] imagenette_16shot_l3_dense_s2 ep 15 loss 0.000 test 0.9488 transfer [0.949, 0.05, 0.433, 0.076] alpha {'l3_wk': 12.83, 'l3_wv': 13.18, 'l3_wup': 3.48, 'l3_wmix': 1.69} mem_rate None
+[  1678s] imagenette_16shot_l3_dense_s2 ep 20 loss 0.000 test 0.9488 transfer [0.949, 0.05, 0.43, 0.076] alpha {'l3_wk': 12.63, 'l3_wv': 13.16, 'l3_wup': 3.48, 'l3_wmix': 1.69} mem_rate None
+[  1680s] imagenette_16shot_l3_dense_s2 ep 25 loss 0.000 test 0.9488 transfer [0.949, 0.05, 0.43, 0.076] alpha {'l3_wk': 12.58, 'l3_wv': 13.15, 'l3_wup': 3.48, 'l3_wmix': 1.69} mem_rate None
+[  1683s] imagenette_16shot_l3_dense_s2 ep 30 loss 0.000 test 0.9488 transfer [0.949, 0.05, 0.43, 0.076] alpha {'l3_wk': 12.57, 'l3_wv': 13.15, 'l3_wup': 3.48, 'l3_wmix': 1.69} mem_rate None
+[  1684s] imagenette_16shot_l3_dense_s2 ep 35 loss 0.000 test 0.9488 transfer [0.949, 0.05, 0.43, 0.076] alpha {'l3_wk': 12.57, 'l3_wv': 13.16, 'l3_wup': 3.48, 'l3_wmix': 1.69} mem_rate None
+[  1685s] imagenette_16shot_l3_dense_s2 ep 40 loss 0.000 test 0.9488 transfer [0.949, 0.05, 0.43, 0.075] alpha {'l3_wk': 12.57, 'l3_wv': 13.16, 'l3_wup': 3.48, 'l3_wmix': 1.69} mem_rate None
+[  1690s] imagenette_16shot_l3_spike_mem_s2 ep 5 loss 1.865 test 0.8763 transfer [0.876, 0.08, 0.222, 0.365] alpha {'l3_wk': 7.53, 'l3_wv': 12.38, 'l3_wup': 8.21, 'l3_wmix': 1.71} mem_rate 0.17493750154972076
+[  1692s] imagenette_16shot_l3_spike_mem_s2 ep 10 loss 0.012 test 0.9737 transfer [0.974, 0.054, 0.179, 0.013] alpha {'l3_wk': 6.49, 'l3_wv': 4.36, 'l3_wup': 4.65, 'l3_wmix': 1.69} mem_rate 0.22243750095367432
+[  1695s] imagenette_16shot_l3_spike_mem_s2 ep 15 loss 0.007 test 0.9737 transfer [0.974, 0.055, 0.188, 0.013] alpha {'l3_wk': 6.3, 'l3_wv': 9.92, 'l3_wup': 4.29, 'l3_wmix': 1.68} mem_rate 0.240171879529953
+[  1697s] imagenette_16shot_l3_spike_mem_s2 ep 20 loss 0.004 test 0.9750 transfer [0.975, 0.051, 0.194, 0.012] alpha {'l3_wk': 5.15, 'l3_wv': 8.95, 'l3_wup': 4.15, 'l3_wmix': 1.68} mem_rate 0.24823437631130219
+[  1699s] imagenette_16shot_l3_spike_mem_s2 ep 25 loss 0.003 test 0.9775 transfer [0.978, 0.049, 0.192, 0.012] alpha {'l3_wk': 5.18, 'l3_wv': 8.32, 'l3_wup': 4.14, 'l3_wmix': 1.69} mem_rate 0.2508281171321869
+[  1701s] imagenette_16shot_l3_spike_mem_s2 ep 30 loss 0.002 test 0.9787 transfer [0.979, 0.045, 0.195, 0.01] alpha {'l3_wk': 5.18, 'l3_wv': 4.92, 'l3_wup': 4.12, 'l3_wmix': 1.69} mem_rate 0.2512812614440918
+[  1704s] imagenette_16shot_l3_spike_mem_s2 ep 35 loss 0.002 test 0.9787 transfer [0.979, 0.046, 0.2, 0.013] alpha {'l3_wk': 5.17, 'l3_wv': 6.77, 'l3_wup': 4.11, 'l3_wmix': 1.69} mem_rate 0.2516093850135803
+[  1706s] imagenette_16shot_l3_spike_mem_s2 ep 40 loss 0.001 test 0.9775 transfer [0.978, 0.046, 0.204, 0.014] alpha {'l3_wk': 5.16, 'l3_wv': 6.3, 'l3_wup': 4.09, 'l3_wmix': 1.69} mem_rate 0.2515937387943268
+[  1712s] imagenette_16shot_l3_spike_rate_s2 ep 5 loss 1.914 test 0.8788 transfer [0.879, 0.076, 0.214, 0.359] alpha {'l3_wk': 7.16, 'l3_wv': 3.91, 'l3_wup': 8.94, 'l3_wmix': 1.71} mem_rate None
+[  1714s] imagenette_16shot_l3_spike_rate_s2 ep 10 loss 0.014 test 0.9725 transfer [0.973, 0.052, 0.18, 0.015] alpha {'l3_wk': 5.09, 'l3_wv': 11.5, 'l3_wup': 4.73, 'l3_wmix': 1.7} mem_rate None
+[  1716s] imagenette_16shot_l3_spike_rate_s2 ep 15 loss 0.008 test 0.9762 transfer [0.976, 0.054, 0.179, 0.009] alpha {'l3_wk': 5.09, 'l3_wv': 12.66, 'l3_wup': 4.34, 'l3_wmix': 1.69} mem_rate None
+[  1719s] imagenette_16shot_l3_spike_rate_s2 ep 20 loss 0.004 test 0.9775 transfer [0.978, 0.054, 0.181, 0.01] alpha {'l3_wk': 4.94, 'l3_wv': 9.99, 'l3_wup': 4.02, 'l3_wmix': 1.69} mem_rate None
+[  1721s] imagenette_16shot_l3_spike_rate_s2 ep 25 loss 0.003 test 0.9812 transfer [0.981, 0.055, 0.186, 0.01] alpha {'l3_wk': 4.51, 'l3_wv': 9.46, 'l3_wup': 3.99, 'l3_wmix': 1.7} mem_rate None
+[  1724s] imagenette_16shot_l3_spike_rate_s2 ep 30 loss 0.002 test 0.9812 transfer [0.981, 0.054, 0.189, 0.01] alpha {'l3_wk': 4.57, 'l3_wv': 8.75, 'l3_wup': 3.96, 'l3_wmix': 1.69} mem_rate None
+[  1726s] imagenette_16shot_l3_spike_rate_s2 ep 35 loss 0.002 test 0.9800 transfer [0.98, 0.054, 0.19, 0.01] alpha {'l3_wk': 4.55, 'l3_wv': 8.39, 'l3_wup': 3.93, 'l3_wmix': 1.68} mem_rate None
+[  1728s] imagenette_16shot_l3_spike_rate_s2 ep 40 loss 0.001 test 0.9787 transfer [0.979, 0.054, 0.19, 0.01] alpha {'l3_wk': 4.5, 'l3_wv': 8.08, 'l3_wup': 3.91, 'l3_wmix': 1.68} mem_rate None
+[  1728s] done

@@ -1,0 +1,111 @@
+{
+ "order": "alpha_desc",
+ "m": 9,
+ "T": 8,
+ "blocks": [
+  8,
+  9,
+  10,
+  7,
+  4,
+  2,
+  6,
+  5,
+  3
+ ],
+ "thetas": {
+  "8": 1.7455083131790161,
+  "9": 2.0271108150482178,
+  "10": 1.5479059219360352,
+  "7": 1.3774378299713135,
+  "4": 1.151159644126892,
+  "2": 0.9912123680114746,
+  "6": 1.215503454208374,
+  "5": 1.158535361289978,
+  "3": 1.1040370464324951
+ },
+ "block_alpha": [
+  6.808878499606211,
+  6.77937881777547,
+  6.2709776792404535,
+  5.350927011615416,
+  5.143804275942793,
+  4.9949425082712615,
+  4.985743423308107,
+  4.7569623322214065,
+  4.744463505181878
+ ],
+ "conversion_only": {
+  "imagenette_acc": 0.9737499952316284,
+  "pets_acc": 0.7337499856948853,
+  "cifar10_acc": 0.7637500166893005,
+  "coco_R@1": 0.1459999978542328,
+  "coco_R@5": 0.47099998593330383,
+  "mean_acc": 0.8237499992052714
+ },
+ "firing": {
+  "visual.transformer.resblocks.2.mlp.gelu": {
+   "mean_rate": 0.04088703915476799,
+   "frac_silent_units": 0.008138020522892475,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.12879540026187897
+  },
+  "visual.transformer.resblocks.3.mlp.gelu": {
+   "mean_rate": 0.04126904159784317,
+   "frac_silent_units": 0.012369791977107525,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.1360132098197937
+  },
+  "visual.transformer.resblocks.4.mlp.gelu": {
+   "mean_rate": 0.04224775359034538,
+   "frac_silent_units": 0.0074869790114462376,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.13738027215003967
+  },
+  "visual.transformer.resblocks.5.mlp.gelu": {
+   "mean_rate": 0.03980570659041405,
+   "frac_silent_units": 0.01595052145421505,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.12846888601779938
+  },
+  "visual.transformer.resblocks.6.mlp.gelu": {
+   "mean_rate": 0.028095200657844543,
+   "frac_silent_units": 0.0439453125,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.09055190533399582
+  },
+  "visual.transformer.resblocks.7.mlp.gelu": {
+   "mean_rate": 0.022241568192839622,
+   "frac_silent_units": 0.01790364645421505,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.07138002663850784
+  },
+  "visual.transformer.resblocks.8.mlp.gelu": {
+   "mean_rate": 0.013233761303126812,
+   "frac_silent_units": 0.0055338540114462376,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.040927328169345856
+  },
+  "visual.transformer.resblocks.9.mlp.gelu": {
+   "mean_rate": 0.010164856910705566,
+   "frac_silent_units": 0.013671875,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.029489517211914062
+  },
+  "visual.transformer.resblocks.10.mlp.gelu": {
+   "mean_rate": 0.008554110303521156,
+   "frac_silent_units": 0.029296875,
+   "frac_saturated_units": 0.0,
+   "frac_active": 0.024798043072223663
+  }
+ },
+ "drop_conversion": 0.07916667064030969,
+ "baseline": {
+  "imagenette_acc": 0.9850000143051147,
+  "pets_acc": 0.8337500095367432,
+  "cifar10_acc": 0.8899999856948853,
+  "coco_R@1": 0.2240000069141388,
+  "coco_R@5": 0.5830000042915344,
+  "mean_acc": 0.902916669845581
+ }
+}

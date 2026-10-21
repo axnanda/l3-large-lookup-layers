@@ -1,6 +1,6 @@
 # Spiking inserts in a pretrained vision-language model: can HTSR alpha certify, select and tune them?
 
-Status: experiments running; results sections are filled in as they complete (see the bottom for the log).
+Status: complete (E0, E1, E2a, E2b, E3; 2026-10-21).
 
 ## 1. Question
 
@@ -67,7 +67,7 @@ into q/k/v; embedding tables never averaged with dense layers.
 | E0 | alpha profile of the pretrained model per role and tower | done |
 | E2a | single-block conversion damage (ReLU, clipped-ReLU + bias correction, spike + bias correction at T = 4/16) vs per-block alpha | done (96 configs) |
 | E1 | fine-tuning with an insert: spike_replace (k_sg 1/4/10/25, T 4/8/16, leak, seed, lr, with/without bias correction), dense_replace, spike/dense adapter, block 10, later-blocks scope, CE objective | running (12/21 done) |
-| E2b | cumulative conversion in six orders, 3/6/9/12 blocks, conversion-only | running (10/19 done) |
+| E2b | cumulative conversion in six orders, 3/6/9/12 blocks, conversion-only | done (19 configs) |
 | E3 | adapters on frozen embeddings: dense MLP, spiking MLP, dense L3, spiking L3 (memory / rate query); 16-shot and full Pets, 16-shot Imagenette; 3 seeds | done (45 runs) |
 
 ## 5. Results
@@ -198,7 +198,38 @@ Findings.
   3.58 to 5.0-5.6 (dense / spiking), the signature of an insert that is not needed. Adapters under a real
   learning objective are E3, where the down-projection alpha fell toward 2 as the adapter learned.
 
-<<E2B>>### E3: adapters on frozen CLIP embeddings (results/mm/e3_summary.md, figures/mm/e3_adapters.png)
+### E2b: cumulative conversion order (results/mm/e2b_summary.md, figures/mm/e2b_orders.png)
+
+19 configs, conversion only (per-channel threshold balancing + bias correction, T = 8, sequential
+calibration), no fine-tuning; clean model 0.9029, COCO R@1 0.224. Drops in points of mean zero-shot accuracy.
+
+| order | 3 blocks | 6 blocks | 9 blocks | 12 blocks |
+|---|---|---|---|---|
+| alpha closest to 2 first (the H2 rule) | 8.0 (0, 11, 1) | 10.5 | 15.9 | |
+| alpha farthest from 2 first | 2.0 (8, 9, 10) | 4.3 | 7.9 | 17.8 (all orders) |
+| depth first | 9.3 (0, 1, 2) | 13.6 | 14.8 | |
+| depth last | 1.3 (11, 10, 9) | 2.7 | 5.5 | |
+| random 0 / random 1 | 2.9 / 1.4 | 5.1 / 4.2 | 8.8 / 12.0 | |
+| sum of single-block drops (E2a) for the H2 order / its reverse | 3.8 / 2.2 | 6.8 / 4.5 | 9.1 / 7.5 | 11.3 |
+
+* **H2 is contradicted at every fraction.** The "closest to 2 first" order is the worst or second-worst of
+  the six orders at 3, 6 and 9 blocks (8.0 / 10.5 / 15.9 points), beaten only by depth-first at 3 and 6;
+  its reverse (farthest from 2 first) is the second-best at every fraction, within 0.7-2.4 points of
+  depth-last. In this model alpha near 2 marks the blocks that carry the signal and are the most expensive
+  to convert; the two random orders fall in between and rank by how many early blocks they happen to contain.
+* **Damage compounds in early blocks and is sub-additive in late ones.** For the early-block orders the
+  cumulative drop is 1.5-2 x the sum of the E2a single-block drops (closest-to-2: 15.9 vs 9.1 at 9 blocks;
+  depth-first 13.6 vs 6.9 at 6), for the late-block orders it is below the sum (depth-last 5.5 vs 6.5;
+  farthest-from-2 7.9 vs 7.5), i.e. sequential calibration recovers part of the single-block loss when the
+  converted blocks come late. Converting all twelve MLPs costs 17.8 points (0.903 -> 0.725; Imagenette
+  0.942, Pets 0.624, CIFAR 0.609) without any fine-tuning.
+* Retrieval does not follow the classification ranking: COCO R@1 after 3 late blocks (0.152-0.191) is as
+  damaged as after 3 early blocks (0.123-0.140) and all orders end near 0.13-0.15 at 9 blocks, consistent
+  with E2a's finding that the last image block matters most for R@1.
+* Silent units: 5-13 % of channels whenever block 0 is among the converted blocks (it alone contributes
+  37 %), 0.4-1.7 % otherwise.
+
+### E3: adapters on frozen CLIP embeddings (results/mm/e3_summary.md, figures/mm/e3_adapters.png)
 
 45 runs (5 adapters x 3 settings x 3 seeds, 40 epochs, Adam 1e-3, text-anchored CE on the adapted embedding).
 Zero-shot references: Pets 0.834, Imagenette 0.985.
@@ -237,7 +268,25 @@ Findings.
 
 ## 6. Verdicts on H1-H3
 
-(pending)
+| hypothesis | verdict | evidence |
+|---|---|---|
+| H1 certification: the insert's alpha converges toward the dense layer's alpha and its trajectory tracks recovery | **not supported** for converted pretrained blocks; **partly supported** for adapters that actually learn | E1: 21 runs, fc1 alpha of the converted block moves <= 0.05 while accuracy recovers 0.5-9.5 points; dense twin moves the same; no dependence on k_sg, T, leak, lr. E3: the first matrix of a learning adapter converges to alpha ~2 (1.85 dense, 2.09 spiking) and its alpha correlates with the gain over zero-shot at Spearman -0.73; an unneeded insert's alpha *rises* (E1 adapters, 3.6 -> 5.0-5.6). Alpha therefore reads "how much a fresh matrix has learned", not "whether a pretrained matrix has been repaired". |
+| H2 selection: convert the blocks closest to alpha 2 first; keep lookup tables dense | **contradicted** on the ordering; **supported** on the tables | E2a: damage is anti-correlated with alpha in the image tower (Spearman -0.75 without, -0.59 with bias correction); E2b: the closest-to-2 order is the worst or second-worst at 3/6/9 blocks (8.0/10.5/15.9 points), its reverse is second-best (2.0/4.3/7.9); depth-last is best. The practical rule for this model is "convert late blocks first", and alpha only helps because it is anti-correlated with depth. E3: lookup tables (L3 keys/values) end at alpha 2.7-14 depending on the data and never predict anything. |
+| H3 performance: a spiking lookup memory adds capacity; its mixing layers settle at alpha 2.0-2.2 | **not supported** as a performance claim; **directionally supported** on alpha | E3: spiking L3 memory < spiking MLP adapter on Pets (0.849 vs 0.852 full-shot, 0.744 vs 0.842 16-shot) and it destroys transfer (0.45 vs 0.89); it does beat the dense L3 memory (0.809, transfer 0.18). W_up alpha 2.4-2.9 (spiking) vs 4-5 (dense); W_mix 1.5-1.7 in both. |
+
+What held up from the small-model study: a healthy spiking layer reaches the same alpha as its dense twin
+(E3 MLP adapters 2.09 vs 1.85; E1 converted blocks 4.62-4.68 vs 4.64) and the output-matrix alpha below 2
+flags over-specialisation (E3: Spearman -0.78 with transfer retained). What did not: the surrogate-slope
+dependence of alpha and the "alpha tracks recovery" trajectory, both of which require the layer to be
+learned through the spikes rather than nudged.
+
+What the study adds that was not hypothesised: (i) CLIP MLPs run almost entirely in the negative lobe of
+QuickGELU (2-17 % positive pre-activations), so any ReLU-like rate code needs a per-channel bias correction;
+with it and per-channel thresholds a single block converts at a cost of 0-2 points and the full image
+tower's MLPs at 17.8 points without fine-tuning; (ii) conversion damage compounds super-additively when early
+blocks are converted and sub-additively when late ones are; (iii) retrieval and classification are damaged
+by different blocks (first text blocks and the last image block for R@1); (iv) distillation to the clean
+embedding repairs a converted block in one epoch, a task-CE objective does not.
 
 ## 7. Limitations
 
@@ -245,4 +294,5 @@ Findings.
   fine-tuning, mostly single seed. Differences below ~1 % accuracy on 800 images are within noise
   (binomial s.e. ~1.1 % at 90 % accuracy).
 * The COCO "captions" are templated from box categories, not human captions.
-* The paper (arXiv 2602.00545 study) and WeightWatcher's own CLIP notebooks could not be fetched.
+* arXiv and WeightWatcher's own site could not be fetched from this environment; related work was read through search snippets (docs/MM_RELATED_WORK.md).
+* E2b is conversion-only; the brief-fine-tune arm was not run for lack of time (the script supports it with `--finetune_epochs`).

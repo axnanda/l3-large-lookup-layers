@@ -1,0 +1,15 @@
+[   25s] cache imagenette_train: 640/9469
+[  343s] cache imagenette_train: 1280/9469
+[  889s] cache imagenette_train: 1920/9469
+[ 1179s] cache imagenette_train: 2560/9469
+[ 1651s] cache imagenette_train: 3200/9469
+[ 2983s] cache imagenette_train: 3840/9469
+[ 4467s] cache imagenette_train: 4480/9469
+[ 5320s] cache imagenette_train: 5120/9469
+[ 5879s] cache imagenette_train: 5760/9469
+[ 6469s] cache imagenette_train: 6400/9469
+[ 7018s] cache imagenette_train: 7040/9469
+[ 7591s] cache imagenette_train: 7680/9469
+[ 8146s] cache imagenette_train: 8320/9469
+[ 8719s] cache imagenette_train: 8960/9469
+done

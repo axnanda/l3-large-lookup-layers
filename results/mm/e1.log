@@ -1,0 +1,170 @@
+=== run sr_b6_k4 {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 8, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sr_b6_k4'}
+sr_b6_k4 [   397s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.8942 coco 0.216 firing {'mean_rate': 0.03111983649432659, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09444578737020493} theta=1.095 n_params=4730112
+sr_b6_k4 [   625s] step 24 ep 1 loss 0.009 acc 0.98 alpha {'mlp_fc1': 4.708, 'mlp_fc2': 5.318}
+sr_b6_k4 [   843s] step 32 eval mean_acc 0.8987 imagenette 0.9812 pets 0.8350 cifar 0.8800 coco R@1 0.224 firing {'mean_rate': 0.03173542022705078, 'frac_silent_units': 0.041015625, 'frac_saturated_units': 0.0, 'frac_active': 0.09603380411863327}
+sr_b6_k4 [   983s] step 48 ep 2 loss 0.006 acc 0.97 alpha {'mlp_fc1': 4.711, 'mlp_fc2': 5.316}
+sr_b6_k4 [  1263s] step 64 eval mean_acc 0.8996 imagenette 0.9837 pets 0.8338 cifar 0.8813 coco R@1 0.224 firing {'mean_rate': 0.032277923077344894, 'frac_silent_units': 0.0413411445915699, 'frac_saturated_units': 0.0, 'frac_active': 0.09741801023483276}
+sr_b6_k4 [  1357s] step 72 ep 3 loss 0.006 acc 1.00 alpha {'mlp_fc1': 4.627, 'mlp_fc2': 5.316}
+sr_b6_k4 [  1585s] step 96 ep 3 loss 0.006 acc 0.94 alpha {'mlp_fc1': 4.624, 'mlp_fc2': 5.312}
+sr_b6_k4 [  1750s] step 96 eval mean_acc 0.8996 imagenette 0.9825 pets 0.8350 cifar 0.8813 coco R@1 0.223 firing {'mean_rate': 0.03283284232020378, 'frac_silent_units': 0.041015625, 'frac_saturated_units': 0.0, 'frac_active': 0.09881909936666489}
+saved results/mm/e1/sr_b6_k4.json 1750s
+=== run dr_b6 {'tower': 'image', 'block': 6, 'variant': 'dense_replace', 'T': 8, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'dr_b6'}
+dr_b6 [   160s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.9029 coco 0.224 firing - theta=1.095 n_params=4727040
+dr_b6 [   318s] step 24 ep 1 loss 0.000 acc 0.98 alpha {'mlp_fc1': 4.641, 'mlp_fc2': 5.335}
+dr_b6 [   487s] step 32 eval mean_acc 0.9025 imagenette 0.9850 pets 0.8325 cifar 0.8900 coco R@1 0.224 firing -
+dr_b6 [   612s] step 48 ep 2 loss 0.002 acc 0.97 alpha {'mlp_fc1': 4.652, 'mlp_fc2': 5.337}
+dr_b6 [   818s] step 64 eval mean_acc 0.9029 imagenette 0.9850 pets 0.8325 cifar 0.8913 coco R@1 0.227 firing -
+dr_b6 [   878s] step 72 ep 3 loss 0.002 acc 0.98 alpha {'mlp_fc1': 4.703, 'mlp_fc2': 5.337}
+dr_b6 [  1021s] step 96 ep 3 loss 0.001 acc 0.94 alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.336}
+dr_b6 [  1123s] step 96 eval mean_acc 0.9021 imagenette 0.9850 pets 0.8325 cifar 0.8888 coco R@1 0.221 firing -
+saved results/mm/e1/dr_b6.json 1123s
+=== run sa_b6 {'tower': 'image', 'block': 6, 'variant': 'spike_adapter', 'T': 8, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 0.001, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sa_b6'}
+sa_b6 [   211s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335, 'adapter_down': 3.582, 'adapter_up': -1.0} eval 0.9029 coco 0.224 firing {'mean_rate': 0.13643784821033478, 'frac_silent_units': 0.0, 'frac_saturated_units': 0.0, 'frac_active': 0.4187277555465698} theta=1.095 n_params=99264
+sa_b6 [   366s] step 24 ep 1 loss 0.001 acc 0.98 alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335, 'adapter_down': 6.594, 'adapter_up': 2.311}
+sa_b6 [   519s] step 32 eval mean_acc 0.9058 imagenette 0.9850 pets 0.8375 cifar 0.8950 coco R@1 0.223 firing {'mean_rate': 0.04401472955942154, 'frac_silent_units': 0.015625, 'frac_saturated_units': 0.0, 'frac_active': 0.12735754251480103}
+sa_b6 [   620s] step 48 ep 2 loss 0.000 acc 0.98 alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335, 'adapter_down': 5.612, 'adapter_up': 2.338}
+sa_b6 [   800s] step 64 eval mean_acc 0.9029 imagenette 0.9850 pets 0.8338 cifar 0.8900 coco R@1 0.227 firing {'mean_rate': 0.04078136384487152, 'frac_silent_units': 0.015625, 'frac_saturated_units': 0.0, 'frac_active': 0.1123485341668129}
+sa_b6 [   862s] step 72 ep 3 loss 0.000 acc 0.98 alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335, 'adapter_down': 5.588, 'adapter_up': 2.33}
+sa_b6 [  1007s] step 96 ep 3 loss 0.000 acc 0.94 alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335, 'adapter_down': 5.562, 'adapter_up': 2.405}
+sa_b6 [  1111s] step 96 eval mean_acc 0.9033 imagenette 0.9850 pets 0.8350 cifar 0.8900 coco R@1 0.226 firing {'mean_rate': 0.039986301213502884, 'frac_silent_units': 0.015625, 'frac_saturated_units': 0.0, 'frac_active': 0.10890542715787888}
+saved results/mm/e1/sa_b6.json 1111s
+=== run da_b6 {'tower': 'image', 'block': 6, 'variant': 'dense_adapter', 'T': 8, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 0.001, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'da_b6'}
+da_b6 [   190s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335, 'adapter_down': 3.582, 'adapter_up': -1.0} eval 0.9029 coco 0.224 firing - theta=1.095 n_params=99136
+da_b6 [   326s] step 24 ep 1 loss 0.000 acc 0.98 alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335, 'adapter_down': 5.663, 'adapter_up': 2.349}
+da_b6 [   476s] step 32 eval mean_acc 0.9038 imagenette 0.9850 pets 0.8338 cifar 0.8925 coco R@1 0.227 firing -
+da_b6 [   574s] step 48 ep 2 loss 0.000 acc 0.98 alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335, 'adapter_down': 5.047, 'adapter_up': 2.335}
+da_b6 [   750s] step 64 eval mean_acc 0.9029 imagenette 0.9850 pets 0.8338 cifar 0.8900 coco R@1 0.225 firing -
+da_b6 [   806s] step 72 ep 3 loss 0.000 acc 0.98 alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335, 'adapter_down': 5.012, 'adapter_up': 2.368}
+da_b6 [   935s] step 96 ep 3 loss 0.000 acc 0.94 alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335, 'adapter_down': 5.003, 'adapter_up': 2.361}
+da_b6 [  1046s] step 96 eval mean_acc 0.9029 imagenette 0.9850 pets 0.8338 cifar 0.8900 coco R@1 0.225 firing -
+saved results/mm/e1/da_b6.json 1046s
+=== run sr_b6_k1 {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 8, 'k_sg': 1.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sr_b6_k1'}
+sr_b6_k1 [   306s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.8942 coco 0.216 firing {'mean_rate': 0.03111983649432659, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09444578737020493} theta=1.095 n_params=4730112
+sr_b6_k1 [   441s] step 24 ep 1 loss 0.010 acc 0.98 alpha {'mlp_fc1': 4.63, 'mlp_fc2': 5.317}
+sr_b6_k1 [   592s] step 32 eval mean_acc 0.8996 imagenette 0.9812 pets 0.8375 cifar 0.8800 coco R@1 0.222 firing {'mean_rate': 0.031447917222976685, 'frac_silent_units': 0.0416666679084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09530505537986755}
+sr_b6_k1 [   685s] step 48 ep 2 loss 0.006 acc 0.97 alpha {'mlp_fc1': 4.628, 'mlp_fc2': 5.316}
+sr_b6_k1 [   860s] step 64 eval mean_acc 0.8979 imagenette 0.9812 pets 0.8313 cifar 0.8813 coco R@1 0.223 firing {'mean_rate': 0.03187420964241028, 'frac_silent_units': 0.0439453125, 'frac_saturated_units': 0.0, 'frac_active': 0.09639210253953934}
+sr_b6_k1 [   911s] step 72 ep 3 loss 0.006 acc 0.98 alpha {'mlp_fc1': 4.627, 'mlp_fc2': 5.315}
+sr_b6_k1 [  1042s] step 96 ep 3 loss 0.006 acc 0.94 alpha {'mlp_fc1': 4.625, 'mlp_fc2': 5.311}
+sr_b6_k1 [  1149s] step 96 eval mean_acc 0.9000 imagenette 0.9800 pets 0.8363 cifar 0.8838 coco R@1 0.220 firing {'mean_rate': 0.03234437108039856, 'frac_silent_units': 0.0439453125, 'frac_saturated_units': 0.0, 'frac_active': 0.09756767749786377}
+saved results/mm/e1/sr_b6_k1.json 1149s
+=== run sr_b6_k25 {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 8, 'k_sg': 25.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sr_b6_k25'}
+sr_b6_k25 [   261s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.8942 coco 0.216 firing {'mean_rate': 0.03111983649432659, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09444578737020493} theta=1.095 n_params=4730112
+sr_b6_k25 [   446s] step 24 ep 1 loss 0.010 acc 0.98 alpha {'mlp_fc1': 4.638, 'mlp_fc2': 5.317}
+sr_b6_k25 [   615s] step 32 eval mean_acc 0.8975 imagenette 0.9812 pets 0.8388 cifar 0.8725 coco R@1 0.220 firing {'mean_rate': 0.03137822821736336, 'frac_silent_units': 0.0406901054084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09501278400421143}
+sr_b6_k25 [   741s] step 48 ep 2 loss 0.007 acc 0.97 alpha {'mlp_fc1': 4.645, 'mlp_fc2': 5.313}
+sr_b6_k25 [   966s] step 64 eval mean_acc 0.8975 imagenette 0.9825 pets 0.8338 cifar 0.8763 coco R@1 0.222 firing {'mean_rate': 0.03143811225891113, 'frac_silent_units': 0.0416666679084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09513548761606216}
+sr_b6_k25 [  1033s] step 72 ep 3 loss 0.008 acc 0.98 alpha {'mlp_fc1': 4.642, 'mlp_fc2': 5.31}
+sr_b6_k25 [  1206s] step 96 ep 3 loss 0.008 acc 0.94 alpha {'mlp_fc1': 4.641, 'mlp_fc2': 5.305}
+sr_b6_k25 [  1328s] step 96 eval mean_acc 0.9017 imagenette 0.9837 pets 0.8313 cifar 0.8900 coco R@1 0.217 firing {'mean_rate': 0.03148310258984566, 'frac_silent_units': 0.0413411445915699, 'frac_saturated_units': 0.0, 'frac_active': 0.09522487968206406}
+saved results/mm/e1/sr_b6_k25.json 1328s
+=== run sr_b6_T4 {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 4, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sr_b6_T4'}
+sr_b6_T4 [   209s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.8917 coco 0.214 firing {'mean_rate': 0.030499503016471863, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.07746230810880661} theta=1.095 n_params=4730112
+sr_b6_T4 [   332s] step 24 ep 1 loss 0.011 acc 0.97 alpha {'mlp_fc1': 4.63, 'mlp_fc2': 5.317}
+sr_b6_T4 [   457s] step 32 eval mean_acc 0.8996 imagenette 0.9837 pets 0.8375 cifar 0.8775 coco R@1 0.224 firing {'mean_rate': 0.03117237240076065, 'frac_silent_units': 0.0406901054084301, 'frac_saturated_units': 0.0, 'frac_active': 0.07900937646627426}
+sr_b6_T4 [   542s] step 48 ep 2 loss 0.007 acc 0.98 alpha {'mlp_fc1': 4.627, 'mlp_fc2': 5.319}
+sr_b6_T4 [   702s] step 64 eval mean_acc 0.9008 imagenette 0.9825 pets 0.8375 cifar 0.8825 coco R@1 0.223 firing {'mean_rate': 0.031748659908771515, 'frac_silent_units': 0.0406901054084301, 'frac_saturated_units': 0.0, 'frac_active': 0.08031249046325684}
+sr_b6_T4 [   750s] step 72 ep 3 loss 0.008 acc 0.98 alpha {'mlp_fc1': 4.651, 'mlp_fc2': 5.316}
+sr_b6_T4 [   862s] step 96 ep 3 loss 0.008 acc 0.94 alpha {'mlp_fc1': 4.65, 'mlp_fc2': 5.31}
+sr_b6_T4 [   994s] step 96 eval mean_acc 0.9008 imagenette 0.9812 pets 0.8375 cifar 0.8838 coco R@1 0.222 firing {'mean_rate': 0.03236059844493866, 'frac_silent_units': 0.041015625, 'frac_saturated_units': 0.0, 'frac_active': 0.08168554306030273}
+saved results/mm/e1/sr_b6_T4.json 994s
+=== run sr_b6_nobc {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 8, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'bias_correct': False, 'threads': 2, 'run_id': 'sr_b6_nobc'}
+sr_b6_nobc [   255s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.8062 coco 0.197 firing {'mean_rate': 0.03111983649432659, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09444578737020493} theta=1.095 n_params=4730112
+sr_b6_nobc [   448s] step 24 ep 1 loss 0.032 acc 0.97 alpha {'mlp_fc1': 4.658, 'mlp_fc2': 5.279}
+sr_b6_nobc [   642s] step 32 eval mean_acc 0.8846 imagenette 0.9800 pets 0.8200 cifar 0.8537 coco R@1 0.231 firing {'mean_rate': 0.03116459585726261, 'frac_silent_units': 0.0400390625, 'frac_saturated_units': 0.0, 'frac_active': 0.0941557064652443}
+sr_b6_nobc [   775s] step 48 ep 2 loss 0.016 acc 0.98 alpha {'mlp_fc1': 4.66, 'mlp_fc2': 5.283}
+sr_b6_nobc [  1049s] step 64 eval mean_acc 0.8938 imagenette 0.9825 pets 0.8263 cifar 0.8725 coco R@1 0.218 firing {'mean_rate': 0.03154690936207771, 'frac_silent_units': 0.0380859375, 'frac_saturated_units': 0.0, 'frac_active': 0.09498297423124313}
+sr_b6_nobc [  1131s] step 72 ep 3 loss 0.014 acc 0.98 alpha {'mlp_fc1': 4.66, 'mlp_fc2': 5.285}
+sr_b6_nobc [  1318s] step 96 ep 3 loss 0.013 acc 0.94 alpha {'mlp_fc1': 4.66, 'mlp_fc2': 5.285}
+sr_b6_nobc [  1463s] step 96 eval mean_acc 0.8929 imagenette 0.9812 pets 0.8263 cifar 0.8712 coco R@1 0.223 firing {'mean_rate': 0.03232039138674736, 'frac_silent_units': 0.0380859375, 'frac_saturated_units': 0.0, 'frac_active': 0.0968233272433281}
+saved results/mm/e1/sr_b6_nobc.json 1463s
+=== run sr_b10_k4 {'tower': 'image', 'block': 10, 'variant': 'spike_replace', 'T': 8, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sr_b10_k4'}
+sr_b10_k4 [   241s] step 0: alpha {'mlp_fc1': 5.79, 'mlp_fc2': 6.752} eval 0.8983 coco 0.190 firing {'mean_rate': 0.011237557977437973, 'frac_silent_units': 0.0107421875, 'frac_saturated_units': 0.0, 'frac_active': 0.030121400952339172} theta=1.345 n_params=4730112
+sr_b10_k4 [   436s] step 24 ep 1 loss 0.016 acc 0.98 alpha {'mlp_fc1': 5.786, 'mlp_fc2': 6.723}
+sr_b10_k4 [   673s] step 32 eval mean_acc 0.8971 imagenette 0.9825 pets 0.8288 cifar 0.8800 coco R@1 0.205 firing {'mean_rate': 0.011245054192841053, 'frac_silent_units': 0.01171875, 'frac_saturated_units': 0.0, 'frac_active': 0.030048949643969536}
+sr_b10_k4 [   806s] step 48 ep 2 loss 0.012 acc 0.98 alpha {'mlp_fc1': 5.787, 'mlp_fc2': 6.711}
+sr_b10_k4 [  1059s] step 64 eval mean_acc 0.8967 imagenette 0.9825 pets 0.8275 cifar 0.8800 coco R@1 0.204 firing {'mean_rate': 0.011472311802208424, 'frac_silent_units': 0.012044270522892475, 'frac_saturated_units': 0.0, 'frac_active': 0.03059045411646366}
+sr_b10_k4 [  1136s] step 72 ep 3 loss 0.011 acc 0.97 alpha {'mlp_fc1': 5.556, 'mlp_fc2': 6.708}
+sr_b10_k4 [  1316s] step 96 ep 3 loss 0.011 acc 0.94 alpha {'mlp_fc1': 5.563, 'mlp_fc2': 6.705}
+sr_b10_k4 [  1462s] step 96 eval mean_acc 0.8975 imagenette 0.9837 pets 0.8275 cifar 0.8813 coco R@1 0.202 firing {'mean_rate': 0.011651207692921162, 'frac_silent_units': 0.01171875, 'frac_saturated_units': 0.0, 'frac_active': 0.031016945838928223}
+saved results/mm/e1/sr_b10_k4.json 1462s
+=== run sr_b6_k4_s1 {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 8, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 1, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sr_b6_k4_s1'}
+sr_b6_k4_s1 [   335s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.8946 coco 0.214 firing {'mean_rate': 0.030975038185715675, 'frac_silent_units': 0.0400390625, 'frac_saturated_units': 0.0, 'frac_active': 0.09439543634653091} theta=1.106 n_params=4730112
+sr_b6_k4_s1 [   532s] step 24 ep 1 loss 0.009 acc 0.98 alpha {'mlp_fc1': 4.703, 'mlp_fc2': 5.322}
+sr_b6_k4_s1 [   730s] step 32 eval mean_acc 0.8996 imagenette 0.9812 pets 0.8338 cifar 0.8838 coco R@1 0.219 firing {'mean_rate': 0.03161187097430229, 'frac_silent_units': 0.0413411445915699, 'frac_saturated_units': 0.0, 'frac_active': 0.096037857234478}
+sr_b6_k4_s1 [   871s] step 48 ep 2 loss 0.007 acc 0.97 alpha {'mlp_fc1': 4.712, 'mlp_fc2': 5.318}
+sr_b6_k4_s1 [  1151s] step 64 eval mean_acc 0.9013 imagenette 0.9812 pets 0.8363 cifar 0.8863 coco R@1 0.219 firing {'mean_rate': 0.03218201547861099, 'frac_silent_units': 0.0393880195915699, 'frac_saturated_units': 0.0, 'frac_active': 0.09750670194625854}
+sr_b6_k4_s1 [  1228s] step 72 ep 3 loss 0.005 acc 1.00 alpha {'mlp_fc1': 4.632, 'mlp_fc2': 5.317}
+sr_b6_k4_s1 [  1417s] step 96 ep 3 loss 0.006 acc 0.94 alpha {'mlp_fc1': 4.628, 'mlp_fc2': 5.32}
+sr_b6_k4_s1 [  1576s] step 96 eval mean_acc 0.9004 imagenette 0.9812 pets 0.8375 cifar 0.8825 coco R@1 0.218 firing {'mean_rate': 0.03274598345160484, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09894072264432907}
+saved results/mm/e1/sr_b6_k4_s1.json 1576s
+=== run sr_b6_lr1e4 {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 8, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 0.0001, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sr_b6_lr1e4'}
+sr_b6_lr1e4 [   342s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.8942 coco 0.216 firing {'mean_rate': 0.03111983649432659, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09444578737020493} theta=1.095 n_params=4730112
+sr_b6_lr1e4 [   549s] step 24 ep 1 loss 0.010 acc 0.98 alpha {'mlp_fc1': 4.659, 'mlp_fc2': 5.306}
+sr_b6_lr1e4 [   763s] step 32 eval mean_acc 0.9021 imagenette 0.9812 pets 0.8413 cifar 0.8838 coco R@1 0.222 firing {'mean_rate': 0.032228756695985794, 'frac_silent_units': 0.0380859375, 'frac_saturated_units': 0.0, 'frac_active': 0.09715330600738525}
+sr_b6_lr1e4 [   911s] step 48 ep 2 loss 0.008 acc 0.98 alpha {'mlp_fc1': 4.663, 'mlp_fc2': 5.298}
+sr_b6_lr1e4 [  1179s] step 64 eval mean_acc 0.9029 imagenette 0.9825 pets 0.8413 cifar 0.8850 coco R@1 0.226 firing {'mean_rate': 0.03180187940597534, 'frac_silent_units': 0.0384114570915699, 'frac_saturated_units': 0.0, 'frac_active': 0.09610972553491592}
+sr_b6_lr1e4 [  1259s] step 72 ep 3 loss 0.009 acc 0.98 alpha {'mlp_fc1': 4.665, 'mlp_fc2': 5.298}
+sr_b6_lr1e4 [  1462s] step 96 ep 3 loss 0.009 acc 0.94 alpha {'mlp_fc1': 4.662, 'mlp_fc2': 5.302}
+sr_b6_lr1e4 [  1635s] step 96 eval mean_acc 0.8979 imagenette 0.9800 pets 0.8338 cifar 0.8800 coco R@1 0.215 firing {'mean_rate': 0.03187417984008789, 'frac_silent_units': 0.0413411445915699, 'frac_saturated_units': 0.0, 'frac_active': 0.09629962593317032}
+saved results/mm/e1/sr_b6_lr1e4.json 1635s
+=== run sr_b6_k10 {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 8, 'k_sg': 10.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sr_b6_k10'}
+sr_b6_k10 [   343s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.8942 coco 0.216 firing {'mean_rate': 0.03111983649432659, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09444578737020493} theta=1.095 n_params=4730112
+sr_b6_k10 [   572s] step 24 ep 1 loss 0.009 acc 0.98 alpha {'mlp_fc1': 4.643, 'mlp_fc2': 5.318}
+sr_b6_k10 [   776s] step 32 eval mean_acc 0.8979 imagenette 0.9812 pets 0.8338 cifar 0.8788 coco R@1 0.225 firing {'mean_rate': 0.03145243600010872, 'frac_silent_units': 0.041015625, 'frac_saturated_units': 0.0, 'frac_active': 0.09527041763067245}
+sr_b6_k10 [   921s] step 48 ep 2 loss 0.006 acc 0.97 alpha {'mlp_fc1': 4.714, 'mlp_fc2': 5.316}
+sr_b6_k10 [  1228s] step 64 eval mean_acc 0.8975 imagenette 0.9837 pets 0.8313 cifar 0.8775 coco R@1 0.226 firing {'mean_rate': 0.031741540879011154, 'frac_silent_units': 0.0416666679084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09598711133003235}
+sr_b6_k10 [  1316s] step 72 ep 3 loss 0.006 acc 1.00 alpha {'mlp_fc1': 4.665, 'mlp_fc2': 5.316}
+sr_b6_k10 [  1530s] step 96 ep 3 loss 0.006 acc 0.94 alpha {'mlp_fc1': 4.669, 'mlp_fc2': 5.312}
+sr_b6_k10 [  1687s] step 96 eval mean_acc 0.8988 imagenette 0.9825 pets 0.8313 cifar 0.8825 coco R@1 0.222 firing {'mean_rate': 0.03211232274770737, 'frac_silent_units': 0.041015625, 'frac_saturated_units': 0.0, 'frac_active': 0.09690693765878677}
+saved results/mm/e1/sr_b6_k10.json 1687s
+=== run sr_b6_T16 {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 16, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sr_b6_T16'}
+sr_b6_T16 [   418s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.8967 coco 0.214 firing {'mean_rate': 0.03127315640449524, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.10373539477586746} theta=1.095 n_params=4730112
+sr_b6_T16 [   636s] step 24 ep 1 loss 0.009 acc 0.98 alpha {'mlp_fc1': 4.708, 'mlp_fc2': 5.32}
+sr_b6_T16 [   856s] step 32 eval mean_acc 0.8979 imagenette 0.9812 pets 0.8313 cifar 0.8813 coco R@1 0.222 firing {'mean_rate': 0.03185359388589859, 'frac_silent_units': 0.041015625, 'frac_saturated_units': 0.0, 'frac_active': 0.10530170053243637}
+sr_b6_T16 [  1001s] step 48 ep 2 loss 0.006 acc 0.97 alpha {'mlp_fc1': 4.711, 'mlp_fc2': 5.318}
+sr_b6_T16 [  1306s] step 64 eval mean_acc 0.9000 imagenette 0.9837 pets 0.8325 cifar 0.8838 coco R@1 0.223 firing {'mean_rate': 0.032354895025491714, 'frac_silent_units': 0.0416666679084301, 'frac_saturated_units': 0.0, 'frac_active': 0.10663943737745285}
+sr_b6_T16 [  1384s] step 72 ep 3 loss 0.005 acc 1.00 alpha {'mlp_fc1': 4.655, 'mlp_fc2': 5.317}
+sr_b6_T16 [  1594s] step 96 ep 3 loss 0.006 acc 0.94 alpha {'mlp_fc1': 4.655, 'mlp_fc2': 5.311}
+sr_b6_T16 [  1765s] step 96 eval mean_acc 0.8992 imagenette 0.9812 pets 0.8350 cifar 0.8813 coco R@1 0.219 firing {'mean_rate': 0.03289375826716423, 'frac_silent_units': 0.0413411445915699, 'frac_saturated_units': 0.0, 'frac_active': 0.10806751996278763}
+saved results/mm/e1/sr_b6_T16.json 1765s
+=== run dr_b10 {'tower': 'image', 'block': 10, 'variant': 'dense_replace', 'T': 8, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'dr_b10'}
+dr_b10 [    91s] step 0: alpha {'mlp_fc1': 5.79, 'mlp_fc2': 6.752} eval 0.9029 coco 0.224 firing - theta=1.345 n_params=4727040
+dr_b10 [   144s] step 24 ep 1 loss 0.000 acc 0.98 alpha {'mlp_fc1': 5.783, 'mlp_fc2': 6.75}
+dr_b10 [   200s] step 32 eval mean_acc 0.9021 imagenette 0.9850 pets 0.8313 cifar 0.8900 coco R@1 0.225 firing -
+dr_b10 [   238s] step 48 ep 2 loss 0.000 acc 0.98 alpha {'mlp_fc1': 5.789, 'mlp_fc2': 6.761}
+dr_b10 [   302s] step 64 eval mean_acc 0.9029 imagenette 0.9850 pets 0.8338 cifar 0.8900 coco R@1 0.225 firing -
+dr_b10 [   328s] step 72 ep 3 loss 0.000 acc 0.98 alpha {'mlp_fc1': 5.787, 'mlp_fc2': 6.779}
+dr_b10 [   379s] step 96 ep 3 loss 0.001 acc 0.94 alpha {'mlp_fc1': 5.779, 'mlp_fc2': 6.791}
+dr_b10 [   416s] step 96 eval mean_acc 0.9029 imagenette 0.9850 pets 0.8338 cifar 0.8900 coco R@1 0.226 firing -
+saved results/mm/e1/dr_b10.json 416s
+=== run sr_b6_later {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 8, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'later', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sr_b6_later'}
+sr_b6_later [   383s] step 0: alpha {'attn_q': 4.348, 'attn_k': 3.901, 'attn_v': 4.948, 'attn_out': 12.593, 'mlp_fc1': 4.77, 'mlp_fc2': 3.559} eval 0.8942 coco 0.216 firing {'mean_rate': 0.03111983649432659, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09444578737020493} theta=1.095 n_params=40564224
+sr_b6_later [   689s] step 24 ep 1 loss 0.012 acc 0.98 alpha {'attn_q': 4.348, 'attn_k': 3.902, 'attn_v': 4.951, 'attn_out': 12.763, 'mlp_fc1': 4.77, 'mlp_fc2': 3.558}
+sr_b6_later [   857s] step 32 eval mean_acc 0.8975 imagenette 0.9837 pets 0.8313 cifar 0.8775 coco R@1 0.218 firing {'mean_rate': 0.03158114477992058, 'frac_silent_units': 0.0403645820915699, 'frac_saturated_units': 0.0, 'frac_active': 0.09563753753900528}
+sr_b6_later [  1090s] step 48 ep 2 loss 0.013 acc 0.98 alpha {'attn_q': 4.35, 'attn_k': 3.902, 'attn_v': 4.955, 'attn_out': 12.643, 'mlp_fc1': 4.775, 'mlp_fc2': 3.558}
+sr_b6_later [  1341s] step 64 eval mean_acc 0.8971 imagenette 0.9825 pets 0.8375 cifar 0.8712 coco R@1 0.220 firing {'mean_rate': 0.031598642468452454, 'frac_silent_units': 0.041015625, 'frac_saturated_units': 0.0, 'frac_active': 0.09570083022117615}
+sr_b6_later [  1523s] step 72 ep 3 loss 0.010 acc 1.00 alpha {'attn_q': 4.35, 'attn_k': 3.9, 'attn_v': 4.954, 'attn_out': 12.868, 'mlp_fc1': 4.787, 'mlp_fc2': 3.56}
+sr_b6_later [  1815s] step 96 ep 3 loss 0.011 acc 0.94 alpha {'attn_q': 4.348, 'attn_k': 3.901, 'attn_v': 4.955, 'attn_out': 12.67, 'mlp_fc1': 4.782, 'mlp_fc2': 3.562}
+sr_b6_later [  1971s] step 96 eval mean_acc 0.8967 imagenette 0.9825 pets 0.8288 cifar 0.8788 coco R@1 0.224 firing {'mean_rate': 0.031639233231544495, 'frac_silent_units': 0.0416666679084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09582195430994034}
+saved results/mm/e1/sr_b6_later.json 1971s
+=== run sr_b6_ce {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 8, 'k_sg': 4.0, 'beta': 1.0, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'ce', 'threads': 2, 'run_id': 'sr_b6_ce'}
+sr_b6_ce [   159s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.8942 coco 0.216 firing {'mean_rate': 0.03111983649432659, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09444578737020493} theta=1.095 n_params=4730112
+sr_b6_ce [   318s] step 24 ep 1 loss 0.109 acc 0.98 alpha {'mlp_fc1': 4.65, 'mlp_fc2': 5.336}
+sr_b6_ce [   509s] step 32 eval mean_acc 0.8904 imagenette 0.9825 pets 0.8300 cifar 0.8587 coco R@1 0.185 firing {'mean_rate': 0.031230486929416656, 'frac_silent_units': 0.0406901054084301, 'frac_saturated_units': 0.0, 'frac_active': 0.09467693418264389}
+sr_b6_ce [   618s] step 48 ep 2 loss 0.052 acc 0.98 alpha {'mlp_fc1': 4.652, 'mlp_fc2': 5.346}
+sr_b6_ce [   840s] step 64 eval mean_acc 0.8983 imagenette 0.9862 pets 0.8338 cifar 0.8750 coco R@1 0.193 firing {'mean_rate': 0.0313214547932148, 'frac_silent_units': 0.0400390625, 'frac_saturated_units': 0.0, 'frac_active': 0.0948675349354744}
+sr_b6_ce [   903s] step 72 ep 3 loss 0.000 acc 1.00 alpha {'mlp_fc1': 4.651, 'mlp_fc2': 5.343}
+sr_b6_ce [  1053s] step 96 ep 3 loss 0.001 acc 1.00 alpha {'mlp_fc1': 4.65, 'mlp_fc2': 5.341}
+sr_b6_ce [  1209s] step 96 eval mean_acc 0.8942 imagenette 0.9850 pets 0.8300 cifar 0.8675 coco R@1 0.190 firing {'mean_rate': 0.03134575113654137, 'frac_silent_units': 0.0403645820915699, 'frac_saturated_units': 0.0, 'frac_active': 0.09492063522338867}
+saved results/mm/e1/sr_b6_ce.json 1209s
+=== run sr_b6_leak {'tower': 'image', 'block': 6, 'variant': 'spike_replace', 'T': 8, 'k_sg': 4.0, 'beta': 0.8, 'reset': 'soft', 'r': 64, 'scope': 'block', 'n_train': 2000, 'epochs': 3, 'lr': 3e-05, 'batch': 64, 'seed': 0, 'ww_every': 24, 'label_noise': 0.0, 'objective': 'distill', 'threads': 2, 'run_id': 'sr_b6_leak'}
+sr_b6_leak [   173s] step 0: alpha {'mlp_fc1': 4.637, 'mlp_fc2': 5.335} eval 0.8871 coco 0.204 firing {'mean_rate': 0.017443496733903885, 'frac_silent_units': 0.0397135429084301, 'frac_saturated_units': 0.0, 'frac_active': 0.05579124763607979} theta=1.095 n_params=4730112
+sr_b6_leak [   314s] step 24 ep 1 loss 0.013 acc 0.97 alpha {'mlp_fc1': 4.627, 'mlp_fc2': 5.307}
+sr_b6_leak [   466s] step 32 eval mean_acc 0.8917 imagenette 0.9825 pets 0.8263 cifar 0.8662 coco R@1 0.219 firing {'mean_rate': 0.019557388499379158, 'frac_silent_units': 0.0416666679084301, 'frac_saturated_units': 0.0, 'frac_active': 0.06175806745886803}
+sr_b6_leak [   565s] step 48 ep 2 loss 0.008 acc 0.97 alpha {'mlp_fc1': 4.604, 'mlp_fc2': 5.298}
+sr_b6_leak [   760s] step 64 eval mean_acc 0.8946 imagenette 0.9837 pets 0.8288 cifar 0.8712 coco R@1 0.221 firing {'mean_rate': 0.02145409770309925, 'frac_silent_units': 0.041015625, 'frac_saturated_units': 0.0, 'frac_active': 0.06703004986047745}
+sr_b6_leak [   814s] step 72 ep 3 loss 0.008 acc 1.00 alpha {'mlp_fc1': 4.594, 'mlp_fc2': 5.293}
+sr_b6_leak [   954s] step 96 ep 3 loss 0.008 acc 0.94 alpha {'mlp_fc1': 4.586, 'mlp_fc2': 5.291}
+sr_b6_leak [  1083s] step 96 eval mean_acc 0.8988 imagenette 0.9837 pets 0.8313 cifar 0.8813 coco R@1 0.218 firing {'mean_rate': 0.023104296997189522, 'frac_silent_units': 0.0393880195915699, 'frac_saturated_units': 0.0, 'frac_active': 0.07153011858463287}
+saved results/mm/e1/sr_b6_leak.json 1083s

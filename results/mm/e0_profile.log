@@ -1,0 +1,196 @@
+WW on 148 matrices in 1411s
+image.patch_embed        patch_embed  N=  3072 M=  768 alpha=5.71 aw=6.39 lsn=1.12 xmin=6.416 spikes=509 warn=
+image.b00.attn_q         attn_q       N=   768 M=  768 alpha=3.59 aw=4.67 lsn=1.3 xmin=0.721 spikes=17 warn=
+image.b00.attn_k         attn_k       N=   768 M=  768 alpha=3.66 aw=3.9 lsn=1.07 xmin=0.826 spikes=21 warn=
+image.b00.attn_v         attn_v       N=   768 M=  768 alpha=4.13 aw=3.03 lsn=0.73 xmin=0.147 spikes=3 warn=
+image.b00.attn_out       attn_out     N=   768 M=  768 alpha=5.0 aw=-0.36 lsn=-0.07 xmin=0.167 spikes=3 warn=
+image.b00.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=2.62 aw=4.29 lsn=1.64 xmin=0.729 spikes=337 warn=
+image.b00.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=3.31 aw=2.73 lsn=0.83 xmin=0.836 spikes=257 warn=
+image.b01.attn_q         attn_q       N=   768 M=  768 alpha=2.64 aw=2.68 lsn=1.01 xmin=0.567 spikes=31 warn=
+image.b01.attn_k         attn_k       N=   768 M=  768 alpha=2.55 aw=2.59 lsn=1.02 xmin=0.523 spikes=31 warn=
+image.b01.attn_v         attn_v       N=   768 M=  768 alpha=7.03 aw=-0.95 lsn=-0.13 xmin=0.207 spikes=2 warn=under-trained
+image.b01.attn_out       attn_out     N=   768 M=  768 alpha=5.03 aw=-0.03 lsn=-0.01 xmin=0.134 spikes=6 warn=
+image.b01.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=3.41 aw=3.02 lsn=0.89 xmin=0.696 spikes=291 warn=
+image.b01.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=5.71 aw=1.27 lsn=0.22 xmin=0.757 spikes=173 warn=
+image.b02.attn_q         attn_q       N=   768 M=  768 alpha=3.09 aw=2.39 lsn=0.77 xmin=1.335 spikes=49 warn=
+image.b02.attn_k         attn_k       N=   768 M=  768 alpha=2.92 aw=2.3 lsn=0.79 xmin=1.134 spikes=49 warn=
+image.b02.attn_v         attn_v       N=   768 M=  768 alpha=4.59 aw=0.36 lsn=0.08 xmin=0.381 spikes=22 warn=
+image.b02.attn_out       attn_out     N=   768 M=  768 alpha=4.4 aw=-0.0 lsn=-0.0 xmin=0.374 spikes=22 warn=
+image.b02.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=4.68 aw=3.17 lsn=0.68 xmin=1.561 spikes=171 warn=
+image.b02.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=5.31 aw=2.45 lsn=0.46 xmin=1.217 spikes=122 warn=
+image.b03.attn_q         attn_q       N=   768 M=  768 alpha=3.1 aw=1.42 lsn=0.46 xmin=0.685 spikes=40 warn=
+image.b03.attn_k         attn_k       N=   768 M=  768 alpha=4.22 aw=2.3 lsn=0.55 xmin=1.465 spikes=53 warn=
+image.b03.attn_v         attn_v       N=   768 M=  768 alpha=5.06 aw=0.95 lsn=0.19 xmin=0.384 spikes=16 warn=
+image.b03.attn_out       attn_out     N=   768 M=  768 alpha=4.64 aw=-0.31 lsn=-0.07 xmin=0.287 spikes=11 warn=
+image.b03.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=4.55 aw=3.01 lsn=0.66 xmin=1.088 spikes=60 warn=
+image.b03.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=4.94 aw=1.98 lsn=0.4 xmin=0.857 spikes=109 warn=
+image.b04.attn_q         attn_q       N=   768 M=  768 alpha=2.24 aw=1.12 lsn=0.5 xmin=0.353 spikes=47 warn=
+image.b04.attn_k         attn_k       N=   768 M=  768 alpha=3.1 aw=1.74 lsn=0.56 xmin=0.728 spikes=39 warn=
+image.b04.attn_v         attn_v       N=   768 M=  768 alpha=10.35 aw=-1.25 lsn=-0.12 xmin=0.483 spikes=6 warn=under-trained
+image.b04.attn_out       attn_out     N=   768 M=  768 alpha=5.33 aw=-0.92 lsn=-0.17 xmin=0.322 spikes=11 warn=
+image.b04.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=4.22 aw=3.09 lsn=0.73 xmin=1.183 spikes=105 warn=
+image.b04.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=6.06 aw=1.85 lsn=0.3 xmin=0.973 spikes=81 warn=under-trained
+image.b05.attn_q         attn_q       N=   768 M=  768 alpha=2.52 aw=1.07 lsn=0.42 xmin=0.441 spikes=44 warn=
+image.b05.attn_k         attn_k       N=   768 M=  768 alpha=4.21 aw=1.34 lsn=0.32 xmin=0.888 spikes=37 warn=
+image.b05.attn_v         attn_v       N=   768 M=  768 alpha=8.22 aw=0.08 lsn=0.01 xmin=0.606 spikes=22 warn=under-trained
+image.b05.attn_out       attn_out     N=   768 M=  768 alpha=7.86 aw=-0.93 lsn=-0.12 xmin=0.44 spikes=9 warn=under-trained
+image.b05.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=4.6 aw=3.51 lsn=0.76 xmin=1.203 spikes=94 warn=
+image.b05.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=4.91 aw=1.53 lsn=0.31 xmin=0.784 spikes=64 warn=
+image.b06.attn_q         attn_q       N=   768 M=  768 alpha=2.61 aw=1.11 lsn=0.42 xmin=0.465 spikes=41 warn=
+image.b06.attn_k         attn_k       N=   768 M=  768 alpha=4.12 aw=1.58 lsn=0.38 xmin=0.753 spikes=30 warn=
+image.b06.attn_v         attn_v       N=   768 M=  768 alpha=9.98 aw=-0.3 lsn=-0.03 xmin=0.616 spikes=22 warn=under-trained
+image.b06.attn_out       attn_out     N=   768 M=  768 alpha=7.29 aw=-0.96 lsn=-0.13 xmin=0.431 spikes=11 warn=under-trained
+image.b06.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=4.64 aw=4.42 lsn=0.95 xmin=1.356 spikes=82 warn=
+image.b06.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=5.33 aw=2.05 lsn=0.38 xmin=1.044 spikes=65 warn=
+image.b07.attn_q         attn_q       N=   768 M=  768 alpha=5.6 aw=2.37 lsn=0.42 xmin=1.269 spikes=38 warn=
+image.b07.attn_k         attn_k       N=   768 M=  768 alpha=4.85 aw=1.6 lsn=0.33 xmin=0.957 spikes=29 warn=
+image.b07.attn_v         attn_v       N=   768 M=  768 alpha=3.89 aw=-0.09 lsn=-0.02 xmin=0.346 spikes=27 warn=
+image.b07.attn_out       attn_out     N=   768 M=  768 alpha=5.48 aw=-0.56 lsn=-0.1 xmin=0.374 spikes=12 warn=
+image.b07.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=3.9 aw=4.6 lsn=1.18 xmin=1.043 spikes=68 warn=
+image.b07.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=6.8 aw=2.62 lsn=0.39 xmin=1.227 spikes=49 warn=under-trained
+image.b08.attn_q         attn_q       N=   768 M=  768 alpha=6.86 aw=2.26 lsn=0.33 xmin=1.24 spikes=34 warn=under-trained
+image.b08.attn_k         attn_k       N=   768 M=  768 alpha=4.51 aw=1.19 lsn=0.26 xmin=0.685 spikes=24 warn=
+image.b08.attn_v         attn_v       N=   768 M=  768 alpha=18.35 aw=-2.33 lsn=-0.13 xmin=0.597 spikes=12 warn=under-trained
+image.b08.attn_out       attn_out     N=   768 M=  768 alpha=11.52 aw=-2.36 lsn=-0.2 xmin=0.452 spikes=2 warn=under-trained
+image.b08.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=4.79 aw=5.28 lsn=1.1 xmin=1.046 spikes=54 warn=
+image.b08.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=8.82 aw=3.94 lsn=0.45 xmin=1.413 spikes=31 warn=under-trained
+image.b09.attn_q         attn_q       N=   768 M=  768 alpha=6.14 aw=1.74 lsn=0.28 xmin=0.973 spikes=26 warn=under-trained
+image.b09.attn_k         attn_k       N=   768 M=  768 alpha=4.98 aw=1.48 lsn=0.3 xmin=0.664 spikes=16 warn=
+image.b09.attn_v         attn_v       N=   768 M=  768 alpha=11.44 aw=-0.96 lsn=-0.08 xmin=0.523 spikes=4 warn=under-trained
+image.b09.attn_out       attn_out     N=   768 M=  768 alpha=8.14 aw=0.12 lsn=0.01 xmin=0.447 spikes=2 warn=under-trained
+image.b09.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=5.31 aw=6.77 lsn=1.27 xmin=1.034 spikes=44 warn=
+image.b09.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=8.25 aw=4.62 lsn=0.56 xmin=1.675 spikes=40 warn=under-trained
+image.b10.attn_q         attn_q       N=   768 M=  768 alpha=8.12 aw=1.68 lsn=0.21 xmin=0.916 spikes=23 warn=under-trained
+image.b10.attn_k         attn_k       N=   768 M=  768 alpha=6.29 aw=1.83 lsn=0.29 xmin=0.638 spikes=9 warn=under-trained
+image.b10.attn_v         attn_v       N=   768 M=  768 alpha=10.41 aw=0.14 lsn=0.01 xmin=0.536 spikes=2 warn=under-trained
+image.b10.attn_out       attn_out     N=   768 M=  768 alpha=11.02 aw=-1.19 lsn=-0.11 xmin=0.514 spikes=1 warn=under-trained
+image.b10.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=5.79 aw=6.69 lsn=1.16 xmin=1.052 spikes=25 warn=
+image.b10.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=6.75 aw=4.69 lsn=0.7 xmin=2.42 spikes=86 warn=under-trained
+image.b11.attn_q         attn_q       N=   768 M=  768 alpha=4.35 aw=0.76 lsn=0.17 xmin=0.554 spikes=26 warn=
+image.b11.attn_k         attn_k       N=   768 M=  768 alpha=3.9 aw=0.43 lsn=0.11 xmin=0.393 spikes=21 warn=
+image.b11.attn_v         attn_v       N=   768 M=  768 alpha=4.95 aw=0.48 lsn=0.1 xmin=0.587 spikes=12 warn=
+image.b11.attn_out       attn_out     N=   768 M=  768 alpha=12.59 aw=0.68 lsn=0.05 xmin=0.583 spikes=1 warn=under-trained
+image.b11.mlp_fc1        mlp_fc1      N=  3072 M=  768 alpha=4.77 aw=5.03 lsn=1.05 xmin=1.066 spikes=36 warn=
+image.b11.mlp_fc2        mlp_fc2      N=  3072 M=  768 alpha=3.56 aw=3.33 lsn=0.93 xmin=1.047 spikes=459 warn=
+image.proj               proj_image   N=   768 M=  512 alpha=6.58 aw=0.11 lsn=0.02 xmin=0.148 spikes=1 warn=under-trained
+text.token_embed         token_embed  N= 49408 M=  512 alpha=5.93 aw=10.2 lsn=1.72 xmin=5.824 spikes=75 warn=
+text.b00.attn_q          attn_q       N=   512 M=  512 alpha=14.8 aw=1.26 lsn=0.09 xmin=0.846 spikes=1 warn=under-trained
+text.b00.attn_k          attn_k       N=   512 M=  512 alpha=8.58 aw=1.6 lsn=0.19 xmin=0.743 spikes=3 warn=under-trained
+text.b00.attn_v          attn_v       N=   512 M=  512 alpha=25.0 aw=-17.88 lsn=-0.72 xmin=0.164 spikes=0 warn=under-trained
+text.b00.attn_out        attn_out     N=   512 M=  512 alpha=4.32 aw=-1.39 lsn=-0.32 xmin=0.115 spikes=2 warn=
+text.b00.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=4.16 aw=4.19 lsn=1.01 xmin=0.984 spikes=375 warn=
+text.b00.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=5.19 aw=1.01 lsn=0.19 xmin=0.455 spikes=26 warn=
+text.b01.attn_q          attn_q       N=   512 M=  512 alpha=4.5 aw=1.33 lsn=0.3 xmin=0.765 spikes=15 warn=
+text.b01.attn_k          attn_k       N=   512 M=  512 alpha=5.48 aw=1.55 lsn=0.28 xmin=0.859 spikes=15 warn=
+text.b01.attn_v          attn_v       N=   512 M=  512 alpha=4.79 aw=-0.98 lsn=-0.2 xmin=0.246 spikes=12 warn=
+text.b01.attn_out        attn_out     N=   512 M=  512 alpha=5.08 aw=-1.57 lsn=-0.31 xmin=0.22 spikes=11 warn=
+text.b01.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=4.35 aw=4.57 lsn=1.05 xmin=0.824 spikes=34 warn=
+text.b01.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=5.52 aw=1.93 lsn=0.35 xmin=0.511 spikes=25 warn=
+text.b02.attn_q          attn_q       N=   512 M=  512 alpha=4.3 aw=1.28 lsn=0.3 xmin=0.686 spikes=15 warn=
+text.b02.attn_k          attn_k       N=   512 M=  512 alpha=5.07 aw=1.24 lsn=0.24 xmin=0.744 spikes=11 warn=
+text.b02.attn_v          attn_v       N=   512 M=  512 alpha=7.43 aw=-2.87 lsn=-0.39 xmin=0.269 spikes=6 warn=under-trained
+text.b02.attn_out        attn_out     N=   512 M=  512 alpha=8.42 aw=-3.3 lsn=-0.39 xmin=0.247 spikes=3 warn=under-trained
+text.b02.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=4.49 aw=4.36 lsn=0.97 xmin=0.822 spikes=29 warn=
+text.b02.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=4.8 aw=0.09 lsn=0.02 xmin=0.45 spikes=32 warn=
+text.b03.attn_q          attn_q       N=   512 M=  512 alpha=4.11 aw=1.54 lsn=0.37 xmin=0.735 spikes=17 warn=
+text.b03.attn_k          attn_k       N=   512 M=  512 alpha=4.15 aw=1.05 lsn=0.25 xmin=0.513 spikes=12 warn=
+text.b03.attn_v          attn_v       N=   512 M=  512 alpha=5.68 aw=-2.15 lsn=-0.38 xmin=0.231 spikes=7 warn=
+text.b03.attn_out        attn_out     N=   512 M=  512 alpha=5.78 aw=-2.64 lsn=-0.46 xmin=0.201 spikes=4 warn=
+text.b03.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=5.05 aw=4.78 lsn=0.95 xmin=0.88 spikes=22 warn=
+text.b03.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=6.1 aw=-0.19 lsn=-0.03 xmin=0.471 spikes=22 warn=under-trained
+text.b04.attn_q          attn_q       N=   512 M=  512 alpha=4.3 aw=1.15 lsn=0.27 xmin=0.642 spikes=17 warn=
+text.b04.attn_k          attn_k       N=   512 M=  512 alpha=5.7 aw=0.63 lsn=0.11 xmin=0.599 spikes=9 warn=
+text.b04.attn_v          attn_v       N=   512 M=  512 alpha=12.75 aw=-5.85 lsn=-0.46 xmin=0.276 spikes=0 warn=under-trained
+text.b04.attn_out        attn_out     N=   512 M=  512 alpha=8.82 aw=-3.86 lsn=-0.44 xmin=0.255 spikes=2 warn=under-trained
+text.b04.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=5.28 aw=4.74 lsn=0.9 xmin=0.811 spikes=21 warn=
+text.b04.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=10.08 aw=-0.26 lsn=-0.03 xmin=0.61 spikes=13 warn=under-trained
+text.b05.attn_q          attn_q       N=   512 M=  512 alpha=5.41 aw=1.31 lsn=0.24 xmin=0.64 spikes=11 warn=
+text.b05.attn_k          attn_k       N=   512 M=  512 alpha=7.14 aw=0.18 lsn=0.03 xmin=0.588 spikes=5 warn=under-trained
+text.b05.attn_v          attn_v       N=   512 M=  512 alpha=5.21 aw=-2.37 lsn=-0.45 xmin=0.204 spikes=0 warn=
+text.b05.attn_out        attn_out     N=   512 M=  512 alpha=8.34 aw=-3.19 lsn=-0.38 xmin=0.281 spikes=3 warn=under-trained
+text.b05.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=5.51 aw=5.25 lsn=0.95 xmin=0.776 spikes=13 warn=
+text.b05.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=9.52 aw=0.22 lsn=0.02 xmin=0.667 spikes=16 warn=under-trained
+text.b06.attn_q          attn_q       N=   512 M=  512 alpha=6.61 aw=1.56 lsn=0.24 xmin=0.788 spikes=13 warn=under-trained
+text.b06.attn_k          attn_k       N=   512 M=  512 alpha=7.83 aw=0.19 lsn=0.02 xmin=0.615 spikes=4 warn=under-trained
+text.b06.attn_v          attn_v       N=   512 M=  512 alpha=12.67 aw=-4.77 lsn=-0.38 xmin=0.302 spikes=1 warn=under-trained
+text.b06.attn_out        attn_out     N=   512 M=  512 alpha=7.52 aw=-3.34 lsn=-0.44 xmin=0.242 spikes=0 warn=under-trained
+text.b06.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=5.77 aw=5.17 lsn=0.9 xmin=0.837 spikes=17 warn=
+text.b06.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=10.31 aw=0.36 lsn=0.03 xmin=0.722 spikes=17 warn=under-trained
+text.b07.attn_q          attn_q       N=   512 M=  512 alpha=6.21 aw=1.54 lsn=0.25 xmin=0.788 spikes=11 warn=under-trained
+text.b07.attn_k          attn_k       N=   512 M=  512 alpha=6.25 aw=0.47 lsn=0.07 xmin=0.556 spikes=7 warn=under-trained
+text.b07.attn_v          attn_v       N=   512 M=  512 alpha=8.9 aw=-3.95 lsn=-0.44 xmin=0.269 spikes=0 warn=under-trained
+text.b07.attn_out        attn_out     N=   512 M=  512 alpha=7.44 aw=-3.05 lsn=-0.41 xmin=0.244 spikes=1 warn=under-trained
+text.b07.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=5.87 aw=4.94 lsn=0.84 xmin=0.824 spikes=15 warn=
+text.b07.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=9.33 aw=1.03 lsn=0.11 xmin=0.769 spikes=19 warn=under-trained
+text.b08.attn_q          attn_q       N=   512 M=  512 alpha=6.47 aw=1.4 lsn=0.22 xmin=0.717 spikes=11 warn=under-trained
+text.b08.attn_k          attn_k       N=   512 M=  512 alpha=6.69 aw=-0.01 lsn=-0.0 xmin=0.525 spikes=6 warn=under-trained
+text.b08.attn_v          attn_v       N=   512 M=  512 alpha=16.67 aw=-6.2 lsn=-0.37 xmin=0.361 spikes=0 warn=under-trained
+text.b08.attn_out        attn_out     N=   512 M=  512 alpha=3.4 aw=-1.01 lsn=-0.3 xmin=0.178 spikes=8 warn=
+text.b08.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=5.72 aw=4.6 lsn=0.8 xmin=0.805 spikes=14 warn=
+text.b08.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=8.0 aw=2.04 lsn=0.25 xmin=0.789 spikes=22 warn=under-trained
+text.b09.attn_q          attn_q       N=   512 M=  512 alpha=5.97 aw=1.75 lsn=0.29 xmin=0.814 spikes=16 warn=
+text.b09.attn_k          attn_k       N=   512 M=  512 alpha=4.78 aw=0.35 lsn=0.07 xmin=0.468 spikes=12 warn=
+text.b09.attn_v          attn_v       N=   512 M=  512 alpha=9.08 aw=-3.57 lsn=-0.39 xmin=0.304 spikes=0 warn=under-trained
+text.b09.attn_out        attn_out     N=   512 M=  512 alpha=10.88 aw=-3.66 lsn=-0.34 xmin=0.353 spikes=2 warn=under-trained
+text.b09.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=5.7 aw=4.36 lsn=0.76 xmin=0.812 spikes=23 warn=
+text.b09.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=8.08 aw=1.65 lsn=0.2 xmin=0.882 spikes=23 warn=under-trained
+text.b10.attn_q          attn_q       N=   512 M=  512 alpha=5.11 aw=1.05 lsn=0.21 xmin=0.549 spikes=12 warn=
+text.b10.attn_k          attn_k       N=   512 M=  512 alpha=4.89 aw=-0.04 lsn=-0.01 xmin=0.401 spikes=10 warn=
+text.b10.attn_v          attn_v       N=   512 M=  512 alpha=5.53 aw=-0.83 lsn=-0.15 xmin=0.359 spikes=8 warn=
+text.b10.attn_out        attn_out     N=   512 M=  512 alpha=5.78 aw=-1.94 lsn=-0.34 xmin=0.271 spikes=0 warn=
+text.b10.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=5.97 aw=4.09 lsn=0.68 xmin=0.925 spikes=35 warn=
+text.b10.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=5.8 aw=2.13 lsn=0.37 xmin=0.883 spikes=38 warn=
+text.b11.attn_q          attn_q       N=   512 M=  512 alpha=3.51 aw=0.33 lsn=0.09 xmin=0.311 spikes=15 warn=
+text.b11.attn_k          attn_k       N=   512 M=  512 alpha=4.1 aw=0.07 lsn=0.02 xmin=0.354 spikes=13 warn=
+text.b11.attn_v          attn_v       N=   512 M=  512 alpha=3.41 aw=-0.4 lsn=-0.12 xmin=0.271 spikes=11 warn=
+text.b11.attn_out        attn_out     N=   512 M=  512 alpha=15.87 aw=-5.11 lsn=-0.32 xmin=0.367 spikes=0 warn=under-trained
+text.b11.mlp_fc1         mlp_fc1      N=  2048 M=  512 alpha=4.77 aw=3.17 lsn=0.66 xmin=0.871 spikes=38 warn=
+text.b11.mlp_fc2         mlp_fc2      N=  2048 M=  512 alpha=4.33 aw=2.39 lsn=0.55 xmin=0.667 spikes=445 warn=
+text.proj                proj_text    N=   512 M=  512 alpha=8.54 aw=-2.26 lsn=-0.26 xmin=0.109 spikes=1 warn=under-trained
+{
+"n_layers_alpha": 148,
+"alpha_avg": 6.33205710082232,
+"alpha_default_avg": 6.33205710082232,
+"alpha_min50_avg": 6.33205710082232,
+"alpha_median": 5.481447121098415,
+"alpha_min": 2.2408956069619865,
+"alpha_max": 24.998066530127076,
+"alpha_by_role": {
+"attn_k": 4.999195002434462,
+"attn_out": 7.4978171318353874,
+"attn_q": 5.090855038291655,
+"attn_v": 8.980065663589148,
+"mlp_fc1": 4.83045064819206,
+"mlp_fc2": 6.533968475604607,
+"patch_embed": 5.711393336689435,
+"proj_image": 6.5771926959897415,
+"proj_text": 8.544555711147812,
+"token_embed": 5.934862139140687
+},
+"alpha_by_role_all": {
+"attn_k": 4.999195002434462,
+"attn_out": 7.4978171318353874,
+"attn_q": 5.090855038291655,
+"attn_v": 8.980065663589148,
+"mlp_fc1": 4.83045064819206,
+"mlp_fc2": 6.533968475604607,
+"patch_embed": 5.711393336689435,
+"proj_image": 6.5771926959897415,
+"proj_text": 8.544555711147812,
+"token_embed": 5.934862139140687
+},
+"alpha_weighted_avg": 0.958291230202029,
+"log_alpha_norm_avg": 1.4032357636937947,
+"frac_alpha_lt2": 0.0,
+"frac_alpha_2_3": 0.0472972972972973,
+"frac_alpha_2_4": 0.14189189189189189,
+"frac_alpha_gt6": 0.36486486486486486,
+"alpha_role_attn_k": 4.999195002434462,
+"alpha_role_all_attn_k": 4.999195002434462,
+"alpha_role_attn_out": 7.4978171318353874,
+"alpha_role_all_attn_out": 7.4978171318353874,
+"alpha_role_attn_q": 5.090855038291655,
+"alpha_role_all_attn_q": 5.090855038291655,
+"alpha_role_attn_v": 8.980065663589148,
+"alpha_role_all_attn_v": 8.980065663589148,
+"alpha_role_mlp_fc1": 4.830450648

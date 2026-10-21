@@ -1,0 +1,22 @@
+[    31s] block mlp alpha: {0: np.float64(2.97), 1: np.float64(4.56), 2: np.float64(4.99), 3: np.float64(4.74), 4: np.float64(5.14), 5: np.float64(4.76), 6: np.float64(4.99), 7: np.float64(5.35), 8: np.float64(6.81), 9: np.float64(6.78), 10: np.float64(6.27), 11: np.float64(4.16)}
+[    31s] baseline {'imagenette_acc': 0.9850000143051147, 'pets_acc': 0.8337500095367432, 'cifar10_acc': 0.8899999856948853, 'coco_R@1': 0.2240000069141388, 'coco_R@5': 0.5830000042915344, 'mean_acc': 0.902916669845581}
+[   570s] alpha_asc_m3_T8: blocks [0, 11, 1] conv mean_acc 0.8233 (drop +0.0796) coco R@1 0.123
+[  1024s] alpha_desc_m3_T8: blocks [8, 9, 10] conv mean_acc 0.8829 (drop +0.0200) coco R@1 0.191
+[  1601s] depth_first_m3_T8: blocks [0, 1, 2] conv mean_acc 0.8100 (drop +0.0929) coco R@1 0.140
+[  2017s] depth_last_m3_T8: blocks [11, 10, 9] conv mean_acc 0.8904 (drop +0.0125) coco R@1 0.152
+[  2552s] random0_m3_T8: blocks [9, 2, 7] conv mean_acc 0.8737 (drop +0.0292) coco R@1 0.195
+[  3101s] random1_m3_T8: blocks [8, 11, 4] conv mean_acc 0.8892 (drop +0.0137) coco R@1 0.157
+[  4454s] alpha_asc_m6_T8: blocks [0, 11, 1, 3, 5, 6] conv mean_acc 0.7979 (drop +0.1050) coco R@1 0.141
+[  5643s] alpha_desc_m6_T8: blocks [8, 9, 10, 7, 4, 2] conv mean_acc 0.8604 (drop +0.0425) coco R@1 0.157
+[  7001s] depth_first_m6_T8: blocks [0, 1, 2, 3, 4, 5] conv mean_acc 0.7667 (drop +0.1362) coco R@1 0.144
+[  8201s] depth_last_m6_T8: blocks [11, 10, 9, 8, 7, 6] conv mean_acc 0.8763 (drop +0.0267) coco R@1 0.149
+[  9568s] random0_m6_T8: blocks [9, 2, 7, 4, 5, 11] conv mean_acc 0.8521 (drop +0.0508) coco R@1 0.144
+[ 10934s] random1_m6_T8: blocks [8, 11, 4, 7, 5, 0] conv mean_acc 0.8608 (drop +0.0421) coco R@1 0.140
+[ 12522s] alpha_asc_m9_T8: blocks [0, 11, 1, 3, 5, 6, 2, 4, 7] conv mean_acc 0.7438 (drop +0.1592) coco R@1 0.145
+[ 13962s] alpha_desc_m9_T8: blocks [8, 9, 10, 7, 4, 2, 6, 5, 3] conv mean_acc 0.8237 (drop +0.0792) coco R@1 0.146
+[ 15623s] depth_first_m9_T8: blocks [0, 1, 2, 3, 4, 5, 6, 7, 8] conv mean_acc 0.7546 (drop +0.1483) coco R@1 0.154
+[ 16907s] depth_last_m9_T8: blocks [11, 10, 9, 8, 7, 6, 5, 4, 3] conv mean_acc 0.8483 (drop +0.0546) coco R@1 0.129
+[ 18415s] random0_m9_T8: blocks [9, 2, 7, 4, 5, 11, 0, 3, 6] conv mean_acc 0.8146 (drop +0.0883) coco R@1 0.130
+[ 19851s] random1_m9_T8: blocks [8, 11, 4, 7, 5, 0, 1, 9, 2] conv mean_acc 0.7833 (drop +0.1196) coco R@1 0.130
+[ 22000s] depth_first_m12_T8: blocks [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] conv mean_acc 0.7250 (drop +0.1779) coco R@1 0.123
+[ 22000s] done
