@@ -26,6 +26,10 @@ CONFIGS = {
     "sr_b6_noise":   dict(objective="ce", label_noise=0.2),
     "sr_b6_leak":    dict(beta=0.8),
     "sr_b6_nobc":    dict(bias_correct=False),
+    "sr_b6_lr3e4":   dict(lr=3e-4),
+    "sr_b6_nobc_lr1e4": dict(bias_correct=False, lr=1e-4),
+    "sr_b6_nobc_k25": dict(bias_correct=False, k_sg=25.0, lr=1e-4),
+    "sr_b6_nobc_k1":  dict(bias_correct=False, k_sg=1.0, lr=1e-4),
 }
 ap = argparse.ArgumentParser(); ap.add_argument("--only", default=""); ap.add_argument("--threads", type=int, default=2); ap.add_argument("--out", default="results/mm/e1")
 args = ap.parse_args(); out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
